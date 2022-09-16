@@ -5,7 +5,12 @@
 //  Created by Stéphane Trouvé on 09/09/2022.
 //
 
+// Jupiler Pro League ==> 144
+// World Cup ==> 1
+
 import UIKit
+
+public var FixturesA = [Match]()
 
 public let font0 = "Optima-Regular"
 public let font2 = "Menlo"
@@ -14,14 +19,14 @@ public let font1 = "Monaco"
 public let backgroundcolor1: UIColor = UIColor(red: 242/255, green: 241/255, blue: 255/255, alpha: 1)
 public let backgroundcolor2: UIColor = UIColor(red: 152/255, green: 247/255, blue: 255/255, alpha: 1)
 
-public let test1: [Int] = [1, 12, 13, 3, 4, 3, 9, 12, 13, 20, 10, 3, 21, 12, 13, 20]
-public let test2: [Int] = [2, 2, 3, 3, 12, 13, 18, 19, 20, 12, 1, 10, 2, 11, 4, 3]
 public var r = Int.random(in: 0...1)
 
 final class ViewController1: UIViewController, UITableViewDataSource{
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 16
+        return FixturesA.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,19 +42,13 @@ final class ViewController1: UIViewController, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier:identifier, for: indexPath)
         
         if r < 1 {
-            cell.textLabel?.text = "Your score is \(String(test1[indexPath.row]))"
-            
-            if test1[indexPath.row] > 12 {
-                cell.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 12)
-            } else {
-                cell.textLabel?.font = UIFont(name: "HelveticaNeue", size: 12)
-            }
+            cell.textLabel?.text = String(FixturesA[indexPath.row].team1!)
             
         } else {
-            cell.textLabel?.text = "Your score is \(String(test2[indexPath.row]))"
+            cell.textLabel?.text = String(FixturesA[indexPath.row].team2!)
         }
         //cell.textLabel?.text = "Your score is \(String(r))"
-        cell.detailTextLabel?.text = "Well done"
+        cell.detailTextLabel?.text = String(FixturesA[indexPath.row].venue!)
         cell.detailTextLabel?.adjustsFontSizeToFitWidth = true
         
         return cell
@@ -66,16 +65,14 @@ final class ViewController1: UIViewController, UITableViewDataSource{
         super.viewDidLayoutSubviews()
         
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         
         r = Int.random(in: 0...1)
         
         tableView1.dataSource = self
-        
         tableView1.refreshControl = UIRefreshControl()
         tableView1.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
-        
         
         print("Number equals \(r)")
         tableView1.reloadData()
@@ -92,7 +89,9 @@ final class ViewController1: UIViewController, UITableViewDataSource{
         
         r = Int.random(in: 0...1)
         
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
         DispatchQueue.main.async() {
+            self.fixtureParsing()
             self.tableView1.refreshControl?.endRefreshing()
             self.tableView1.reloadData()
         }
