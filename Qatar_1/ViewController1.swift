@@ -10,6 +10,7 @@
 
 import UIKit
 
+public var LiveGamesA = [Match]()
 public var FixturesA = [Match]()
 
 public let font0 = "Optima-Regular"
@@ -27,29 +28,36 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print("Number of rows \(FixturesA.count)")
-        
-        return FixturesA.count
+        if LiveGamesA.count > 0 {
+            print(LiveGamesA[0].team1 ?? "Nix")
+        }
+        print("Number of rows \(LiveGamesA.count)")
+
+        return LiveGamesA.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"LiveTableViewCell", for: indexPath) as! LiveGamesCell
            
-        if indexPath.row < FixturesA.count {
-            cell.homeTeamLabel.text = String(FixturesA[indexPath.row].team1!)
-            cell.awayTeamLabel.text = String(FixturesA[indexPath.row].team2!)
-            cell.homegoalsLabel.text = String(FixturesA[indexPath.row].goals1)
-            cell.awaygoalsLabel.text = String(FixturesA[indexPath.row].goals2)
-            cell.homeTeamLabel.adjustsFontSizeToFitWidth = true
-            cell.awayTeamLabel.adjustsFontSizeToFitWidth = true
-            cell.homegoalsLabel.adjustsFontSizeToFitWidth = true
-            cell.awaygoalsLabel.adjustsFontSizeToFitWidth = true
+        if indexPath.row <= FixturesA.count {
+            cell.homeTeamLabel.text = String(LiveGamesA[indexPath.row].team1!)
+            cell.awayTeamLabel.text = String(LiveGamesA[indexPath.row].team2!)
+            cell.homegoalsLabel.text = String(LiveGamesA[indexPath.row].goals1)
+            cell.awaygoalsLabel.text = String(LiveGamesA[indexPath.row].goals2)
             
-            print("team2 \(indexPath.row)")
         } else {
-            cell.textLabel?.text = "No value"
+            cell.homeTeamLabel.text = ""
+            cell.awayTeamLabel.text = ""
+            cell.homegoalsLabel.text = ""
+            cell.awaygoalsLabel.text = ""
+            
         }
+        
+        cell.homeTeamLabel.font = UIFont(name: font0, size: 10)
+        cell.awayTeamLabel.font = UIFont(name: font0, size: 10)
+        cell.homegoalsLabel.font = UIFont(name: font0, size: 10)
+        cell.awaygoalsLabel.font = UIFont(name: font0, size: 10)
 
         //cell.textLabel?.text = "Your score is \(String(r))"
         
@@ -95,7 +103,7 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         //DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
         //DispatchQueue.main.async() {
-            self.fixtureParsing()
+            self.LiveGamesParsing()
             //self.tableView1.refreshControl?.endRefreshing()
             //self.tableView1.reloadData()
         //}
