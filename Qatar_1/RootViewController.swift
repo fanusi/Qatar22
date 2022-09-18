@@ -19,6 +19,7 @@ final class RootViewControler: TabPageScrollViewController {
         let vc1:ViewController1 = storyboard!.instantiateViewController(withIdentifier: ViewController1.identifer) as! ViewController1
         vc1.number = 1
         vc1.navigationItem.title = "Ranking"
+        
         let vc2:ViewController2 = storyboard!.instantiateViewController(withIdentifier: ViewController2.identifer) as! ViewController2
         vc2.number = 2
         vc2.navigationItem.title = "Pronos"

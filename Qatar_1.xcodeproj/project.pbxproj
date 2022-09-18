@@ -12,6 +12,7 @@
 		AE6FB1B628D4C66C006A5DB1 /* VC1+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */; };
 		AE6FB1B828D4C807006A5DB1 /* FixturesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */; };
 		AE6FB1BA28D4E649006A5DB1 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */; };
+		AECD3C9E28D75631001BB0C6 /* LiveGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD3C9D28D75631001BB0C6 /* LiveGamesCell.swift */; };
 		AEE4233B28CB304D006BBD52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4233A28CB304D006BBD52 /* AppDelegate.swift */; };
 		AEE4233D28CB304D006BBD52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4233C28CB304D006BBD52 /* SceneDelegate.swift */; };
 		AEE4233F28CB304D006BBD52 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4233E28CB304D006BBD52 /* ViewController1.swift */; };
@@ -67,6 +68,7 @@
 		AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC1+.swift"; sourceTree = "<group>"; };
 		AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesJSON.swift; sourceTree = "<group>"; };
 		AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		AECD3C9D28D75631001BB0C6 /* LiveGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveGamesCell.swift; sourceTree = "<group>"; };
 		AEE4233728CB304D006BBD52 /* Qatar_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qatar_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE4233A28CB304D006BBD52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE4233C28CB304D006BBD52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */,
 				AEE4237828CB3CC4006BBD52 /* RootViewController.swift */,
 				AEE4234028CB304D006BBD52 /* Main.storyboard */,
+				AECD3C9D28D75631001BB0C6 /* LiveGamesCell.swift */,
 				AEE4234628CB3051006BBD52 /* Assets.xcassets */,
 				AEE4234828CB3051006BBD52 /* LaunchScreen.storyboard */,
 				AEE4234B28CB3051006BBD52 /* Info.plist */,
@@ -517,6 +520,7 @@
 				AEE4234528CB304D006BBD52 /* Qatar_1.xcdatamodeld in Sources */,
 				AEE4238128CB3F5C006BBD52 /* TabPageViewController.swift in Sources */,
 				AE6FB1B828D4C807006A5DB1 /* FixturesJSON.swift in Sources */,
+				AECD3C9E28D75631001BB0C6 /* LiveGamesCell.swift in Sources */,
 				AEE4233B28CB304D006BBD52 /* AppDelegate.swift in Sources */,
 				AEE4233D28CB304D006BBD52 /* SceneDelegate.swift in Sources */,
 				AEE4236F28CB3579006BBD52 /* UIView+.swift in Sources */,

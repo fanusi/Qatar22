@@ -69,6 +69,11 @@ extension ViewController1 {
                     }
                         
                 }
+                
+                DispatchQueue.main.async() {
+                    self.tableView1.refreshControl?.endRefreshing()
+                    self.tableView1.reloadData()
+                }
                                 
                 })
                     
