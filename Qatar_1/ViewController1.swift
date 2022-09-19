@@ -40,7 +40,7 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"LiveTableViewCell", for: indexPath) as! LiveGamesCell
            
-        if indexPath.row <= FixturesA.count {
+        if indexPath.row <= LiveGamesA.count {
             cell.homeTeamLabel.text = String(LiveGamesA[indexPath.row].team1!)
             cell.awayTeamLabel.text = String(LiveGamesA[indexPath.row].team2!)
             cell.homegoalsLabel.text = String(LiveGamesA[indexPath.row].goals1)
@@ -70,6 +70,21 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     static let idc: Int = 1
 
     @IBOutlet weak var tableView1: UITableView!
+    @IBOutlet weak var upperBar: UIView!
+    
+    @IBOutlet weak var UpperBarLabel11: UILabel!
+    @IBOutlet weak var UpperBarLabel12: UILabel!
+    @IBOutlet weak var UpperBarLabel13: UILabel!
+    @IBOutlet weak var UpperBarLabel14: UILabel!
+    @IBOutlet weak var UpperBarLabel15: UILabel!
+    @IBOutlet weak var UpperBarLabel16: UILabel!
+    @IBOutlet weak var UpperBarLabel21: UILabel!
+    @IBOutlet weak var UpperBarLabel22: UILabel!
+    @IBOutlet weak var UpperBarLabel23: UILabel!
+    @IBOutlet weak var UpperBarLabel24: UILabel!
+    @IBOutlet weak var UpperBarLabel25: UILabel!
+    @IBOutlet weak var UpperBarLabel26: UILabel!
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -79,7 +94,7 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         
         r = Int.random(in: 0...1)
-        
+                
         tableView1.dataSource = self
         tableView1.delegate = self
         tableView1.refreshControl = UIRefreshControl()
