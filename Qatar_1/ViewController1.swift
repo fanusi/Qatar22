@@ -27,24 +27,25 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if LiveGamesA.count > 0 {
-            print(LiveGamesA[0].team1 ?? "Nix")
-        }
-        print("Number of rows \(LiveGamesA.count)")
 
-        return LiveGamesA.count
+        return FixturesA.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"LiveTableViewCell", for: indexPath) as! LiveGamesCell
-           
-        if indexPath.row <= LiveGamesA.count {
-            cell.homeTeamLabel.text = String(LiveGamesA[indexPath.row].team1!)
-            cell.awayTeamLabel.text = String(LiveGamesA[indexPath.row].team2!)
-            cell.homegoalsLabel.text = String(LiveGamesA[indexPath.row].goals1)
-            cell.awaygoalsLabel.text = String(LiveGamesA[indexPath.row].goals2)
+        
+        if indexPath.row <= FixturesA.count {
+        
+            cell.homeTeamLabel.text = String(FixturesA[indexPath.row].team1!)
+            cell.awayTeamLabel.text = String(FixturesA[indexPath.row ].team2!)
+            cell.homegoalsLabel.text = String(FixturesA[indexPath.row].goals1)
+            cell.awaygoalsLabel.text = String(FixturesA[indexPath.row].goals2)
+            
+            cell.homeTeamLabel.font = UIFont(name: font0, size: 10)
+            cell.awayTeamLabel.font = UIFont(name: font0, size: 10)
+            cell.homegoalsLabel.font = UIFont(name: font0, size: 10)
+            cell.awaygoalsLabel.font = UIFont(name: font0, size: 10)
             
         } else {
             cell.homeTeamLabel.text = ""
@@ -54,12 +55,8 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             
         }
         
-        cell.homeTeamLabel.font = UIFont(name: font0, size: 10)
-        cell.awayTeamLabel.font = UIFont(name: font0, size: 10)
-        cell.homegoalsLabel.font = UIFont(name: font0, size: 10)
-        cell.awaygoalsLabel.font = UIFont(name: font0, size: 10)
-
-        //cell.textLabel?.text = "Your score is \(String(r))"
+        cell.homegoalsLabel.textAlignment = .center
+        cell.awaygoalsLabel.textAlignment = .center
         
         return cell
     }
@@ -116,12 +113,9 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         r = Int.random(in: 0...1)
         
-        //DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-        //DispatchQueue.main.async() {
-            self.LiveGamesParsing()
-            //self.tableView1.refreshControl?.endRefreshing()
-            //self.tableView1.reloadData()
-        //}
+        self.fixtureParsing()
+        self.liveGamesParsing()
+
         
     }
     

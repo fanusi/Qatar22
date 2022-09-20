@@ -20,7 +20,7 @@ extension ViewController1 {
             ]
 
             //World Cup = 1; Jupiler Pro League = 144
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=144&season=2022&next=20")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=144&season=2022")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.httpMethod = "GET"
@@ -82,7 +82,7 @@ extension ViewController1 {
 
         }
 
-    func LiveGamesParsing () {
+    func liveGamesParsing () {
         
             LiveGamesA.removeAll()
         
