@@ -8,6 +8,7 @@
         <attribute name="team1" optional="YES" attributeType="String"/>
         <attribute name="team2" optional="YES" attributeType="String"/>
         <attribute name="timing" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="user" optional="YES" attributeType="String"/>
         <attribute name="venue" optional="YES" attributeType="String"/>
     </entity>
 </model>

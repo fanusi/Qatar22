@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreXLSX
 
 extension ViewController1 {
     
@@ -214,6 +215,94 @@ extension ViewController1 {
         }
         
         
+    }
+    
+    func realpronos () {
+        
+        var gebruikers: [String] = []
+        var homeTeams: [String] = []
+        var awayTeams: [String] = []
+        
+        guard let filepath = Bundle.main.path(forResource: "EK 2021 xcode1", ofType: "xlsx") else {
+
+            fatalError("Error n1")
+        }
+
+        guard let file = XLSXFile(filepath: filepath) else {
+          fatalError("XLSX file at \(filepath) is corrupted or does not exist")
+        }
+
+        for wbk in try! file.parseWorkbooks() {
+            for (name, path) in try! file.parseWorksheetPathsAndNames(workbook: wbk) {
+            if let worksheetName = name {
+              print("This worksheet has a name: \(worksheetName)")
+            }
+
+            let worksheet = try! file.parseWorksheet(at: path)
+                
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                gebruikers = columnAStrings
+    
+            }
+                
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                homeTeams = columnCStrings
+    
+            }
+            
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnDStrings = worksheet.cells(atColumns: [ColumnReference("D")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                awayTeams = columnDStrings
+    
+            }
+            
+            print(gebruikers[0])
+            print(gebruikers[1])
+            
+            PronosB.removeAll()
+                    
+            for i in 0...pr - 1 {
+                
+                // Loop players
+                
+                let newArrayFixtures = [Match(context: self.context)]
+                PronosB.append(newArrayFixtures)
+                
+                PronosB[i][0].user = gebruikers[1 + ga * i]
+                //PronosB[i][0].fixture_ID = FixturesA[0].fixture_ID
+                //PronosB[i][0].round = FixturesA[0].round
+                PronosB[i][0].goals1 = Int64((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!
+                PronosB[i][0].goals2 = Int64((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!
+                PronosB[i][0].team1 = homeTeams[1 + ga * i]
+                PronosB[i][0].team2 = awayTeams[1 + ga * i]
+                
+                for n in 1...ga - 1 {
+                    
+                    // Loop games
+                    let newFixture = Match(context: self.context)
+                    newFixture.user = gebruikers[(n + 1) + ga * i]
+                    //newFixture.fixture_ID = PronosA[n].fixture_ID
+                    //newFixture.round = PronosA[n].round
+                    newFixture.goals1 = Int64((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!
+                    newFixture.goals2 = Int64((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!
+                    newFixture.team1 = homeTeams[(n + 1) + ga * i]
+                    newFixture.team2 = awayTeams[(n + 1) + ga * i]
+                    PronosB[i].append(newFixture)
+                    
+                }
+                
+            }
+            
+          }
+        }
     }
     
 }

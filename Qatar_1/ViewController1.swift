@@ -9,9 +9,16 @@
 // World Cup ==> 1
 
 import UIKit
+import CoreXLSX
 
 public var LiveGamesA = [Match]()
 public var FixturesA = [Match]()
+public var PronosB = [[Match]]()
+
+public let pr:Int = 43
+// Number of players
+public let ga:Int = 51
+//Number of matches
 
 public let font0 = "Optima-Regular"
 public let font2 = "Menlo"
@@ -20,7 +27,7 @@ public let font1 = "Monaco"
 public let backgroundcolor1: UIColor = UIColor(red: 242/255, green: 241/255, blue: 255/255, alpha: 1)
 public let backgroundcolor2: UIColor = UIColor(red: 152/255, green: 247/255, blue: 255/255, alpha: 1)
 
-public var r = Int.random(in: 0...1)
+public var dummy1 = 0
 
 final class ViewController1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -89,15 +96,18 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        
-        r = Int.random(in: 0...1)
                 
         tableView1.dataSource = self
         tableView1.delegate = self
         tableView1.refreshControl = UIRefreshControl()
         tableView1.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         
-        print("Number equals \(r)")
+        if dummy1 == 0 {
+            // Only load players' predictions once
+            realpronos()
+            dummy1 = 1
+        }
+        
         initiate()
         tableView1.reloadData()
         
@@ -110,8 +120,6 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func initiate() {
-        
-        r = Int.random(in: 0...1)
         
         self.fixtureParsing()
         self.liveGamesParsing()
