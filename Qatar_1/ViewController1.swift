@@ -11,9 +11,13 @@
 import UIKit
 import CoreXLSX
 
-public var LiveGamesA = [Match]()
-public var FixturesA = [Match]()
-public var PronosB = [[Match]]()
+//public var LiveGamesA = [Match]()
+//public var FixturesA = [Match]()
+//public var PronosB = [[Match]]()
+
+public var LiveGamesA = [Fixtures]()
+public var FixturesA = [Fixtures]()
+public var PronosB = [[Fixtures]]()
 
 public let pr:Int = 43
 // Number of players
@@ -44,10 +48,10 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         if indexPath.row <= FixturesA.count {
         
-            cell.homeTeamLabel.text = String(FixturesA[indexPath.row].team1!)
-            cell.awayTeamLabel.text = String(FixturesA[indexPath.row ].team2!)
-            cell.homegoalsLabel.text = String(FixturesA[indexPath.row].goals1)
-            cell.awaygoalsLabel.text = String(FixturesA[indexPath.row].goals2)
+            cell.homeTeamLabel.text = String(FixturesA[indexPath.row].team_1)
+            cell.awayTeamLabel.text = String(FixturesA[indexPath.row ].team_2)
+            cell.homegoalsLabel.text = String(FixturesA[indexPath.row].goals_1)
+            cell.awaygoalsLabel.text = String(FixturesA[indexPath.row].goals_2)
             
             cell.homeTeamLabel.font = UIFont(name: font0, size: 10)
             cell.awayTeamLabel.font = UIFont(name: font0, size: 10)

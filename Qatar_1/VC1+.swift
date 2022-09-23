@@ -48,18 +48,21 @@ extension ViewController1 {
                         
                         for n in start...end {
                             
-                            let newFixture =  Match(context: self.context)
+                            print("fixt1 = \(n)")
+                            
+                            //let newFixture =  Match(context: self.context)
+                            let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), timing: Date(), team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo))
                 
-                            newFixture.venue = String(niveau1.response[n].fixture.venue.name)
-                            //newFixture.timing = Date(niveau1.response1[n].fixture.date)
-                            newFixture.timing = Date()
-                            newFixture.team1 = String(niveau1.response[n].teams.home.name)
-                            newFixture.team2 = String(niveau1.response[n].teams.away.name)
-                            newFixture.goals1 = Int64(niveau1.response[n].goals.home)
-                            newFixture.goals2 = Int64(niveau1.response[n].goals.away)
-                            newFixture.logo1 = String(niveau1.response[n].teams.home.logo)
-                            newFixture.logo2 = String(niveau1.response[n].teams.away.logo)
-                                
+//                            newFixture.venue = String(niveau1.response[n].fixture.venue.name)
+//                            //newFixture.timing = Date(niveau1.response1[n].fixture.date)
+//                            newFixture.timing = Date()
+//                            newFixture.team1 = String(niveau1.response[n].teams.home.name)
+//                            newFixture.team2 = String(niveau1.response[n].teams.away.name)
+//                            newFixture.goals1 = Int64(niveau1.response[n].goals.home)
+//                            newFixture.goals2 = Int64(niveau1.response[n].goals.away)
+//                            newFixture.logo1 = String(niveau1.response[n].teams.home.logo)
+//                            newFixture.logo2 = String(niveau1.response[n].teams.away.logo)
+                            
                             FixturesA.append(newFixture)
                             
                         }
@@ -122,17 +125,19 @@ extension ViewController1 {
                             
                             for n in start...end {
                                 
-                                let newFixture =  Match(context: self.context)
+                                //let newFixture =  Match(context: self.context)
+                                
+                                let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), timing: Date(), team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo))
                     
-                                newFixture.venue = String(niveau1.response[n].fixture.venue.name)
-                                //newFixture.timing = Date(niveau1.response1[n].fixture.date)
-                                newFixture.timing = Date()
-                                newFixture.team1 = String(niveau1.response[n].teams.home.name)
-                                newFixture.team2 = String(niveau1.response[n].teams.away.name)
-                                newFixture.goals1 = Int64(niveau1.response[n].goals.home)
-                                newFixture.goals2 = Int64(niveau1.response[n].goals.away)
-                                newFixture.logo1 = String(niveau1.response[n].teams.home.logo)
-                                newFixture.logo2 = String(niveau1.response[n].teams.away.logo)
+//                                newFixture.venue = String(niveau1.response[n].fixture.venue.name)
+//                                //newFixture.timing = Date(niveau1.response1[n].fixture.date)
+//                                newFixture.timing = Date()
+//                                newFixture.team1 = String(niveau1.response[n].teams.home.name)
+//                                newFixture.team2 = String(niveau1.response[n].teams.away.name)
+//                                newFixture.goals1 = Int64(niveau1.response[n].goals.home)
+//                                newFixture.goals2 = Int64(niveau1.response[n].goals.away)
+//                                newFixture.logo1 = String(niveau1.response[n].teams.home.logo)
+//                                newFixture.logo2 = String(niveau1.response[n].teams.away.logo)
                                     
                                 LiveGamesA.append(newFixture)
                                 //print(LiveGamesA[n].team1 ?? "")
@@ -166,11 +171,11 @@ extension ViewController1 {
         // Game are ongoing => Live modus
             
             UpperBarLabel11.text = ""
-            UpperBarLabel12.text = LiveGamesA[0].team1
-            UpperBarLabel13.text = String(LiveGamesA[0].goals1)
+            UpperBarLabel12.text = LiveGamesA[0].team_1
+            UpperBarLabel13.text = String(LiveGamesA[0].goals_1)
             UpperBarLabel14.text = LiveGamesA[0].venue
-            UpperBarLabel15.text = LiveGamesA[0].team2
-            UpperBarLabel16.text = String(LiveGamesA[0].goals2)
+            UpperBarLabel15.text = LiveGamesA[0].team_2
+            UpperBarLabel16.text = String(LiveGamesA[0].goals_2)
             
             if LiveGamesA.count == 1 {
                 
@@ -185,11 +190,11 @@ extension ViewController1 {
             } else {
                 
                 UpperBarLabel21.text = ""
-                UpperBarLabel22.text = LiveGamesA[1].team1
-                UpperBarLabel23.text = String(LiveGamesA[1].goals1)
+                UpperBarLabel22.text = LiveGamesA[1].team_1
+                UpperBarLabel23.text = String(LiveGamesA[1].goals_1)
                 UpperBarLabel24.text = LiveGamesA[1].venue
-                UpperBarLabel25.text = LiveGamesA[1].team2
-                UpperBarLabel26.text = String(LiveGamesA[1].goals2)
+                UpperBarLabel25.text = LiveGamesA[1].team_2
+                UpperBarLabel26.text = String(LiveGamesA[1].goals_2)
                 
             }
             
@@ -273,29 +278,40 @@ extension ViewController1 {
                 
                 // Loop players
                 
-                let newArrayFixtures = [Match(context: self.context)]
+//                let newArrayFixtures = [Match(context: self.context)]
+                
+                let newArrayFixtures = [Fixtures]()
+                
                 PronosB.append(newArrayFixtures)
                 
-                PronosB[i][0].user = gebruikers[1 + ga * i]
-                //PronosB[i][0].fixture_ID = FixturesA[0].fixture_ID
-                //PronosB[i][0].round = FixturesA[0].round
-                PronosB[i][0].goals1 = Int64((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!
-                PronosB[i][0].goals2 = Int64((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!
-                PronosB[i][0].team1 = homeTeams[1 + ga * i]
-                PronosB[i][0].team2 = awayTeams[1 + ga * i]
+                let fixture =  Fixtures(index: 0, venue: "", timing: Date(), team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "")
+                
+                PronosB[i].append(fixture)
+                
+//                PronosB[i][0].user = gebruikers[1 + ga * i]
+//                //PronosB[i][0].fixture_ID = FixturesA[0].fixture_ID
+//                //PronosB[i][0].round = FixturesA[0].round
+//                PronosB[i][0].goals1 = Int64((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!
+//                PronosB[i][0].goals2 = Int64((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!
+//                PronosB[i][0].team1 = homeTeams[1 + ga * i]
+//                PronosB[i][0].team2 = awayTeams[1 + ga * i]
                 
                 for n in 1...ga - 1 {
                     
                     // Loop games
-                    let newFixture = Match(context: self.context)
-                    newFixture.user = gebruikers[(n + 1) + ga * i]
-                    //newFixture.fixture_ID = PronosA[n].fixture_ID
-                    //newFixture.round = PronosA[n].round
-                    newFixture.goals1 = Int64((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!
-                    newFixture.goals2 = Int64((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!
-                    newFixture.team1 = homeTeams[(n + 1) + ga * i]
-                    newFixture.team2 = awayTeams[(n + 1) + ga * i]
-                    PronosB[i].append(newFixture)
+                    
+                    let fixture =  Fixtures(index: n, venue: "", timing: Date(), team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "")
+                    
+//                    let newFixture = Match(context: self.context)
+//                    newFixture.user = gebruikers[(n + 1) + ga * i]
+//                    //newFixture.fixture_ID = PronosA[n].fixture_ID
+//                    //newFixture.round = PronosA[n].round
+//                    newFixture.goals1 = Int64((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!
+//                    newFixture.goals2 = Int64((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!
+//                    newFixture.team1 = homeTeams[(n + 1) + ga * i]
+//                    newFixture.team2 = awayTeams[(n + 1) + ga * i]
+                    
+                    PronosB[i].append(fixture)
                     
                 }
                 

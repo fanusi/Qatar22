@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Fixtures {
+public class Fixtures {
     
     var index: Int
     var venue: String
@@ -18,9 +18,10 @@ class Fixtures {
     var team_2: String
     var goals_2: Int
     var logo_2: String
+    var user: String
 
     
-    init(index: Int, venue: String, timing: Date, team_1: String, goals_1: Int, logo_1: String, team_2: String, goals_2: Int, logo_2: String) {
+    init(index: Int, venue: String, timing: Date, team_1: String, goals_1: Int, logo_1: String, team_2: String, goals_2: Int, logo_2: String, user: String = "Tournament") {
         
         self.index = index
         self.venue = venue
@@ -31,6 +32,7 @@ class Fixtures {
         self.team_2 = team_2
         self.goals_2 = goals_2
         self.logo_2 = logo_2
+        self.user = user
 
     }
     

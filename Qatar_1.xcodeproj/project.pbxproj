@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3AC164064EC755A7484F75C9 /* Pods_Qatar_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5313DC957457CB928FC8B085 /* Pods_Qatar_1.framework */; };
 		AD07436715EBF90C2B871990 /* Pods_Qatar_1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183FA568E2E24CAD384028B4 /* Pods_Qatar_1Tests.framework */; };
+		AE63400828DDFF890048965D /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63400728DDFF890048965D /* Standings.swift */; };
+		AE63400A28DE005D0048965D /* StandingsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63400928DE005D0048965D /* StandingsJSON.swift */; };
 		AE6FB1B628D4C66C006A5DB1 /* VC1+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */; };
 		AE6FB1B828D4C807006A5DB1 /* FixturesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */; };
 		AE6FB1BA28D4E649006A5DB1 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */; };
@@ -66,6 +68,8 @@
 		5313DC957457CB928FC8B085 /* Pods_Qatar_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Qatar_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0CF725B01055FC7ED74C49 /* Pods-Qatar_1-Qatar_1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qatar_1-Qatar_1UITests.release.xcconfig"; path = "Target Support Files/Pods-Qatar_1-Qatar_1UITests/Pods-Qatar_1-Qatar_1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		9D68F636DA601E069A9F4E62 /* Pods-Qatar_1-Qatar_1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qatar_1-Qatar_1UITests.debug.xcconfig"; path = "Target Support Files/Pods-Qatar_1-Qatar_1UITests/Pods-Qatar_1-Qatar_1UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE63400728DDFF890048965D /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
+		AE63400928DE005D0048965D /* StandingsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsJSON.swift; sourceTree = "<group>"; };
 		AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC1+.swift"; sourceTree = "<group>"; };
 		AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesJSON.swift; sourceTree = "<group>"; };
 		AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 				AEE4237428CB3C07006BBD52 /* ViewController2.swift */,
 				AEE4237628CB3C7E006BBD52 /* ViewController3.swift */,
 				AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */,
+				AE63400728DDFF890048965D /* Standings.swift */,
+				AE63400928DE005D0048965D /* StandingsJSON.swift */,
 				AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */,
 				AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */,
 				AEE4237828CB3CC4006BBD52 /* RootViewController.swift */,
@@ -513,7 +519,9 @@
 				AE6FB1B628D4C66C006A5DB1 /* VC1+.swift in Sources */,
 				AEE4237328CB35DB006BBD52 /* Support.swift in Sources */,
 				AEE4238C28CB4084006BBD52 /* TabPageObserver.swift in Sources */,
+				AE63400828DDFF890048965D /* Standings.swift in Sources */,
 				AEE4237528CB3C07006BBD52 /* ViewController2.swift in Sources */,
+				AE63400A28DE005D0048965D /* StandingsJSON.swift in Sources */,
 				AEE4237E28CB3EE0006BBD52 /* PageViewController.swift in Sources */,
 				AE6FB1BA28D4E649006A5DB1 /* Fixtures.swift in Sources */,
 				AEE4237728CB3C7E006BBD52 /* ViewController3.swift in Sources */,
