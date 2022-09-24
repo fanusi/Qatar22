@@ -341,13 +341,13 @@ public class CalculModel {
                 
                 for i in start...end {
                     
-                    if qual16.contains(speler[i].home_Team!) && group.contains(speler[i].home_Team!) {
+                    if qual16.contains(speler[i].team_1) && group.contains(speler[i].team_1) {
                         
                         punten = punten + round
                         
                     }
 
-                    if qual16.contains(speler[i].away_Team!) && group.contains(speler[i].away_Team!) {
+                    if qual16.contains(speler[i].team_2) && group.contains(speler[i].team_2) {
                         
                         punten = punten + round
                         

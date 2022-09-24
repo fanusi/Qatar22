@@ -102,6 +102,7 @@ extension ViewController1 {
             
                     StandingsA.removeAll()
                     groupsPlayed.removeAll()
+                    qual16.removeAll()
             
                     let headers = [
                         "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
@@ -160,6 +161,12 @@ extension ViewController1 {
                         }
                             
                     }
+                        
+                    DispatchQueue.main.async() {
+                        
+                        qual16 = self.calcul.qualbest2()
+                        
+                    }
                                     
                     })
                         
@@ -209,16 +216,6 @@ extension ViewController1 {
                                 //let newFixture =  Match(context: self.context)
                                 
                                 let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), timing: Date(), team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo))
-                    
-//                                newFixture.venue = String(niveau1.response[n].fixture.venue.name)
-//                                //newFixture.timing = Date(niveau1.response1[n].fixture.date)
-//                                newFixture.timing = Date()
-//                                newFixture.team1 = String(niveau1.response[n].teams.home.name)
-//                                newFixture.team2 = String(niveau1.response[n].teams.away.name)
-//                                newFixture.goals1 = Int64(niveau1.response[n].goals.home)
-//                                newFixture.goals2 = Int64(niveau1.response[n].goals.away)
-//                                newFixture.logo1 = String(niveau1.response[n].teams.home.logo)
-//                                newFixture.logo2 = String(niveau1.response[n].teams.away.logo)
                                     
                                 LiveGamesA.append(newFixture)
                                 //print(LiveGamesA[n].team1 ?? "")

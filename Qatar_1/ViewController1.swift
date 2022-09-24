@@ -48,9 +48,14 @@ public var dummy1 = 0
 public var groupsPlayed = [Int]()
 //Matrix returning total games played from group 1 to 8
 
+public var qual16 = [String]()
+// best 2 from each group that qualify for round of 16
+
 final class ViewController1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var calcul = CalculModel()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
