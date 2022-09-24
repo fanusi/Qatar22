@@ -23,8 +23,8 @@ public var StandingsA = [Standings]()
 
 public let pr:Int = 43
 // Number of players
-public let ga:Int = 64
-//Number of matches
+public let ga:Int = 48
+//Number of matches (change to 64)
 public let fr:Int = 0
 //Match index start tournament
 public let sr:Int = 48
@@ -53,25 +53,25 @@ public var qual16 = [String]()
 
 final class ViewController1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var calcul = CalculModel()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return FixturesA.count
+        return StandenA.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"LiveTableViewCell", for: indexPath) as! LiveGamesCell
         
-        if indexPath.row <= FixturesA.count {
+        if indexPath.row <= StandenA.count {
         
-            cell.homeTeamLabel.text = String(FixturesA[indexPath.row].team_1)
-            cell.awayTeamLabel.text = String(FixturesA[indexPath.row ].team_2)
-            cell.homegoalsLabel.text = String(FixturesA[indexPath.row].goals_1)
-            cell.awaygoalsLabel.text = String(FixturesA[indexPath.row].goals_2)
+            cell.homeTeamLabel.text = String(StandenA[indexPath.row].ranking)
+            cell.awayTeamLabel.text = String(StandenA[indexPath.row].user)
+            cell.homegoalsLabel.text = String(StandenA[indexPath.row].punten)
+            cell.awaygoalsLabel.text = String(StandenA[indexPath.row].index)
             
             cell.homeTeamLabel.font = UIFont(name: font0, size: 10)
             cell.awayTeamLabel.font = UIFont(name: font0, size: 10)
@@ -145,10 +145,38 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     
     func initiate() {
         
-        self.fixtureParsing()
-        self.liveGamesParsing()
+        let operation1 = BlockOperation {
+            self.fixtureParsing()
+        }
 
+        let operation2 = BlockOperation {
+            self.liveGamesParsing()
+        }
         
+        let operation3 = BlockOperation {
+            self.standingParsing()
+        }
+
+        let operation4 = BlockOperation {
+            print("-----")
+            print(FixturesA.count)
+            print(PronosB.count)
+            print(LiveGamesA.count)
+            self.test1()
+        }
+
+        //operation2.addDependency(operation1)
+        //operation3.addDependency(operation2)
+        //operation4.addDependency(operation3)
+
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 1
+        queue.addOperation(operation1)
+        queue.addOperation(operation2)
+        queue.addOperation(operation3)
+        queue.addOperation(operation4)
+        queue.waitUntilAllOperationsAreFinished()
+
     }
     
 }

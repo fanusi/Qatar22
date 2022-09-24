@@ -356,7 +356,8 @@ extension ViewController1 {
             for i in 0...pr - 1 {
                 
                 // Loop players
-
+                
+                // Add player to players' standing
                 let player_i = Scores(user: gebruikers[1 + ga * i], index: i)
                 StandenA.append(player_i)
                 
@@ -382,6 +383,37 @@ extension ViewController1 {
             
           }
         }
+    }
+    
+    func test1() {
+        
+        if FixturesA.count > 0 && PronosB.count > 0 && StandenA.count > 0 && StandingsA.count > 0 {
+            
+            for i in 0...ga-1 {
+                
+                print(FixturesA[i].team_1 + " - " + FixturesA[i].team_2)
+                print(PronosB[1][i].user)
+                print(PronosB[1][i].team_1 + " - " + PronosB[1][i].team_2)
+                
+            }
+            
+            for i in 0...StandenA.count - 1 {
+                
+                print(StandenA[i].user)
+                print(StandenA[i].punten)
+                
+            }
+            
+            for i in 0...StandingsA.count - 1 {
+                
+                print(StandingsA[i].group)
+                print(StandingsA[i].rank)
+                print(StandingsA[i].team)
+                
+            }
+            
+        }
+        
     }
     
 }
