@@ -16,10 +16,6 @@ struct bridge: Codable {
 }
 
 struct league2: Codable {
-    var standings: [standen]
-}
-
-struct standen: Codable {
     var standings: [[group]]
 }
 

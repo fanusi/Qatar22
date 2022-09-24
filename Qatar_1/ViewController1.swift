@@ -18,11 +18,23 @@ import CoreXLSX
 public var LiveGamesA = [Fixtures]()
 public var FixturesA = [Fixtures]()
 public var PronosB = [[Fixtures]]()
+public var StandenA = [Scores]()
+public var StandingsA = [Standings]()
 
 public let pr:Int = 43
 // Number of players
-public let ga:Int = 51
+public let ga:Int = 64
 //Number of matches
+public let fr:Int = 0
+//Match index start tournament
+public let sr:Int = 48
+//Match index number 2nd round
+public let qf:Int = 56
+//start quarter finals
+public let sf:Int = 60
+//start semi finals
+public let f:Int = 62
+//start finals
 
 public let font0 = "Optima-Regular"
 public let font2 = "Menlo"
@@ -32,6 +44,9 @@ public let backgroundcolor1: UIColor = UIColor(red: 242/255, green: 241/255, blu
 public let backgroundcolor2: UIColor = UIColor(red: 152/255, green: 247/255, blue: 255/255, alpha: 1)
 
 public var dummy1 = 0
+
+public var groupsPlayed = [Int]()
+//Matrix returning total games played from group 1 to 8
 
 final class ViewController1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -107,7 +122,7 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         tableView1.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         
         if dummy1 == 0 {
-            // Only load players' predictions once
+            // Only load players' predictions once + Create users standings matrix
             realpronos()
             dummy1 = 1
         }

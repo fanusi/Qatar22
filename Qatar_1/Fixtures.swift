@@ -19,9 +19,11 @@ public class Fixtures {
     var goals_2: Int
     var logo_2: String
     var user: String
+    var status: String
+    var round: String
 
     
-    init(index: Int, venue: String, timing: Date, team_1: String, goals_1: Int, logo_1: String, team_2: String, goals_2: Int, logo_2: String, user: String = "Tournament") {
+    init(index: Int, venue: String, timing: Date, team_1: String, goals_1: Int, logo_1: String, team_2: String, goals_2: Int, logo_2: String, user: String = "Tournament", status: String = "", round: String = "") {
         
         self.index = index
         self.venue = venue
@@ -33,6 +35,8 @@ public class Fixtures {
         self.goals_2 = goals_2
         self.logo_2 = logo_2
         self.user = user
+        self.status = status
+        self.round = round
 
     }
     

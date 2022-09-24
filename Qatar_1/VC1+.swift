@@ -38,32 +38,42 @@ extension ViewController1 {
                 do {
                     
                         let niveau1 = try decoder.decode(response1.self, from: data!)
-                        print("Counter")
-                        print(niveau1.response.count)
+                        print("Items fixtures = \(niveau1.response.count)")
                     
                         let start = 0
-                        let end = niveau1.response.count - 1
+                        let end = 63
                         
                         // Number of fixtures
                         
                         for n in start...end {
                             
-                            print("fixt1 = \(n)")
+                            if n < niveau1.response.count {
+                                //API entry existing
+                                
+                                
+                                let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), timing: Date(), team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo), status: niveau1.response[n].fixture.status.short, round: niveau1.response[n].league.round)
+                                
+                                    FixturesA.append(newFixture)
+                                
+                            } else {
                             
-                            //let newFixture =  Match(context: self.context)
-                            let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), timing: Date(), team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo))
-                
-//                            newFixture.venue = String(niveau1.response[n].fixture.venue.name)
-//                            //newFixture.timing = Date(niveau1.response1[n].fixture.date)
-//                            newFixture.timing = Date()
-//                            newFixture.team1 = String(niveau1.response[n].teams.home.name)
-//                            newFixture.team2 = String(niveau1.response[n].teams.away.name)
-//                            newFixture.goals1 = Int64(niveau1.response[n].goals.home)
-//                            newFixture.goals2 = Int64(niveau1.response[n].goals.away)
-//                            newFixture.logo1 = String(niveau1.response[n].teams.home.logo)
-//                            newFixture.logo2 = String(niveau1.response[n].teams.away.logo)
-                            
-                            FixturesA.append(newFixture)
+                                var round: String
+                                
+                                if n < qf {
+                                    round = "Round of 16"
+                                } else if n < sf {
+                                    round = "Quarter Finals"
+                                } else if n < f {
+                                    round = "Semi Finals"
+                                } else {
+                                    round = "Final"
+                                }
+                                
+                                let newFixture =  Fixtures(index: n, venue: "-", timing: Date(), team_1: "-", goals_1: -999, logo_1: "-", team_2: "-", goals_2: -999, logo_2: "-", status: "NS", round: round)
+                                
+                                    FixturesA.append(newFixture)
+                                
+                            }
                             
                         }
                     
@@ -85,6 +95,78 @@ extension ViewController1 {
                 dataTask.resume()
 
         }
+    
+    func standingParsing () {
+                    
+                    //Populate standings from FootballAPI
+            
+                    StandingsA.removeAll()
+                    groupsPlayed.removeAll()
+            
+                    let headers = [
+                        "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
+                        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+                    ]
+
+                    let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/standings?season=2022&league=1")! as URL,
+                                                            cachePolicy: .useProtocolCachePolicy,
+                                                        timeoutInterval: 10.0)
+                    request.httpMethod = "GET"
+                    request.allHTTPHeaderFields = headers
+
+                    let session = URLSession.shared
+                
+                    let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                        
+                        
+                    if error == nil && data != nil {
+                        
+                            
+                    let decoder = JSONDecoder()
+                            
+                    do {
+                        
+                            let poules: Int = 8
+                            let ploegen: Int = 4
+                        
+                            let niveau2 = try decoder.decode(response2.self, from: data!)
+                            
+                            for i in 0...poules-1 {
+                                
+                                
+                                var m1: Int = 0
+                                
+                                
+                                for j in 0...ploegen-1 {
+                                    
+                                    let newStanding = Standings(group: i+1, rank: niveau2.response[0].league.standings[i][j].rank, team: niveau2.response[0].league.standings[i][j].team.name, gamesPlayed: niveau2.response[0].league.standings[i][j].all.played)
+
+                                    
+                                    StandingsA.append(newStanding)
+                                
+                                    m1 = m1 + newStanding.gamesPlayed
+                                    //temp
+                                    //m1 = m1 + Int.random(in: 0..<4)
+                                        
+                                }
+                                
+                                groupsPlayed.append(m1)
+
+                            }
+                        
+                        } catch {
+                            
+                            debugPrint(error)
+                        }
+                            
+                    }
+                                    
+                    })
+                        
+                    dataTask.resume()
+                
+
+            }
 
     func liveGamesParsing () {
         
@@ -112,8 +194,7 @@ extension ViewController1 {
                 do {
                     
                         let niveau1 = try decoder.decode(response1.self, from: data!)
-                        print("Counter")
-                        print(niveau1.response.count)
+                        print("Items live games = \(niveau1.response.count)")
                     
                         let start = 0
                         let end = niveau1.response.count - 1
@@ -273,43 +354,28 @@ extension ViewController1 {
             print(gebruikers[1])
             
             PronosB.removeAll()
+            StandenA.removeAll()
                     
             for i in 0...pr - 1 {
                 
                 // Loop players
-                
-//                let newArrayFixtures = [Match(context: self.context)]
+
+                let player_i = Scores(user: gebruikers[1 + ga * i], index: i)
+                StandenA.append(player_i)
                 
                 let newArrayFixtures = [Fixtures]()
                 
                 PronosB.append(newArrayFixtures)
                 
-                let fixture =  Fixtures(index: 0, venue: "", timing: Date(), team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "")
+                let fixture =  Fixtures(index: 0, venue: "", timing: Date(), team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[1 + ga * i])
                 
                 PronosB[i].append(fixture)
-                
-//                PronosB[i][0].user = gebruikers[1 + ga * i]
-//                //PronosB[i][0].fixture_ID = FixturesA[0].fixture_ID
-//                //PronosB[i][0].round = FixturesA[0].round
-//                PronosB[i][0].goals1 = Int64((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!
-//                PronosB[i][0].goals2 = Int64((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!
-//                PronosB[i][0].team1 = homeTeams[1 + ga * i]
-//                PronosB[i][0].team2 = awayTeams[1 + ga * i]
                 
                 for n in 1...ga - 1 {
                     
                     // Loop games
                     
                     let fixture =  Fixtures(index: n, venue: "", timing: Date(), team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "")
-                    
-//                    let newFixture = Match(context: self.context)
-//                    newFixture.user = gebruikers[(n + 1) + ga * i]
-//                    //newFixture.fixture_ID = PronosA[n].fixture_ID
-//                    //newFixture.round = PronosA[n].round
-//                    newFixture.goals1 = Int64((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!
-//                    newFixture.goals2 = Int64((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!
-//                    newFixture.team1 = homeTeams[(n + 1) + ga * i]
-//                    newFixture.team2 = awayTeams[(n + 1) + ga * i]
                     
                     PronosB[i].append(fixture)
                     
