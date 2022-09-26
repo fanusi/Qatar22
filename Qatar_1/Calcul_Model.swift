@@ -9,6 +9,20 @@ import Foundation
 
 public class CalculModel {
     
+    var fixtures: [Fixtures]
+    var pronos: [[Fixtures]]
+    var standen: [Scores]
+    var standings: [Standings]
+
+    
+    init(fixtures: [Fixtures], pronos: [[Fixtures]], standen: [Scores], standings: [Standings]) {
+        
+        self.fixtures = fixtures
+        self.pronos = pronos
+        self.standen = standen
+        self.standings = standings
+        
+    }
     
     func burn(hgp: Int, agp: Int, hgr: Int, agr: Int) -> Bool {
         

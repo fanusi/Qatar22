@@ -51,27 +51,29 @@ public var groupsPlayed = [Int]()
 public var qual16 = [String]()
 // best 2 from each group that qualify for round of 16
 
+
+public var calcul = CalculModel(fixtures: FixturesA, pronos: PronosB, standen: StandenA, standings: StandingsA)
+// Initiate calculation object
+
 final class ViewController1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var calcul = CalculModel()
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return StandenA.count
+        return calcul.standen.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"LiveTableViewCell", for: indexPath) as! LiveGamesCell
         
-        if indexPath.row <= StandenA.count {
+        if indexPath.row <= calcul.standen.count {
         
-            cell.homeTeamLabel.text = String(StandenA[indexPath.row].ranking)
-            cell.awayTeamLabel.text = String(StandenA[indexPath.row].user)
-            cell.homegoalsLabel.text = String(StandenA[indexPath.row].punten)
-            cell.awaygoalsLabel.text = String(StandenA[indexPath.row].index)
+            cell.homeTeamLabel.text = String(calcul.standen[indexPath.row].ranking)
+            cell.awayTeamLabel.text = String(calcul.standen[indexPath.row].user)
+            cell.homegoalsLabel.text = String(calcul.standen[indexPath.row].punten)
+            cell.awaygoalsLabel.text = String(calcul.standen[indexPath.row].index)
             
             cell.homeTeamLabel.font = UIFont(name: font0, size: 10)
             cell.awayTeamLabel.font = UIFont(name: font0, size: 10)
@@ -154,7 +156,18 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func initiate() {
-                
+        
+        // At this point, following arrays have been populated:
+        // LiveGamesA = [Fixtures](); FixturesA = [Fixtures]();
+        // PronosB = [[Fixtures]](); StandenA = [Scores](); StandingsA = [Standings]()
+        
+        // Update inputs in calcul object
+        calcul.fixtures = FixturesA
+        calcul.pronos = PronosB
+        calcul.standings = StandingsA
+        calcul.standen = StandenA
+        
+        
         self.test1()
         StandenA[2].user = "Pipo de clown"
         tableView1.reloadData()
