@@ -161,15 +161,28 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         // LiveGamesA = [Fixtures](); FixturesA = [Fixtures]();
         // PronosB = [[Fixtures]](); StandenA = [Scores](); StandingsA = [Standings]()
         
-        // Update inputs in calcul object
-        calcul.fixtures = FixturesA
-        calcul.pronos = PronosB
-        calcul.standings = StandingsA
-        calcul.standen = StandenA
+        if FixturesA.count > 0 && PronosB.count > 0 && StandenA.count > 0 && StandingsA.count > 0 {
+            
+            // Update inputs in calcul object
+            calcul.fixtures = FixturesA
+            calcul.pronos = PronosB
+            calcul.standings = StandingsA
+            calcul.standen = StandenA
+            
+            calcul.routine()
+            
+        }
         
         
-        self.test1()
-        StandenA[2].user = "Pipo de clown"
+        
+//        for i in 0...FixturesA.count-1 {
+//
+//            print(FixturesA[i].team_1)
+//
+//        }
+        
+        //self.test1()
+        //StandenA[2].user = "Pipo de clown"
         tableView1.reloadData()
         
         

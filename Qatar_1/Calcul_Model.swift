@@ -124,10 +124,10 @@ public class CalculModel {
         var punten: Int = 0
         var dcheck: Int = 0
         
-        let homegoals_real: Int = Int(FixturesA[game].goals_1)
-        let awaygoals_real: Int = Int(FixturesA[game].goals_2)
-        let hometeam_real: String = FixturesA[game].team_1
-        let awayteam_real: String = FixturesA[game].team_2
+        let homegoals_real: Int = Int(fixtures[game].goals_1)
+        let awaygoals_real: Int = Int(fixtures[game].goals_2)
+        let hometeam_real: String = fixtures[game].team_1
+        let awayteam_real: String = fixtures[game].team_2
         
         var homegoals_prono: Int = 0
         var awaygoals_prono: Int = 0
@@ -205,10 +205,10 @@ public class CalculModel {
             var punten: Int = 0
             var dcheck: Int = 0
         
-            let homegoals_real: Int = Int(FixturesA[game].goals_1)
-            let awaygoals_real: Int = Int(FixturesA[game].goals_2)
-            let hometeam_real: String = FixturesA[game].team_1
-            let awayteam_real: String = FixturesA[game].team_2
+            let homegoals_real: Int = Int(fixtures[game].goals_1)
+            let awaygoals_real: Int = Int(fixtures[game].goals_2)
+            let hometeam_real: String = fixtures[game].team_1
+            let awayteam_real: String = fixtures[game].team_2
             
             var homegoals_prono: Int = 0
             var awaygoals_prono: Int = 0
@@ -337,10 +337,10 @@ public class CalculModel {
             
             var punten: Int = 0
             
-            let homegoals_real: Int = Int(FixturesA[game].goals_1)
-            let awaygoals_real: Int = Int(FixturesA[game].goals_2)
-            let hometeam_real: String = FixturesA[game].team_1
-            let awayteam_real: String = FixturesA[game].team_2
+            let homegoals_real: Int = Int(fixtures[game].goals_1)
+            let awaygoals_real: Int = Int(fixtures[game].goals_2)
+            let hometeam_real: String = fixtures[game].team_1
+            let awayteam_real: String = fixtures[game].team_2
             
             let homegoals_prono: Int = Int(speler[game].goals_1)
             let awaygoals_prono: Int = Int(speler[game].goals_2)
@@ -348,10 +348,10 @@ public class CalculModel {
             let awayteam_prono: String = speler[game].team_2
             
             
-            if lastgames.contains(game) && FixturesA[game].status != "NS" {
+            if lastgames.contains(game) && fixtures[game].status != "NS" {
             // Last group game, then check for qualifiers
                 
-                let group: [String] = [FixturesA[game].team_1, FixturesA[game].team_2, FixturesA[game-1].team_1, FixturesA[game-1].team_2]
+                let group: [String] = [fixtures[game].team_1, fixtures[game].team_2, fixtures[game-1].team_1, fixtures[game-1].team_2]
                 
                 for i in start...end {
                     
@@ -383,11 +383,11 @@ public class CalculModel {
         
         var qbest: [String] = []
         
-        for i in 0...StandingsA.count-1 {
+        for i in 0...standings.count-1 {
             
-            if StandingsA[i].rank == 1 || StandingsA[i].rank == 2 {
+            if standings[i].rank == 1 || standings[i].rank == 2 {
                 
-                let qteam: String = StandingsA[i].team
+                let qteam: String = standings[i].team
                 qbest.append(qteam)
                     
             }
@@ -396,6 +396,135 @@ public class CalculModel {
         
         return qbest
         
+    }
+    
+    func routine () {
+               
+        standen.removeAll()
+        
+        for i in 0...pr-1 {
+            
+            calculator(speler: PronosB[i])
+            
+            let newscore = Scores(user: (pronos[i].first?.user)!, punten: puntenSommatie(z: ga-1, speler: PronosB[i]), index: i)
+
+            standen.append(newscore)
+            
+        }
+        
+        standen = standen.sorted(by: { ($0.punten) > ($1.punten) })
+        //PronosB = PronosB.sorted(by: { ($0.last?.statistiek!.punten)! > ($1.last?.statistiek!.punten)! })
+        
+        for i in 0...pr-1 {
+            
+            standen[i].ranking = i
+            //print(standen[i].ranking)
+            //print(standen[i].index)
+            
+        }
+        
+        
+    }
+    
+    func calculator (speler: [Fixtures]) {
+        
+        let teller3:Int = 32
+        // Index start of third group game
+        
+        let tellerA:Int = 48
+        // Index start of round best of 16
+        
+        let tellerQ:Int = 56
+        // Index start of round quarter finals
+        
+        let tellerS:Int = 60
+        // Index start of round semi finals
+   
+        let tellerF:Int = 62
+        // Index start of round final
+        
+        for j in 0...ga-1 {
+            
+            //reset punten voor elke match
+            var punten:Int = 0
+            
+            let homegoals_real: Int = Int(fixtures[j].goals_1)
+            let awaygoals_real: Int = Int(fixtures[j].goals_2)
+            let homegoals_prono: Int = Int(speler[j].goals_1)
+            let awaygoals_prono: Int = Int(speler[j].goals_2)
+    
+            if j < teller3 {
+                
+                //First 2 group matches
+                punten = punten + calc_simple(hg_p: homegoals_prono, ag_p: awaygoals_prono, hg_r: homegoals_real, ag_r: awaygoals_real)
+                
+                //                if speler[0].user == "Player 2" {
+                //
+                //                    print(PronosA[j].home_Team! + " - " + PronosA[j].away_Team!)
+                //                    print(String(homegoals_real) + "-" + String(awaygoals_real))
+                //
+                //                    print(speler[j].home_Team! + " - " + speler[j].away_Team!)
+                //                    print(String(homegoals_prono) + "-" + String(awaygoals_prono))
+                //
+                //                    print(" punten " + String(punten))
+                //
+                //                    print("//")
+                //
+                //                }
+                
+                // UNCOMMENT FOLLOWING CODE FOR REAL TOURNAMENT !!!!!!!! (Comment next line bracket)
+                
+            }
+//            } else if j < tellerA {
+//
+//                //Third group game
+//                punten = punten + calc_ext3(round: 3,game: j, speler: speler, start: tellerA, end: tellerQ-1)
+//
+//            } else if j < tellerQ {
+//
+//                //Best of 16
+//                punten = punten + calc_ext2(round: 4,game: j, speler: speler, start: tellerA, end: tellerQ-1)
+//
+//            } else if j < tellerS {
+//
+//                //Quarter finals
+//                punten = punten + calc_ext2(round: 5,game: j, speler: speler, start: tellerQ, end: tellerS-1)
+//
+//            } else if j < tellerF {
+//
+//                //semi finals
+//                punten = punten + calc_ext2(round: 6,game: j, speler: speler, start: tellerS, end: tellerF-1)
+//
+//            } else if j == ga-2 {
+//
+//                //Final third place
+//                punten = punten + calc_ext2(round: 8,game: j, speler: speler, start: tellerF, end: ga-2)
+//
+//            } else if j == ga-1 {
+//
+//                //Final
+//                punten = punten + calc_ext2(round: 10,game: j, speler: speler, start: ga-2, end: ga-1)
+//
+//            }
+            
+            //toewijzen van punten
+            speler[j].punten = punten
+            
+        }
+        
+    }
+    
+    func puntenSommatie (z: Int, speler: [Fixtures]) -> Int {
+        
+        var som:Int = 0
+        
+        for l in 0...z {
+            
+            som = som + Int(speler[l].punten)
+            
+        }
+        
+        return som
         
     }
     

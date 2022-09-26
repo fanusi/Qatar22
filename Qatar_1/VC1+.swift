@@ -170,7 +170,7 @@ extension ViewController1 {
                     DispatchQueue.main.async() {
                         
                         self.initiate()
-                        qual16 = calcul.qualbest2()
+                        //qual16 = calcul.qualbest2()
                         
                     }
                                     

@@ -25,3 +25,18 @@ public class Scores {
     }
     
 }
+
+//public class statistiek {
+//
+//    var punten: Int
+//    var user: String
+//
+//
+//    init(user: String, punten: Int = 0) {
+//
+//        self.user = user
+//        self.punten = punten
+//
+//    }
+//
+//}
