@@ -15,6 +15,8 @@ extension ViewController1 {
         
             FixturesA.removeAll()
         
+            print("Start fixture parsing...")
+        
             let headers = [
                 "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
                 "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
@@ -86,8 +88,11 @@ extension ViewController1 {
                 }
                 
                 DispatchQueue.main.async() {
+                    
+                    self.initiate()
                     self.tableView1.refreshControl?.endRefreshing()
                     self.tableView1.reloadData()
+                    
                 }
                                 
                 })
@@ -164,6 +169,7 @@ extension ViewController1 {
                         
                     DispatchQueue.main.async() {
                         
+                        self.initiate()
                         qual16 = self.calcul.qualbest2()
                         
                     }
@@ -232,6 +238,7 @@ extension ViewController1 {
                 }
                 
                 DispatchQueue.main.async() {
+                    self.initiate()
                     self.tableView1.refreshControl?.endRefreshing()
                     self.tableView1.reloadData()
                     self.upperBarUpdate()
@@ -386,6 +393,11 @@ extension ViewController1 {
     }
     
     func test1() {
+        
+        print("Fixtures \(FixturesA.count)")
+        print("PronosB \(PronosB.count)")
+        print("StandenA \(StandenA.count)")
+        print("StandingsA \(StandingsA.count)")
         
         if FixturesA.count > 0 && PronosB.count > 0 && StandenA.count > 0 && StandingsA.count > 0 {
             

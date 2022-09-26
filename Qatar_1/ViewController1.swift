@@ -132,51 +132,34 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             dummy1 = 1
         }
         
-        initiate()
-        tableView1.reloadData()
+        parsing()
+        //initiate()
+        //tableView1.reloadData()
         
     }
     
     @objc private func didPullToRefresh() {
         
-        initiate()
+        parsing()
+        //initiate()
         
     }
     
+    func parsing() {
+        
+        self.fixtureParsing()
+        self.liveGamesParsing()
+        self.standingParsing()
+
+    }
+    
     func initiate() {
+                
+        self.test1()
+        StandenA[2].user = "Pipo de clown"
+        tableView1.reloadData()
         
-        let operation1 = BlockOperation {
-            self.fixtureParsing()
-        }
-
-        let operation2 = BlockOperation {
-            self.liveGamesParsing()
-        }
         
-        let operation3 = BlockOperation {
-            self.standingParsing()
-        }
-
-        let operation4 = BlockOperation {
-            print("-----")
-            print(FixturesA.count)
-            print(PronosB.count)
-            print(LiveGamesA.count)
-            self.test1()
-        }
-
-        //operation2.addDependency(operation1)
-        //operation3.addDependency(operation2)
-        //operation4.addDependency(operation3)
-
-        let queue = OperationQueue()
-        queue.maxConcurrentOperationCount = 1
-        queue.addOperation(operation1)
-        queue.addOperation(operation2)
-        queue.addOperation(operation3)
-        queue.addOperation(operation4)
-        queue.waitUntilAllOperationsAreFinished()
-
     }
     
 }
