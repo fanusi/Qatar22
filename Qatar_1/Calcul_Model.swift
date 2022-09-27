@@ -322,18 +322,28 @@ public class CalculModel {
     
     func calc_ext3 (round: Int, game: Int, speler: [Fixtures], start: Int, end: Int) -> Int {
         
-            // Third Group
+            // Third Group World Cup
             // Last third group games for all groups
-            let aa: Int = 33
-            let bb: Int = 35
-            let cc: Int = 37
-            let dd: Int = 39
-            let ee: Int = 41
-            let ff: Int = 43
-            let gg: Int = 45
-            let hh: Int = 47
+//            let aa: Int = 33
+//            let bb: Int = 35
+//            let cc: Int = 37
+//            let dd: Int = 39
+//            let ee: Int = 41
+//            let ff: Int = 43
+//            let gg: Int = 45
+//            let hh: Int = 47
+        
+        // TEMP
+        let aa: Int = 25
+        let bb: Int = 29
+        let cc: Int = 27
+        let dd: Int = 31
+        let ee: Int = 33
+        let ff: Int = 35
             
-            let lastgames: [Int] = [aa, bb, cc, dd, ee, ff, gg, hh]
+        //let lastgames: [Int] = [aa, bb, cc, dd, ee, ff, gg, hh]
+        // TEMP
+            let lastgames: [Int] = [aa, bb, cc, dd, ee, ff]
             
             var punten: Int = 0
             
@@ -428,20 +438,38 @@ public class CalculModel {
     
     func calculator (speler: [Fixtures]) {
         
-        let teller3:Int = 32
+//        let teller3:Int = 32
+//        // Index start of third group game
+//
+//        let tellerA:Int = 48
+//        // Index start of round best of 16
+//
+//        let tellerQ:Int = 56
+//        // Index start of round quarter finals
+//
+//        let tellerS:Int = 60
+//        // Index start of round semi finals
+//
+//        let tellerF:Int = 62
+//        // Index start of round final
+        
+        // TEMP
+        
+        let teller3:Int = 24
         // Index start of third group game
         
-        let tellerA:Int = 48
+        let tellerA:Int = 36
         // Index start of round best of 16
         
-        let tellerQ:Int = 56
+        let tellerQ:Int = 44
         // Index start of round quarter finals
         
-        let tellerS:Int = 60
+        let tellerS:Int = 48
         // Index start of round semi finals
    
-        let tellerF:Int = 62
+        let tellerF:Int = 50
         // Index start of round final
+        
         
         for j in 0...ga-1 {
             
@@ -474,27 +502,35 @@ public class CalculModel {
                 
                 // UNCOMMENT FOLLOWING CODE FOR REAL TOURNAMENT !!!!!!!! (Comment next line bracket)
                 
+            
+            } else if j < tellerA {
+
+                //Third group game
+                punten = punten + calc_ext3(round: 3,game: j, speler: speler, start: tellerA, end: tellerQ-1)
+
+            } else if j < tellerQ {
+
+                //Best of 16
+                punten = punten + calc_ext2(round: 4,game: j, speler: speler, start: tellerA, end: tellerQ-1)
+
+            } else if j < tellerS {
+
+                //Quarter finals
+                punten = punten + calc_ext2(round: 5,game: j, speler: speler, start: tellerQ, end: tellerS-1)
+
+            } else if j < tellerF {
+
+                //semi finals
+                punten = punten + calc_ext2(round: 6,game: j, speler: speler, start: tellerS, end: tellerF-1)
+            
+            //TEMP, replace by commented structures below
+            } else if j == ga-1 {
+                
+                //Final
+                punten = punten + calc_ext2(round: 10,game: j, speler: speler, start: tellerF, end: ga-1)
+               
             }
-//            } else if j < tellerA {
-//
-//                //Third group game
-//                punten = punten + calc_ext3(round: 3,game: j, speler: speler, start: tellerA, end: tellerQ-1)
-//
-//            } else if j < tellerQ {
-//
-//                //Best of 16
-//                punten = punten + calc_ext2(round: 4,game: j, speler: speler, start: tellerA, end: tellerQ-1)
-//
-//            } else if j < tellerS {
-//
-//                //Quarter finals
-//                punten = punten + calc_ext2(round: 5,game: j, speler: speler, start: tellerQ, end: tellerS-1)
-//
-//            } else if j < tellerF {
-//
-//                //semi finals
-//                punten = punten + calc_ext2(round: 6,game: j, speler: speler, start: tellerS, end: tellerF-1)
-//
+
 //            } else if j == ga-2 {
 //
 //                //Final third place

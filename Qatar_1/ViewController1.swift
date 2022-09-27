@@ -27,14 +27,14 @@ public let ga:Int = 48
 //Number of matches (change to 64)
 public let fr:Int = 0
 //Match index start tournament
-public let sr:Int = 48
-//Match index number 2nd round
-public let qf:Int = 56
-//start quarter finals
-public let sf:Int = 60
-//start semi finals
-public let f:Int = 62
-//start finals
+public let sr:Int = 36
+//Match index number 2nd round (change to 48)
+public let qf:Int = 44
+//start quarter finals (change to 56)
+public let sf:Int = 48
+//start semi finals (change to 60)
+public let f:Int = 50
+//start finals (change to 62)
 
 public let font0 = "Optima-Regular"
 public let font2 = "Menlo"
@@ -162,6 +162,9 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         // PronosB = [[Fixtures]](); StandenA = [Scores](); StandingsA = [Standings]()
         
         if FixturesA.count > 0 && PronosB.count > 0 && StandenA.count > 0 && StandingsA.count > 0 {
+            
+            // Fixed FixturesA for testing, comment later
+            self.realpronos_temp()
             
             // Update inputs in calcul object
             calcul.fixtures = FixturesA
