@@ -23,7 +23,7 @@ public var StandingsA = [Standings]()
 
 public let pr:Int = 43
 // Number of players
-public let ga:Int = 48
+public let ga:Int = 51
 //Number of matches (change to 64)
 public let fr:Int = 0
 //Match index start tournament
@@ -131,6 +131,10 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         if dummy1 == 0 {
             // Only load players' predictions once + Create users standings matrix
             realpronos()
+            
+            //TEMP
+            self.realpronos_temp()
+            
             dummy1 = 1
         }
         
@@ -148,8 +152,9 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func parsing() {
-        
-        self.fixtureParsing()
+
+        //TEM uncomment following line
+        //self.fixtureParsing()
         self.liveGamesParsing()
         self.standingParsing()
 
@@ -163,8 +168,6 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         if FixturesA.count > 0 && PronosB.count > 0 && StandenA.count > 0 && StandingsA.count > 0 {
             
-            // Fixed FixturesA for testing, comment later
-            self.realpronos_temp()
             
             // Update inputs in calcul object
             calcul.fixtures = FixturesA
@@ -174,15 +177,14 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             
             calcul.routine()
             
+            for i in 0...StandenA.count-1 {
+    
+                print(StandenA[i].user)
+    
+            }
+            
         }
-        
-        
-        
-//        for i in 0...FixturesA.count-1 {
-//
-//            print(FixturesA[i].team_1)
-//
-//        }
+
         
         //self.test1()
         //StandenA[2].user = "Pipo de clown"

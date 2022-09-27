@@ -108,6 +108,9 @@ extension ViewController1 {
                     StandingsA.removeAll()
                     groupsPlayed.removeAll()
                     qual16.removeAll()
+        
+                    // TEMP
+                    qual16 = ["Turkey", "Denmark", "Italy", "Netherlands", "Ukraine", "Sweden", "Belgium", "Germany", "Croatia", "Poland", "France", "Austria", "England", "Portugal", "Spain", "Scotland"]
             
                     let headers = [
                         "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
