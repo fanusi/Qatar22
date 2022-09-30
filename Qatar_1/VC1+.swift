@@ -245,7 +245,7 @@ extension ViewController1 {
                     self.initiate()
                     self.tableView1.refreshControl?.endRefreshing()
                     self.tableView1.reloadData()
-                    self.upperBarUpdate()
+                    self.upperBarUpdate2()
                 }
                                 
                 })
@@ -308,6 +308,89 @@ extension ViewController1 {
             
         }
         
+        
+    }
+    
+    func upperBarUpdate2() {
+        
+            // remove existing views
+            removeSV(viewsv: upperBar)
+        
+            if LiveGamesA.count == 1 {
+            // A single game is being played
+            print("1 game ongoing")
+                
+                upperBar.backgroundColor = .black
+                
+                newlabel(view1: upperBar, x: 0.02, y: 0.4, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 16.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.50, y: 0.4, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: true)
+                
+                
+            } else if LiveGamesA.count > 1 {
+            // Two games are being played
+            print("2 games ongoing")
+                
+                upperBar.backgroundColor = .black
+                
+                newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.50, y: 0.15, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 14.0, center: true, textwhite: true)
+                
+                newlabel(view1: upperBar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: LiveGamesA[1].team_1 + " - " + LiveGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 14.0, center: true, textwhite: true)
+                
+            } else {
+            // No games ongoing
+            print("No games ongoing")
+                
+                upperBar.backgroundColor = .systemRed
+                            
+                let thirdGames: [Int] = [32, 34, 36, 38, 40, 42, 44, 46]
+                
+                if thirdGames.contains(calcul.lastgame1 + 1) {
+                // If next game is third Group game then there will be two games played at same time
+                    newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].round, fontsize: 14.0, center: false, textwhite: true)
+//                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].timing, fontsize: 14.0, center: false, textwhite: true)
+                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: "20:00", fontsize: 14.0, center: false, textwhite: true)
+                    newlabel(view1: upperBar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].team_1 + " - " + calcul.fixtures[calcul.lastgame1+1].team_2, fontsize: 14.0, center: false, textwhite: true)
+                    newlabel(view1: upperBar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+2].team_1 + " - " + calcul.fixtures[calcul.lastgame1+2].team_2, fontsize: 14.0, center: false, textwhite: true)
+                    
+                } else {
+          
+                    newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].round, fontsize: 14.0, center: false, textwhite: true)
+//                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 14.0, center: false, textwhite: true)
+                        
+                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: "20:00", fontsize: 14.0, center: false, textwhite: true)
+                    
+                    newlabel(view1: upperBar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].team_1 + " - " + calcul.fixtures[calcul.lastgame1+1].team_2, fontsize: 16.0, center: false, textwhite: true)
+                    
+                }
+            
+            }
+            
+            //livebar.addSubview(updatebtn)
+            //return livebar
+        
+    }
+
+    func newlabel (view1: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text: String, fontsize: CGFloat, center: Bool, textwhite: Bool) {
+        
+        let label = UILabel(frame: CGRect(x: view1.frame.width * x, y: view1.frame.height * y, width: view1.frame.width * width, height: view1.frame.height * height))
+        if center {
+            label.textAlignment = NSTextAlignment.center
+        } else {
+            label.textAlignment = NSTextAlignment.left
+        }
+        label.text = text
+        label.font = UIFont.boldSystemFont(ofSize: fontsize)
+        if textwhite {
+            label.textColor = .white
+        }
+        if text == "Next" {
+            //label.font = UIFont(name: "Arizonia", size: fontsize)
+            label.textColor = .systemGray4
+        }
+        label.adjustsFontSizeToFitWidth = true
+        view1.addSubview(label)
         
     }
     
@@ -500,6 +583,14 @@ extension ViewController1 {
                 
             }
             
+        }
+        
+    }
+    
+    func removeSV (viewsv: UIView) {
+     
+        viewsv.subviews.forEach { (item) in
+        item.removeFromSuperview()
         }
         
     }

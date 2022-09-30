@@ -58,7 +58,7 @@ public var calcul = CalculModel(fixtures: FixturesA, pronos: PronosB, standen: S
 final class ViewController1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return calcul.standen.count
@@ -193,6 +193,10 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             calcul.standings = StandingsA
             calcul.standen = StandenA
             
+            // Define last game variable
+            calcul.lastgame()
+            
+            // Calculate players' points
             calcul.routine()
             
             for i in 0...StandenA.count-1 {

@@ -13,6 +13,8 @@ public class CalculModel {
     var pronos: [[Fixtures]]
     var standen: [Scores]
     var standings: [Standings]
+    
+    var lastgame1: Int = 0
 
     
     init(fixtures: [Fixtures], pronos: [[Fixtures]], standen: [Scores], standings: [Standings]) {
@@ -561,6 +563,34 @@ public class CalculModel {
         }
         
         return som
+        
+    }
+    
+    func lastgame() -> Int {
+        
+        var fg:Int = 0
+        
+        for n in 0...fixtures.count-1 {
+            
+            var dummy:Int = 0
+            
+            if fixtures[n].status == "FT" || fixtures[n].status == "AET" || fixtures[n].status == "PEN"  {
+                
+                if dummy == 0 {
+                    
+                    fg = fg + 1
+                    
+                }
+                
+            } else if fixtures[n].status == "1H" || fixtures[n].status == "2H" || fixtures[n].status == "HT" || fixtures[n].status == "ET" || fixtures[n].status == "P" || fixtures[n].status == "BT" {
+                fg = n
+                dummy = 1
+            }
+            
+        }
+        
+        
+        return min(fg, ga - 1) - 1
         
     }
     
