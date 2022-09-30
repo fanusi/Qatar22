@@ -66,32 +66,46 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier:"LiveTableViewCell", for: indexPath) as! LiveGamesCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:"StandenTableViewCell", for: indexPath) as! StandenCell
         
         if indexPath.row <= calcul.standen.count {
         
-            cell.homeTeamLabel.text = String(calcul.standen[indexPath.row].ranking)
-            cell.awayTeamLabel.text = String(calcul.standen[indexPath.row].user)
-            cell.homegoalsLabel.text = String(calcul.standen[indexPath.row].punten)
-            cell.awaygoalsLabel.text = String(calcul.standen[indexPath.row].index)
+            cell.standLabel.text = String(calcul.standen[indexPath.row].ranking + 1)
+            cell.naamLabel.text = String(calcul.standen[indexPath.row].user)
+            cell.scoreLabel.text = String(calcul.standen[indexPath.row].punten)
             
-            cell.homeTeamLabel.font = UIFont(name: font0, size: 10)
-            cell.awayTeamLabel.font = UIFont(name: font0, size: 10)
-            cell.homegoalsLabel.font = UIFont(name: font0, size: 10)
-            cell.awaygoalsLabel.font = UIFont(name: font0, size: 10)
+            let temp0 = calcul.standen[indexPath.row].index
+            let temp1 = String(calcul.pronos[temp0][1].goals_1) + "-" + String(calcul.pronos[temp0][1].goals_2)
+            
+            cell.extraLabel.text = temp1
+            
+            //cell.homeTeamLabel.font = UIFont(name: font0, size: 10)
+            //cell.awayTeamLabel.font = UIFont(name: font0, size: 10)
+            //cell.homegoalsLabel.font = UIFont(name: font0, size: 10)
+            //cell.awaygoalsLabel.font = UIFont(name: font0, size: 10)
             
         } else {
-            cell.homeTeamLabel.text = ""
-            cell.awayTeamLabel.text = ""
-            cell.homegoalsLabel.text = ""
-            cell.awaygoalsLabel.text = ""
+            cell.standLabel.text = ""
+            cell.naamLabel.text = ""
+            cell.scoreLabel.text = ""
+            cell.extraLabel.text = ""
             
         }
         
-        cell.homegoalsLabel.textAlignment = .center
-        cell.awaygoalsLabel.textAlignment = .center
+        cell.standLabel.textAlignment = .center
+        cell.scoreLabel.textAlignment = .center
+        cell.extraLabel.textAlignment = .center
+        
+        cell.extraLabel.adjustsFontSizeToFitWidth = true
+        
+        // Visuals
+        cell.ViewStandenCell.layer.cornerRadius = cell.ViewStandenCell.frame.height / 2
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 63
     }
     
     static let identifer = "ViewController1"
@@ -127,6 +141,10 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         tableView1.delegate = self
         tableView1.refreshControl = UIRefreshControl()
         tableView1.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+        
+        // Visuals TableView
+        tableView1.separatorStyle = .none
+        tableView1.showsVerticalScrollIndicator = false
         
         if dummy1 == 0 {
             // Only load players' predictions once + Create users standings matrix
