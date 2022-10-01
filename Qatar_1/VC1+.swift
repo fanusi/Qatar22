@@ -205,7 +205,7 @@ extension ViewController1 {
                 "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
             ]
 
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=144")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all&league=144")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.httpMethod = "GET"
