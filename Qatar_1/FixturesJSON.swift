@@ -43,12 +43,12 @@ struct fixture: Codable {
 
 struct fixture_s: Codable {
     
-    var date: String
+    var timestamp: Int
     var venue: venue_s
     var status: status_s
     
     enum CodingKeys: String, CodingKey {
-           case date
+           case timestamp
            case venue
            case status
        }
@@ -62,10 +62,10 @@ struct fixture_s: Codable {
         status = try values.decode(status_s.self, forKey: .status)
         
         // 3 - Conditional Decoding
-        if var date =  try values.decodeIfPresent(String.self, forKey: .date) {
-            self.date = date
+        if var timestamp =  try values.decodeIfPresent(Int.self, forKey: .timestamp) {
+            self.timestamp = timestamp
         } else {
-            self.date = "-"
+            self.timestamp = 0
         }
         
     }

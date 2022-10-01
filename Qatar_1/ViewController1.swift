@@ -16,6 +16,7 @@ import CoreXLSX
 //public var PronosB = [[Match]]()
 
 public var LiveGamesA = [Fixtures]()
+public var UpcomingGamesA = [Fixtures]()
 public var FixturesA = [Fixtures]()
 public var PronosB = [[Fixtures]]()
 public var StandenA = [Scores]()
@@ -151,29 +152,30 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             realpronos()
             
             //TEMP
-            self.realpronos_temp()
+            //self.realpronos_temp()
             
             dummy1 = 1
         }
         
         parsing()
-        //initiate()
-        //tableView1.reloadData()
+        initiate()
+        tableView1.reloadData()
         
     }
     
     @objc private func didPullToRefresh() {
         
         parsing()
-        //initiate()
+        initiate()
         
     }
     
     func parsing() {
 
         //TEM uncomment following line
-        //self.fixtureParsing()
+        self.fixtureParsing()
         self.liveGamesParsing()
+        //self.upcomingGamesParsing()
         self.standingParsing()
 
     }
@@ -181,7 +183,7 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     func initiate() {
         
         // At this point, following arrays have been populated:
-        // LiveGamesA = [Fixtures](); FixturesA = [Fixtures]();
+        // LiveGamesA = [Fixtures](); UpcomingGamesA = [Fixtures]() FixturesA = [Fixtures]();
         // PronosB = [[Fixtures]](); StandenA = [Scores](); StandingsA = [Standings]()
         
         if FixturesA.count > 0 && PronosB.count > 0 && StandenA.count > 0 && StandingsA.count > 0 {

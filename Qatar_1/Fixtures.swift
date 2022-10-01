@@ -11,7 +11,7 @@ public class Fixtures {
     
     var index: Int
     var venue: String
-    var timing: Date
+    var time: String
     var team_1: String
     var goals_1: Int
     var logo_1: String
@@ -24,11 +24,11 @@ public class Fixtures {
     var punten: Int
 
     
-    init(index: Int, venue: String, timing: Date, team_1: String, goals_1: Int, logo_1: String, team_2: String, goals_2: Int, logo_2: String, user: String = "Tournament", status: String = "", round: String = "", punten: Int = 0) {
+    init(index: Int, venue: String, time: String, team_1: String, goals_1: Int, logo_1: String, team_2: String, goals_2: Int, logo_2: String, user: String = "Tournament", status: String = "", round: String = "", punten: Int = 0) {
         
         self.index = index
         self.venue = venue
-        self.timing = timing
+        self.time = time
         self.team_1 = team_1
         self.goals_1 = goals_1
         self.logo_1 = logo_1

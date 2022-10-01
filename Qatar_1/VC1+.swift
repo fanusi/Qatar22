@@ -53,10 +53,19 @@ extension ViewController1 {
                             if n < niveau1.response.count {
                                 //API entry existing
                                 
+                                let timeStamp = Double(niveau1.response[n].fixture.timestamp)
+                                let unixTimeStamp: Double = Double(timeStamp) / 1.0
+                                let exactDate = NSDate.init(timeIntervalSince1970: unixTimeStamp)
+                                let dateFormatt = DateFormatter();
+                                dateFormatt.dateFormat = "dd/MM  h:mm"
+                                let date1 = dateFormatt.string(from: exactDate as Date)
                                 
-                                let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), timing: Date(), team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo), status: niveau1.response[n].fixture.status.short, round: niveau1.response[n].league.round)
+                                
+                                let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), time: date1, team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo), status: niveau1.response[n].fixture.status.short, round: niveau1.response[n].league.round)
                                 
                                     FixturesA.append(newFixture)
+                                
+                                print(newFixture.time)
                                 
                             } else {
                             
@@ -72,7 +81,7 @@ extension ViewController1 {
                                     round = "Final"
                                 }
                                 
-                                let newFixture =  Fixtures(index: n, venue: "-", timing: Date(), team_1: "-", goals_1: -999, logo_1: "-", team_2: "-", goals_2: -999, logo_2: "-", status: "NS", round: round)
+                                let newFixture =  Fixtures(index: n, venue: "-", time: "-", team_1: "-", goals_1: -999, logo_1: "-", team_2: "-", goals_2: -999, logo_2: "-", status: "NS", round: round)
                                 
                                     FixturesA.append(newFixture)
                                 
@@ -91,6 +100,7 @@ extension ViewController1 {
                 DispatchQueue.main.async() {
                     
                     self.initiate()
+                    self.upperBarUpdate2()
                     self.tableView1.refreshControl?.endRefreshing()
                     self.tableView1.reloadData()
                     
@@ -174,6 +184,7 @@ extension ViewController1 {
                     DispatchQueue.main.async() {
                         
                         self.initiate()
+                        self.upperBarUpdate2()
                         //qual16 = calcul.qualbest2()
                         
                     }
@@ -194,7 +205,7 @@ extension ViewController1 {
                 "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
             ]
 
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=144")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.httpMethod = "GET"
@@ -225,7 +236,7 @@ extension ViewController1 {
                                 
                                 //let newFixture =  Match(context: self.context)
                                 
-                                let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), timing: Date(), team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo))
+                                let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), time: "-", team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo))
                                     
                                 LiveGamesA.append(newFixture)
                                 //print(LiveGamesA[n].team1 ?? "")
@@ -245,6 +256,7 @@ extension ViewController1 {
                     self.initiate()
                     self.tableView1.refreshControl?.endRefreshing()
                     self.tableView1.reloadData()
+                    //self.upcomingGamesParsing()
                     self.upperBarUpdate2()
                 }
                                 
@@ -253,6 +265,85 @@ extension ViewController1 {
                 dataTask.resume()
 
         }
+    
+    func upcomingGamesParsing () {
+        
+            UpcomingGamesA.removeAll()
+        
+            let headers = [
+                "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
+                "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+            ]
+
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=144&next=50")! as URL,
+                                                    cachePolicy: .useProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+        
+            request.httpMethod = "GET"
+            request.allHTTPHeaderFields = headers
+
+            let session = URLSession.shared
+            
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                    
+                if error == nil && data != nil {
+                        
+                    let decoder = JSONDecoder()
+                        
+                do {
+                    
+                        let niveau1 = try decoder.decode(response1.self, from: data!)
+                        print("Items upcoming games = \(niveau1.response.count)")
+                    
+                        let start = 0
+                        let end = niveau1.response.count - 1
+                        
+                        // Number of fixtures
+                        
+                        if end >= 0 {
+                        // Condition that there are observations in API call (important for live games)
+                            
+                            for n in start...end {
+                                
+                                //let newFixture =  Match(context: self.context)
+                                
+                                
+                                let timeStamp = Double(niveau1.response[n].fixture.timestamp)
+                                let unixTimeStamp: Double = Double(timeStamp) / 1.0
+                                let exactDate = NSDate.init(timeIntervalSince1970: unixTimeStamp)
+                                let dateFormatt = DateFormatter();
+                                dateFormatt.dateFormat = "dd/MM  h:mm"
+                                let date1 = dateFormatt.string(from: exactDate as Date)
+                                
+                                let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), time: date1, team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo))
+                                    
+                                UpcomingGamesA.append(newFixture)
+                                //print(LiveGamesA[n].team1 ?? "")
+                                
+                            }
+                            
+                        }
+                            
+                    } catch {
+                        
+                        debugPrint(error)
+                    }
+                        
+                }
+                
+                DispatchQueue.main.async() {
+                    self.initiate()
+                    self.tableView1.refreshControl?.endRefreshing()
+                    self.tableView1.reloadData()
+                    self.upperBarUpdate3()
+                }
+                                
+                })
+                    
+                dataTask.resume()
+
+        }
+    
     
     func upperBarUpdate() {
         
@@ -338,7 +429,7 @@ extension ViewController1 {
                 newlabel(view1: upperBar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: LiveGamesA[1].team_1 + " - " + LiveGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
                 newlabel(view1: upperBar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 14.0, center: true, textwhite: true)
                 
-            } else {
+            } else if calcul.fixtures.count > 0  {
             // No games ongoing
             print("No games ongoing")
                 
@@ -350,18 +441,19 @@ extension ViewController1 {
                 // If next game is third Group game then there will be two games played at same time
                     newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].round, fontsize: 14.0, center: false, textwhite: true)
 //                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].timing, fontsize: 14.0, center: false, textwhite: true)
-                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: "20:00", fontsize: 14.0, center: false, textwhite: true)
+                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 14.0, center: false, textwhite: true)
                     newlabel(view1: upperBar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].team_1 + " - " + calcul.fixtures[calcul.lastgame1+1].team_2, fontsize: 14.0, center: false, textwhite: true)
                     newlabel(view1: upperBar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+2].team_1 + " - " + calcul.fixtures[calcul.lastgame1+2].team_2, fontsize: 14.0, center: false, textwhite: true)
                     
                 } else {
-          
+                    
+                    print("Called")
                     newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].round, fontsize: 14.0, center: false, textwhite: true)
 //                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 14.0, center: false, textwhite: true)
                         
-                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: "20:00", fontsize: 14.0, center: false, textwhite: true)
+                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 14.0, center: false, textwhite: true)
                     
-                    newlabel(view1: upperBar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].team_1 + " - " + calcul.fixtures[calcul.lastgame1+1].team_2, fontsize: 16.0, center: false, textwhite: true)
+                    newlabel(view1: upperBar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].team_1 + " - " + calcul.fixtures[calcul.lastgame1+1].team_2, fontsize: 18.0, center: false, textwhite: true)
                     
                 }
             
@@ -369,6 +461,48 @@ extension ViewController1 {
             
             //livebar.addSubview(updatebtn)
             //return livebar
+        
+    }
+    
+    func upperBarUpdate3() {
+        
+            // remove existing views
+            removeSV(viewsv: upperBar)
+        
+            if LiveGamesA.count == 1 {
+            // A single game is being played
+            print("1 game ongoing")
+                
+                upperBar.backgroundColor = .black
+                
+                newlabel(view1: upperBar, x: 0.02, y: 0.4, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 16.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.50, y: 0.4, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: true)
+                
+                
+            } else if LiveGamesA.count > 1 {
+            // Two games are being played
+            print("2 games ongoing")
+                
+                upperBar.backgroundColor = .black
+                
+                newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.50, y: 0.15, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 14.0, center: true, textwhite: true)
+                
+                newlabel(view1: upperBar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: LiveGamesA[1].team_1 + " - " + LiveGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 14.0, center: true, textwhite: true)
+                
+            } else if UpcomingGamesA.count > 0 {
+                // No games ongoing
+                print("No games ongoing")
+                
+                upperBar.backgroundColor = .red
+                
+                newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: UpcomingGamesA[0].round, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: UpcomingGamesA[0].time, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: UpcomingGamesA[0].team_1 + " - " + UpcomingGamesA[0].team_2, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: UpcomingGamesA[1].team_1 + " - " + UpcomingGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
+                
+            }
         
     }
 
@@ -459,7 +593,7 @@ extension ViewController1 {
                 
                 PronosB.append(newArrayFixtures)
                 
-                let fixture =  Fixtures(index: 0, venue: "", timing: Date(), team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[1 + ga * i])
+                let fixture =  Fixtures(index: 0, venue: "", time: "-", team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[1 + ga * i])
                 
                 PronosB[i].append(fixture)
                 
@@ -467,7 +601,7 @@ extension ViewController1 {
                     
                     // Loop games
                     
-                    let fixture =  Fixtures(index: n, venue: "", timing: Date(), team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[(n + 1) + ga * i])
+                    let fixture =  Fixtures(index: n, venue: "", time: "-", team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[(n + 1) + ga * i])
                     
                     PronosB[i].append(fixture)
                     
@@ -531,7 +665,7 @@ extension ViewController1 {
                     
             for i in 1...1 {
                 
-                let fixture =  Fixtures(index: 0, venue: "", timing: Date(), team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "", user: "Tournament")
+                let fixture =  Fixtures(index: 0, venue: "", time: "-", team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "", user: "Tournament")
                 
                 FixturesA.append(fixture)
                 
@@ -539,7 +673,7 @@ extension ViewController1 {
                     
                     // Loop games
                     
-                    let fixture =  Fixtures(index: n, venue: "", timing: Date(), team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "", user: "Tournament")
+                    let fixture =  Fixtures(index: n, venue: "", time: "-", team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "", user: "Tournament")
                     
                     FixturesA.append(fixture)
                     
