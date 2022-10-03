@@ -274,13 +274,13 @@ public class CalculModel {
                 
             }
             
-            print("Test----")
-            print(kwalnextround.count)
+            //print("Test----")
+            //print(kwalnextround.count)
             
             // Give points for qualifying next round
             for i in 0...end-start {
                 
-                print(kwalnextround[i])
+                //print(kwalnextround[i])
                 if qualProno == kwalnextround[i] {
                     punten = punten + round
                 }

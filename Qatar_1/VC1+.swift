@@ -63,10 +63,12 @@ extension ViewController1 {
                                 
                                 let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), time: date1, team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo), status: niveau1.response[n].fixture.status.short, round: niveau1.response[n].league.round)
                                 
+                                    newFixture.time_double = timeStamp
+                                    newFixture.team_short_1 = shortTeams[newFixture.team_1] ?? ""
+                                    newFixture.team_short_2 = shortTeams[newFixture.team_2] ?? ""
+                                
                                     FixturesA.append(newFixture)
-                                
-                                print(newFixture.time)
-                                
+                                                                
                             } else {
                             
                                 var round: String
@@ -83,11 +85,16 @@ extension ViewController1 {
                                 
                                 let newFixture =  Fixtures(index: n, venue: "-", time: "-", team_1: "-", goals_1: -999, logo_1: "-", team_2: "-", goals_2: -999, logo_2: "-", status: "NS", round: round)
                                 
-                                    FixturesA.append(newFixture)
+                                // Set timing so it is later than all known games
+                                newFixture.time_double = 2500000000
+                                
+                                FixturesA.append(newFixture)
                                 
                             }
                             
                         }
+                    
+                    FixturesA = FixturesA.sorted(by: { ($0.time_double) < ($1.time_double) })
                     
                             
                     } catch {
@@ -423,10 +430,10 @@ extension ViewController1 {
                 
                 upperBar.backgroundColor = .black
                 
-                newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: LiveGamesA[0].team_short_1 + " - " + LiveGamesA[0].team_short_2, fontsize: 14.0, center: false, textwhite: true)
                 newlabel(view1: upperBar, x: 0.50, y: 0.15, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 14.0, center: true, textwhite: true)
                 
-                newlabel(view1: upperBar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: LiveGamesA[1].team_1 + " - " + LiveGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
+                newlabel(view1: upperBar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: LiveGamesA[1].team_short_1 + " - " + LiveGamesA[1].team_short_2, fontsize: 14.0, center: false, textwhite: true)
                 newlabel(view1: upperBar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 14.0, center: true, textwhite: true)
                 
             } else if calcul.fixtures.count > 0  {
@@ -436,6 +443,9 @@ extension ViewController1 {
                 upperBar.backgroundColor = .systemRed
                             
                 let thirdGames: [Int] = [32, 34, 36, 38, 40, 42, 44, 46]
+                
+                print("Last game equals")
+                print(calcul.lastgame1)
                 
                 if thirdGames.contains(calcul.lastgame1 + 1) {
                 // If next game is third Group game then there will be two games played at same time
@@ -453,7 +463,7 @@ extension ViewController1 {
                         
                     newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 14.0, center: false, textwhite: true)
                     
-                    newlabel(view1: upperBar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].team_1 + " - " + calcul.fixtures[calcul.lastgame1+1].team_2, fontsize: 18.0, center: false, textwhite: true)
+                    newlabel(view1: upperBar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].team_short_1 + " - " + calcul.fixtures[calcul.lastgame1+1].team_short_2, fontsize: 18.0, center: false, textwhite: true)
                     
                 }
             

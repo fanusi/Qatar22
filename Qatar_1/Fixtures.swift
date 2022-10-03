@@ -22,6 +22,10 @@ public class Fixtures {
     var status: String
     var round: String
     var punten: Int
+    
+    var time_double: Double = 0
+    var team_short_1: String = ""
+    var team_short_2: String = ""
 
     
     init(index: Int, venue: String, time: String, team_1: String, goals_1: Int, logo_1: String, team_2: String, goals_2: Int, logo_2: String, user: String = "Tournament", status: String = "", round: String = "", punten: Int = 0) {

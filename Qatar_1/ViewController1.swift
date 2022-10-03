@@ -52,6 +52,11 @@ public var groupsPlayed = [Int]()
 public var qual16 = [String]()
 // best 2 from each group that qualify for round of 16
 
+let shortTeams = [
+    "Qatar": "QAT", "Ecuador": "ECU", "England": "ENG", "Iran": "IRA", "Senegal": "SEN", "Netherlands": "NLD", "USA": "USA", "Wales": "WAL", "Argentina": "ARG", "Saudi Arabia": "SAU", "Denmark": "DEN", "Tunisia": "TUN", "Mexico": "MEX", "Poland": "POL", "France": "FRA", "Australia": "AUS", "Morocco": "MOR", "Croatia": "CRO", "Germany": "GER", "Japan": "JAP", "Spain": "SPA", "Costa Rica": "COS", "Belgium": "BEL", "Canada": "CAN", "Switzerland": "SWI", "Cameroon": "CAM", "Uruguay": "URU", "South Korea": "KOR", "Portugal": "POR", "Ghana": "GHA", "Brazil": "BRA", "Serbia": "SER"
+]
+
+
 
 public var calcul = CalculModel(fixtures: FixturesA, pronos: PronosB, standen: StandenA, standings: StandingsA)
 // Initiate calculation object
@@ -188,6 +193,13 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         if FixturesA.count > 0 && PronosB.count > 0 && StandenA.count > 0 && StandingsA.count > 0 {
             
+            print("FixtA")
+            
+            for i in 0...FixturesA.count-1 {
+    
+                print(FixturesA[i].team_1 + " - " + FixturesA[i].team_2)
+    
+            }
             
             // Update inputs in calcul object
             calcul.fixtures = FixturesA
@@ -196,16 +208,16 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             calcul.standen = StandenA
             
             // Define last game variable
-            calcul.lastgame()
+            calcul.lastgame1 = calcul.lastgame()
             
             // Calculate players' points
             calcul.routine()
             
-            for i in 0...StandenA.count-1 {
-    
-                print(StandenA[i].user)
-    
-            }
+//            for i in 0...StandenA.count-1 {
+//
+//                print(StandenA[i].user)
+//
+//            }
             
         }
 
