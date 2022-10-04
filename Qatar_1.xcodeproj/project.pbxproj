@@ -11,6 +11,7 @@
 		AD07436715EBF90C2B871990 /* Pods_Qatar_1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183FA568E2E24CAD384028B4 /* Pods_Qatar_1Tests.framework */; };
 		AE32615328DECD2500DAFD04 /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE32615228DECD2500DAFD04 /* Scores.swift */; };
 		AE32615528DED83900DAFD04 /* Calcul_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE32615428DED83900DAFD04 /* Calcul_Model.swift */; };
+		AE54702F28EC18EC001F4BFF /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE54702E28EC18EC001F4BFF /* UIImageView+.swift */; };
 		AE63400828DDFF890048965D /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63400728DDFF890048965D /* Standings.swift */; };
 		AE63400A28DE005D0048965D /* StandingsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63400928DE005D0048965D /* StandingsJSON.swift */; };
 		AE6FB1B628D4C66C006A5DB1 /* VC1+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */; };
@@ -73,6 +74,7 @@
 		9D68F636DA601E069A9F4E62 /* Pods-Qatar_1-Qatar_1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qatar_1-Qatar_1UITests.debug.xcconfig"; path = "Target Support Files/Pods-Qatar_1-Qatar_1UITests/Pods-Qatar_1-Qatar_1UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE32615228DECD2500DAFD04 /* Scores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
 		AE32615428DED83900DAFD04 /* Calcul_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calcul_Model.swift; sourceTree = "<group>"; };
+		AE54702E28EC18EC001F4BFF /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		AE63400728DDFF890048965D /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 		AE63400928DE005D0048965D /* StandingsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsJSON.swift; sourceTree = "<group>"; };
 		AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC1+.swift"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				AEE4237428CB3C07006BBD52 /* ViewController2.swift */,
 				AEE4237628CB3C7E006BBD52 /* ViewController3.swift */,
 				AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */,
+				AE54702E28EC18EC001F4BFF /* UIImageView+.swift */,
 				AE32615428DED83900DAFD04 /* Calcul_Model.swift */,
 				AE32615228DECD2500DAFD04 /* Scores.swift */,
 				AE63400928DE005D0048965D /* StandingsJSON.swift */,
@@ -543,6 +546,7 @@
 				AEE4234528CB304D006BBD52 /* Qatar_1.xcdatamodeld in Sources */,
 				AEE4238128CB3F5C006BBD52 /* TabPageViewController.swift in Sources */,
 				AE6FB1B828D4C807006A5DB1 /* FixturesJSON.swift in Sources */,
+				AE54702F28EC18EC001F4BFF /* UIImageView+.swift in Sources */,
 				AECD3C9E28D75631001BB0C6 /* LiveGamesCell.swift in Sources */,
 				AEE4233B28CB304D006BBD52 /* AppDelegate.swift in Sources */,
 				AE32615328DECD2500DAFD04 /* Scores.swift in Sources */,

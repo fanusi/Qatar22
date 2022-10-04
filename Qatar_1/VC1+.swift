@@ -440,7 +440,7 @@ extension ViewController1 {
             // No games ongoing
             print("No games ongoing")
                 
-                upperBar.backgroundColor = .systemRed
+                upperBar.backgroundColor = .blue
                             
                 let thirdGames: [Int] = [32, 34, 36, 38, 40, 42, 44, 46]
                 
@@ -458,12 +458,17 @@ extension ViewController1 {
                 } else {
                     
                     print("Called")
-                    newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].round, fontsize: 14.0, center: false, textwhite: true)
-//                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 14.0, center: false, textwhite: true)
-                        
-                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 14.0, center: false, textwhite: true)
+                    print(calcul.fixtures[calcul.lastgame1+1].logo_1)
                     
-                    newlabel(view1: upperBar, x: 0.30, y: 0.4, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].team_short_1 + " - " + calcul.fixtures[calcul.lastgame1+1].team_short_2, fontsize: 18.0, center: false, textwhite: true)
+                    newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+1].logo_1, x: 0.025, y: 0.05, width: 0.20, height: 0.90)
+                        
+                    newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.90, text: calcul.fixtures[calcul.lastgame1+1].team_short_1, fontsize: 14.0, center: true, textwhite: true)
+                    
+                    newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.90, text: calcul.fixtures[calcul.lastgame1+1].team_short_2, fontsize: 14.0, center: true, textwhite: true)
+                    
+                    newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+1].logo_2, x: 0.775, y: 0.05, width: 0.20, height: 0.90)
+                    
+
                     
                 }
             
@@ -535,6 +540,20 @@ extension ViewController1 {
         }
         label.adjustsFontSizeToFitWidth = true
         view1.addSubview(label)
+        
+    }
+    
+    func newimage (view1: UIView, name: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+        
+        let locView = UIImageView(frame: CGRect(x: view1.frame.width * x, y: view1.frame.height * y, width: view1.frame.width * width, height: view1.frame.height * height))
+        
+        locView.contentMode = UIView.ContentMode.scaleAspectFit
+        
+        if let url = URL(string:name){
+          locView.load(url: url)
+        }
+        
+        view1.addSubview(locView)
         
     }
     
