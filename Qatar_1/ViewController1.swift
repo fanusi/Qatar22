@@ -22,20 +22,20 @@ public var PronosB = [[Fixtures]]()
 public var StandenA = [Scores]()
 public var StandingsA = [Standings]()
 
-public let pr:Int = 43
+public let pr:Int = 11
 // Number of players
-public let ga:Int = 51
-//Number of matches (change to 64)
+public let ga:Int = 64
+//Number of matches
 public let fr:Int = 0
 //Match index start tournament
-public let sr:Int = 36
-//Match index number 2nd round (change to 48)
-public let qf:Int = 44
-//start quarter finals (change to 56)
-public let sf:Int = 48
-//start semi finals (change to 60)
-public let f:Int = 50
-//start finals (change to 62)
+public let sr:Int = 48
+//Match index number 2nd round
+public let qf:Int = 56
+//start quarter finals
+public let sf:Int = 60
+//start semi finals
+public let f:Int = 62
+//start finals
 
 public let font0 = "Optima-Regular"
 public let font2 = "Menlo"
@@ -52,8 +52,12 @@ public var groupsPlayed = [Int]()
 public var qual16 = [String]()
 // best 2 from each group that qualify for round of 16
 
+//let shortTeams = [
+//    "Qatar": "QAT", "Ecuador": "ECU", "England": "ENG", "Iran": "IRA", "Senegal": "SEN", "Netherlands": "NLD", "USA": "USA", "Wales": "WAL", "Argentina": "ARG", "Saudi Arabia": "SAU", "Denmark": "DEN", "Tunisia": "TUN", "Mexico": "MEX", "Poland": "POL", "France": "FRA", "Australia": "AUS", "Morocco": "MOR", "Croatia": "CRO", "Germany": "GER", "Japan": "JAP", "Spain": "SPA", "Costa Rica": "COS", "Belgium": "BEL", "Canada": "CAN", "Switzerland": "SWI", "Cameroon": "CAM", "Uruguay": "URU", "South Korea": "KOR", "Portugal": "POR", "Ghana": "GHA", "Brazil": "BRA", "Serbia": "SER"
+//]
+
 let shortTeams = [
-    "Qatar": "QAT", "Ecuador": "ECU", "England": "ENG", "Iran": "IRA", "Senegal": "SEN", "Netherlands": "NLD", "USA": "USA", "Wales": "WAL", "Argentina": "ARG", "Saudi Arabia": "SAU", "Denmark": "DEN", "Tunisia": "TUN", "Mexico": "MEX", "Poland": "POL", "France": "FRA", "Australia": "AUS", "Morocco": "MOR", "Croatia": "CRO", "Germany": "GER", "Japan": "JAP", "Spain": "SPA", "Costa Rica": "COS", "Belgium": "BEL", "Canada": "CAN", "Switzerland": "SWI", "Cameroon": "CAM", "Uruguay": "URU", "South Korea": "KOR", "Portugal": "POR", "Ghana": "GHA", "Brazil": "BRA", "Serbia": "SER"
+    "Standard Liege": "STA", "Gent": "KAA", "Charleroi": "CHA", "AS Eupen": "EUP", "Kortrijk": "KVK", "OH Leuven": "OHL", "Zulte Waregem": "ZWA", "Seraing United": "SER", "St. Truiden": "STV", "Union St. Gilloise": "USG", "Club Brugge KV": "CLU", "Genk": "GNK", "KV Mechelen": "KVM", "Antwerp": "ANT", "Anderlecht": "AND", "Oostende": "KVO", "KVC Westerlo": "WES", "Cercle Brugge": "CER"
 ]
 
 
@@ -65,9 +69,10 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     
     //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return calcul.standen.count
+        return calcul.standen.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,26 +81,53 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         if indexPath.row <= calcul.standen.count {
         
-            cell.standLabel.text = String(calcul.standen[indexPath.row].ranking + 1)
-            cell.naamLabel.text = String(calcul.standen[indexPath.row].user)
-            cell.scoreLabel.text = String(calcul.standen[indexPath.row].punten)
-            
-            let temp0 = calcul.standen[indexPath.row].index
-            let temp1 = String(calcul.pronos[temp0][1].goals_1) + "-" + String(calcul.pronos[temp0][1].goals_2)
-            
-            cell.extraLabel.text = temp1
-            
-            //cell.homeTeamLabel.font = UIFont(name: font0, size: 10)
-            //cell.awayTeamLabel.font = UIFont(name: font0, size: 10)
-            //cell.homegoalsLabel.font = UIFont(name: font0, size: 10)
-            //cell.awaygoalsLabel.font = UIFont(name: font0, size: 10)
-            
+            if indexPath.row == 0 {
+                
+                cell.standLabel.text = "Rank"
+                cell.naamLabel.text = "Player"
+                cell.scoreLabel.text = "Score"
+                
+                if LiveGamesA.count > 0 {
+                    cell.extraLabel.text = "Prono"
+                } else {
+                    cell.extraLabel.text = "Recent"
+                }
+                
+            } else {
+                
+                cell.standLabel.text = String(calcul.standen[indexPath.row-1].ranking + 1)
+                cell.naamLabel.text = String(calcul.standen[indexPath.row-1].user)
+                cell.scoreLabel.text = String(calcul.standen[indexPath.row-1].punten)
+                
+                let temp0 = calcul.standen[indexPath.row-1].index
+                
+                var temp1 = String(calcul.pronos[temp0][calcul.lastgame1+1].goals_1) + "-" + String(calcul.pronos[temp0][calcul.lastgame1+1].goals_2)
+                
+                cell.extraLabel.text = temp1
+                
+            }
+
         } else {
             cell.standLabel.text = ""
             cell.naamLabel.text = ""
             cell.scoreLabel.text = ""
             cell.extraLabel.text = ""
             
+        }
+        
+        //Colors
+        
+        if indexPath.row == 0 {
+            // Header row
+            cell.ViewStandenCell.backgroundColor = .systemBackground
+        } else if indexPath.row == 1 {
+            cell.ViewStandenCell.backgroundColor = .yellow
+        } else if indexPath.row == 2 {
+            cell.ViewStandenCell.backgroundColor = .green
+        } else if indexPath.row == 3 {
+            cell.ViewStandenCell.backgroundColor = .lightGray
+        } else {
+            cell.ViewStandenCell.backgroundColor = .systemGray6
         }
         
         cell.standLabel.textAlignment = .center
@@ -105,13 +137,13 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         cell.extraLabel.adjustsFontSizeToFitWidth = true
         
         // Visuals
-        cell.ViewStandenCell.layer.cornerRadius = cell.ViewStandenCell.frame.height / 2
+        cell.ViewStandenCell.layer.cornerRadius = cell.ViewStandenCell.frame.height / 8
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 63
+        return CGFloat(ga-1)
     }
     
     static let identifer = "ViewController1"
@@ -193,14 +225,6 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         if FixturesA.count > 0 && PronosB.count > 0 && StandenA.count > 0 && StandingsA.count > 0 {
             
-            print("FixtA")
-            
-            for i in 0...FixturesA.count-1 {
-    
-                print(FixturesA[i].team_1 + " - " + FixturesA[i].team_2)
-    
-            }
-            
             // Update inputs in calcul object
             calcul.fixtures = FixturesA
             calcul.pronos = PronosB
@@ -213,20 +237,10 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             // Calculate players' points
             calcul.routine()
             
-//            for i in 0...StandenA.count-1 {
-//
-//                print(StandenA[i].user)
-//
-//            }
-            
         }
 
-        
-        //self.test1()
-        //StandenA[2].user = "Pipo de clown"
         tableView1.reloadData()
-        
-        
+    
     }
     
 }

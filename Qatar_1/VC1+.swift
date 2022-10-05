@@ -15,6 +15,9 @@ extension ViewController1 {
         
             FixturesA.removeAll()
         
+            var Fixtures_temp = [Fixtures]()
+            Fixtures_temp.removeAll()
+        
             print("Start fixture parsing...")
         
             let headers = [
@@ -44,7 +47,7 @@ extension ViewController1 {
                         print("Items fixtures = \(niveau1.response.count)")
                     
                         let start = 0
-                        let end = 63
+                        let end = ga-1
                         
                         // Number of fixtures
                         
@@ -67,7 +70,7 @@ extension ViewController1 {
                                     newFixture.team_short_1 = shortTeams[newFixture.team_1] ?? ""
                                     newFixture.team_short_2 = shortTeams[newFixture.team_2] ?? ""
                                 
-                                    FixturesA.append(newFixture)
+                                    Fixtures_temp.append(newFixture)
                                                                 
                             } else {
                             
@@ -88,13 +91,13 @@ extension ViewController1 {
                                 // Set timing so it is later than all known games
                                 newFixture.time_double = 2500000000
                                 
-                                FixturesA.append(newFixture)
+                                Fixtures_temp.append(newFixture)
                                 
                             }
                             
                         }
                     
-                    FixturesA = FixturesA.sorted(by: { ($0.time_double) < ($1.time_double) })
+                    FixturesA = Fixtures_temp.sorted(by: { ($0.time_double) < ($1.time_double) })
                     
                             
                     } catch {
@@ -107,7 +110,7 @@ extension ViewController1 {
                 DispatchQueue.main.async() {
                     
                     self.initiate()
-                    self.upperBarUpdate2()
+                    self.upperBarUpdate()
                     self.tableView1.refreshControl?.endRefreshing()
                     self.tableView1.reloadData()
                     
@@ -191,7 +194,7 @@ extension ViewController1 {
                     DispatchQueue.main.async() {
                         
                         self.initiate()
-                        self.upperBarUpdate2()
+                        self.upperBarUpdate()
                         //qual16 = calcul.qualbest2()
                         
                     }
@@ -211,7 +214,8 @@ extension ViewController1 {
                 "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
                 "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
             ]
-
+            
+            // &league=144
             let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all&league=144")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
@@ -264,7 +268,7 @@ extension ViewController1 {
                     self.tableView1.refreshControl?.endRefreshing()
                     self.tableView1.reloadData()
                     //self.upcomingGamesParsing()
-                    self.upperBarUpdate2()
+                    self.upperBarUpdate()
                 }
                                 
                 })
@@ -342,7 +346,7 @@ extension ViewController1 {
                     self.initiate()
                     self.tableView1.refreshControl?.endRefreshing()
                     self.tableView1.reloadData()
-                    self.upperBarUpdate3()
+                    self.upperBarUpdate2()
                 }
                                 
                 })
@@ -351,65 +355,7 @@ extension ViewController1 {
 
         }
     
-    
     func upperBarUpdate() {
-        
-        if LiveGamesA.count > 0 {
-        // Game are ongoing => Live modus
-            
-            UpperBarLabel11.text = ""
-            UpperBarLabel12.text = LiveGamesA[0].team_1
-            UpperBarLabel13.text = String(LiveGamesA[0].goals_1)
-            UpperBarLabel14.text = LiveGamesA[0].venue
-            UpperBarLabel15.text = LiveGamesA[0].team_2
-            UpperBarLabel16.text = String(LiveGamesA[0].goals_2)
-            
-            if LiveGamesA.count == 1 {
-                
-                UpperBarLabel21.text = ""
-                UpperBarLabel22.text = ""
-                UpperBarLabel23.text = ""
-                UpperBarLabel24.text = ""
-                UpperBarLabel25.text = ""
-                UpperBarLabel26.text = ""
-                
-                
-            } else {
-                
-                UpperBarLabel21.text = ""
-                UpperBarLabel22.text = LiveGamesA[1].team_1
-                UpperBarLabel23.text = String(LiveGamesA[1].goals_1)
-                UpperBarLabel24.text = LiveGamesA[1].venue
-                UpperBarLabel25.text = LiveGamesA[1].team_2
-                UpperBarLabel26.text = String(LiveGamesA[1].goals_2)
-                
-            }
-            
-        } else {
-        // No games ongoing ==> Next fixture(s) modus
-            
-            print("Test11")
-            
-            UpperBarLabel11.text = ""
-            UpperBarLabel12.text = ""
-            UpperBarLabel13.text = ""
-            UpperBarLabel14.text = ""
-            UpperBarLabel15.text = ""
-            UpperBarLabel16.text = ""
-            UpperBarLabel21.text = ""
-            UpperBarLabel22.text = ""
-            UpperBarLabel23.text = ""
-            UpperBarLabel24.text = ""
-            UpperBarLabel25.text = ""
-            UpperBarLabel26.text = ""
-            
-            
-        }
-        
-        
-    }
-    
-    func upperBarUpdate2() {
         
             // remove existing views
             removeSV(viewsv: upperBar)
@@ -418,29 +364,52 @@ extension ViewController1 {
             // A single game is being played
             print("1 game ongoing")
                 
-                upperBar.backgroundColor = .black
+                //upperBar.backgroundColor = .black
                 
-                newlabel(view1: upperBar, x: 0.02, y: 0.4, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 16.0, center: false, textwhite: true)
-                newlabel(view1: upperBar, x: 0.50, y: 0.4, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: true)
+                newimage(view1: upperBar, name: LiveGamesA[0].logo_1, x: 0.025, y: 0.05, width: 0.20, height: 0.90)
+                    
+                newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.90, text: LiveGamesA[0].team_short_1, fontsize: 16.0, center: true, textwhite: false)
                 
+                newlabel(view1: upperBar, x: 0.425, y: 0.05, width: 0.15, height: 0.90, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: false)
+                
+                newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.90, text: LiveGamesA[0].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                
+                newimage(view1: upperBar, name: LiveGamesA[0].logo_2, x: 0.775, y: 0.05, width: 0.20, height: 0.90)
                 
             } else if LiveGamesA.count > 1 {
             // Two games are being played
             print("2 games ongoing")
                 
-                upperBar.backgroundColor = .black
+                //upperBar.backgroundColor = .black
                 
-                newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: LiveGamesA[0].team_short_1 + " - " + LiveGamesA[0].team_short_2, fontsize: 14.0, center: false, textwhite: true)
-                newlabel(view1: upperBar, x: 0.50, y: 0.15, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 14.0, center: true, textwhite: true)
+                //Game 1
+                newimage(view1: upperBar, name: LiveGamesA[0].logo_1, x: 0.025, y: 0.10, width: 0.20, height: 0.35)
                 
-                newlabel(view1: upperBar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: LiveGamesA[1].team_short_1 + " - " + LiveGamesA[1].team_short_2, fontsize: 14.0, center: false, textwhite: true)
-                newlabel(view1: upperBar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 14.0, center: true, textwhite: true)
+                newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.45, text: LiveGamesA[0].team_short_1, fontsize: 16.0, center: true, textwhite: false)
+
+                newlabel(view1: upperBar, x: 0.425, y: 0.05, width: 0.15, height: 0.45, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: false)
+                
+                newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.45, text: LiveGamesA[0].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                
+                newimage(view1: upperBar, name: LiveGamesA[0].logo_2, x: 0.775, y: 0.10, width: 0.20, height: 0.35)
+                
+                //Game 2
+                newimage(view1: upperBar, name: LiveGamesA[1].logo_1, x: 0.025, y: 0.50, width: 0.20, height: 0.35)
+                    
+                newlabel(view1: upperBar, x: 0.225, y: 0.45, width: 0.20, height: 0.45, text: LiveGamesA[1].team_short_1, fontsize: 16.0, center: true, textwhite: false)
+                
+                newlabel(view1: upperBar, x: 0.425, y: 0.45, width: 0.15, height: 0.45, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 16.0, center: true, textwhite: false)
+                
+                newlabel(view1: upperBar, x: 0.575, y: 0.45, width: 0.20, height: 0.45, text: LiveGamesA[1].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                
+                newimage(view1: upperBar, name: LiveGamesA[1].logo_2, x: 0.775, y: 0.50, width: 0.20, height: 0.35)
+                
                 
             } else if calcul.fixtures.count > 0  {
             // No games ongoing
             print("No games ongoing")
                 
-                upperBar.backgroundColor = .blue
+                //upperBar.backgroundColor = .blue
                             
                 let thirdGames: [Int] = [32, 34, 36, 38, 40, 42, 44, 46]
                 
@@ -449,26 +418,46 @@ extension ViewController1 {
                 
                 if thirdGames.contains(calcul.lastgame1 + 1) {
                 // If next game is third Group game then there will be two games played at same time
-                    newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].round, fontsize: 14.0, center: false, textwhite: true)
-//                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].timing, fontsize: 14.0, center: false, textwhite: true)
-                    newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 14.0, center: false, textwhite: true)
-                    newlabel(view1: upperBar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+1].team_1 + " - " + calcul.fixtures[calcul.lastgame1+1].team_2, fontsize: 14.0, center: false, textwhite: true)
-                    newlabel(view1: upperBar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: calcul.fixtures[calcul.lastgame1+2].team_1 + " - " + calcul.fixtures[calcul.lastgame1+2].team_2, fontsize: 14.0, center: false, textwhite: true)
+                    
+                    //Game 1
+                    newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+1].logo_1, x: 0.025, y: 0.10, width: 0.20, height: 0.35)
+                    
+                    newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+1].team_short_1, fontsize: 16.0, center: true, textwhite: false)
+                    
+                    newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+1].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                    
+                    newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+1].logo_2, x: 0.775, y: 0.10, width: 0.20, height: 0.35)
+                    
+                    //Game 2
+                    newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+2].logo_1, x: 0.025, y: 0.50, width: 0.20, height: 0.35)
+                        
+                    newlabel(view1: upperBar, x: 0.225, y: 0.45, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+2].team_short_1, fontsize: 16.0, center: true, textwhite: false)
+                    
+                    newlabel(view1: upperBar, x: 0.575, y: 0.45, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+2].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                    
+                    newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+2].logo_2, x: 0.775, y: 0.50, width: 0.20, height: 0.35)
+                    
+                    //Info
+                    
+                    newlabel(view1: upperBar, x: 0.425, y: 0, width: 0.15, height: 0.25, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 10.0, center: true, textwhite: false)
                     
                 } else {
                     
                     print("Called")
+                    print(calcul.lastgame1+1)
                     print(calcul.fixtures[calcul.lastgame1+1].logo_1)
                     
                     newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+1].logo_1, x: 0.025, y: 0.05, width: 0.20, height: 0.90)
                         
-                    newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.90, text: calcul.fixtures[calcul.lastgame1+1].team_short_1, fontsize: 14.0, center: true, textwhite: true)
+                    newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.90, text: calcul.fixtures[calcul.lastgame1+1].team_short_1, fontsize: 16.0, center: true, textwhite: false)
                     
-                    newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.90, text: calcul.fixtures[calcul.lastgame1+1].team_short_2, fontsize: 14.0, center: true, textwhite: true)
+                    newlabel(view1: upperBar, x: 0.425, y: 0.05, width: 0.15, height: 0.30, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 12.0, center: true, textwhite: false)
+                    
+                    newlabel(view1: upperBar, x: 0.425, y: 0.70, width: 0.15, height: 0.30, text: calcul.fixtures[calcul.lastgame1+1].round, fontsize: 12.0, center: true, textwhite: false)
+                    
+                    newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.90, text: calcul.fixtures[calcul.lastgame1+1].team_short_2, fontsize: 16.0, center: true, textwhite: false)
                     
                     newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+1].logo_2, x: 0.775, y: 0.05, width: 0.20, height: 0.90)
-                    
-
                     
                 }
             
@@ -479,48 +468,49 @@ extension ViewController1 {
         
     }
     
-    func upperBarUpdate3() {
-        
-            // remove existing views
-            removeSV(viewsv: upperBar)
-        
-            if LiveGamesA.count == 1 {
-            // A single game is being played
-            print("1 game ongoing")
-                
-                upperBar.backgroundColor = .black
-                
-                newlabel(view1: upperBar, x: 0.02, y: 0.4, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 16.0, center: false, textwhite: true)
-                newlabel(view1: upperBar, x: 0.50, y: 0.4, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: true)
-                
-                
-            } else if LiveGamesA.count > 1 {
-            // Two games are being played
-            print("2 games ongoing")
-                
-                upperBar.backgroundColor = .black
-                
-                newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 14.0, center: false, textwhite: true)
-                newlabel(view1: upperBar, x: 0.50, y: 0.15, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 14.0, center: true, textwhite: true)
-                
-                newlabel(view1: upperBar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: LiveGamesA[1].team_1 + " - " + LiveGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
-                newlabel(view1: upperBar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 14.0, center: true, textwhite: true)
-                
-            } else if UpcomingGamesA.count > 0 {
-                // No games ongoing
-                print("No games ongoing")
-                
-                upperBar.backgroundColor = .red
-                
-                newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: UpcomingGamesA[0].round, fontsize: 14.0, center: false, textwhite: true)
-                newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: UpcomingGamesA[0].time, fontsize: 14.0, center: false, textwhite: true)
-                newlabel(view1: upperBar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: UpcomingGamesA[0].team_1 + " - " + UpcomingGamesA[0].team_2, fontsize: 14.0, center: false, textwhite: true)
-                newlabel(view1: upperBar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: UpcomingGamesA[1].team_1 + " - " + UpcomingGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
-                
-            }
-        
-    }
+    func upperBarUpdate2() {
+         
+             // remove existing views
+             removeSV(viewsv: upperBar)
+         
+             if LiveGamesA.count == 1 {
+             // A single game is being played
+             print("1 game ongoing")
+                 
+                 upperBar.backgroundColor = .black
+                 
+                 newlabel(view1: upperBar, x: 0.02, y: 0.4, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 16.0, center: false, textwhite: true)
+                 newlabel(view1: upperBar, x: 0.50, y: 0.4, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: true)
+                 
+                 
+             } else if LiveGamesA.count > 1 {
+             // Two games are being played
+             print("2 games ongoing")
+                 
+                 upperBar.backgroundColor = .black
+                 
+                 newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 14.0, center: false, textwhite: true)
+                 newlabel(view1: upperBar, x: 0.50, y: 0.15, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 14.0, center: true, textwhite: true)
+                 
+                 newlabel(view1: upperBar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: LiveGamesA[1].team_1 + " - " + LiveGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
+                 newlabel(view1: upperBar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 14.0, center: true, textwhite: true)
+                 
+             } else if UpcomingGamesA.count > 0 {
+                 // No games ongoing
+                 print("No games ongoing")
+                 
+                 upperBar.backgroundColor = .red
+                 
+                 newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: UpcomingGamesA[0].round, fontsize: 14.0, center: false, textwhite: true)
+                 newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: UpcomingGamesA[0].time, fontsize: 14.0, center: false, textwhite: true)
+                 newlabel(view1: upperBar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: UpcomingGamesA[0].team_1 + " - " + UpcomingGamesA[0].team_2, fontsize: 14.0, center: false, textwhite: true)
+                 newlabel(view1: upperBar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: UpcomingGamesA[1].team_1 + " - " + UpcomingGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
+                 
+             }
+         
+     }
 
+    
     func newlabel (view1: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text: String, fontsize: CGFloat, center: Bool, textwhite: Bool) {
         
         let label = UILabel(frame: CGRect(x: view1.frame.width * x, y: view1.frame.height * y, width: view1.frame.width * width, height: view1.frame.height * height))
@@ -563,7 +553,7 @@ extension ViewController1 {
         var homeTeams: [String] = []
         var awayTeams: [String] = []
         
-        guard let filepath = Bundle.main.path(forResource: "EK 2021 xcode1", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "WK 2022 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }
@@ -651,7 +641,7 @@ extension ViewController1 {
         
         FixturesA.removeAll()
         
-        guard let filepath = Bundle.main.path(forResource: "EK 2021 xcode1", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "WK 2022 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }
@@ -712,42 +702,6 @@ extension ViewController1 {
             
           }
         }
-    }
-    
-    func test1() {
-        
-        print("Fixtures \(FixturesA.count)")
-        print("PronosB \(PronosB.count)")
-        print("StandenA \(StandenA.count)")
-        print("StandingsA \(StandingsA.count)")
-        
-        if FixturesA.count > 0 && PronosB.count > 0 && StandenA.count > 0 && StandingsA.count > 0 {
-            
-            for i in 0...ga-1 {
-                
-                print(FixturesA[i].team_1 + " - " + FixturesA[i].team_2)
-                print(PronosB[1][i].user)
-                print(PronosB[1][i].team_1 + " - " + PronosB[1][i].team_2)
-                
-            }
-            
-            for i in 0...StandenA.count - 1 {
-                
-                print(StandenA[i].user)
-                print(StandenA[i].punten)
-                
-            }
-            
-            for i in 0...StandingsA.count - 1 {
-                
-                print(StandingsA[i].group)
-                print(StandingsA[i].rank)
-                print(StandingsA[i].team)
-                
-            }
-            
-        }
-        
     }
     
     func removeSV (viewsv: UIView) {
