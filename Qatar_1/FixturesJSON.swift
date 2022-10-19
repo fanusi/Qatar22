@@ -108,10 +108,12 @@ struct status_s: Codable {
     
     var long: String
     var short: String
+    var elapsed: Double
     
     enum CodingKeys: String, CodingKey {
         case long
         case short
+        case elapsed
     }
     
     init(from decoder: Decoder) throws {
@@ -129,6 +131,12 @@ struct status_s: Codable {
             self.short = short
         } else {
             self.short = "-"
+        }
+        
+        if var elapsed =  try values.decodeIfPresent(Double.self, forKey: .elapsed) {
+            self.elapsed = elapsed
+        } else {
+            self.elapsed = 0
         }
         
     }

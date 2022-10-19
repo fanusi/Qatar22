@@ -26,7 +26,7 @@ extension ViewController1 {
             ]
 
             //World Cup = 1; Jupiler Pro League = 144
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=1&season=2022")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=144&season=2022")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         
@@ -245,12 +245,14 @@ extension ViewController1 {
                             
                             for n in start...end {
                                 
-                                //let newFixture =  Match(context: self.context)
+                                let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), time: "", team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo))
                                 
-                                let newFixture =  Fixtures(index: n, venue: String(niveau1.response[n].fixture.venue.name), time: "-", team_1: String(niveau1.response[n].teams.home.name), goals_1: Int(niveau1.response[n].goals.home), logo_1: String(niveau1.response[n].teams.home.logo), team_2: String(niveau1.response[n].teams.away.name), goals_2: Int(niveau1.response[n].goals.away), logo_2: String(niveau1.response[n].teams.away.logo))
+                                newFixture.elapsed = Int(niveau1.response[n].fixture.status.elapsed)
+                                newFixture.team_short_1 = shortTeams[newFixture.team_1] ?? ""
+                                newFixture.team_short_2 = shortTeams[newFixture.team_2] ?? ""
                                     
                                 LiveGamesA.append(newFixture)
-                                //print(LiveGamesA[n].team1 ?? "")
+                                //print(LiveGamesA[n].team_1 ?? "Nothing")
                                 
                             }
                             
@@ -365,12 +367,14 @@ extension ViewController1 {
             print("1 game ongoing")
                 
                 //upperBar.backgroundColor = .black
-                
+                                
                 newimage(view1: upperBar, name: LiveGamesA[0].logo_1, x: 0.025, y: 0.05, width: 0.20, height: 0.90)
-                    
+                
                 newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.90, text: LiveGamesA[0].team_short_1, fontsize: 16.0, center: true, textwhite: false)
                 
-                newlabel(view1: upperBar, x: 0.425, y: 0.05, width: 0.15, height: 0.90, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.425, y: 0.05, width: 0.15, height: 0.15, text: String(LiveGamesA[0].elapsed) + "'", fontsize: 14.0, center: true, textwhite: false)
+                
+                newlabel(view1: upperBar, x: 0.425, y: 0.20, width: 0.15, height: 0.60, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: false)
                 
                 newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.90, text: LiveGamesA[0].team_short_2, fontsize: 16.0, center: true, textwhite: false)
                 
@@ -383,11 +387,19 @@ extension ViewController1 {
                 //upperBar.backgroundColor = .black
                 
                 //Game 1
+                
+                print(LiveGamesA[0].time)
+
+                
                 newimage(view1: upperBar, name: LiveGamesA[0].logo_1, x: 0.025, y: 0.10, width: 0.20, height: 0.35)
+                
+                    //LiveGamesA[0].team_short_1
                 
                 newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.45, text: LiveGamesA[0].team_short_1, fontsize: 16.0, center: true, textwhite: false)
 
-                newlabel(view1: upperBar, x: 0.425, y: 0.05, width: 0.15, height: 0.45, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.425, y: 0.025, width: 0.15, height: 0.10, text: String(LiveGamesA[0].elapsed) + "'", fontsize: 16.0, center: true, textwhite: false)
+                
+                newlabel(view1: upperBar, x: 0.425, y: 0.125, width: 0.15, height: 0.30, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: false)
                 
                 newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.45, text: LiveGamesA[0].team_short_2, fontsize: 16.0, center: true, textwhite: false)
                 
@@ -398,7 +410,9 @@ extension ViewController1 {
                     
                 newlabel(view1: upperBar, x: 0.225, y: 0.45, width: 0.20, height: 0.45, text: LiveGamesA[1].team_short_1, fontsize: 16.0, center: true, textwhite: false)
                 
-                newlabel(view1: upperBar, x: 0.425, y: 0.45, width: 0.15, height: 0.45, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.425, y: 0.425, width: 0.15, height: 0.10, text: String(LiveGamesA[1].elapsed) + "'", fontsize: 16.0, center: true, textwhite: false)
+                
+                newlabel(view1: upperBar, x: 0.425, y: 0.525, width: 0.15, height: 0.30, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 16.0, center: true, textwhite: false)
                 
                 newlabel(view1: upperBar, x: 0.575, y: 0.45, width: 0.20, height: 0.45, text: LiveGamesA[1].team_short_2, fontsize: 16.0, center: true, textwhite: false)
                 

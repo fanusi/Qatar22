@@ -21,6 +21,7 @@ public var FixturesA = [Fixtures]()
 public var PronosB = [[Fixtures]]()
 public var StandenA = [Scores]()
 public var StandingsA = [Standings]()
+public var FlagsA: [String: UIImage] = ["Standard Liege": UIImage(named: "Record")!, "Gent": UIImage(named: "Record")!, "Charleroi": UIImage(named: "Record")!, "AS Eupen": UIImage(named: "Record")!, "Kortrijk": UIImage(named: "Record")!, "OH Leuven": UIImage(named: "Record")!, "Zulte Waregem": UIImage(named: "Record")!, "Seraing United": UIImage(named: "Record")!, "St. Truiden": UIImage(named: "Record")!, "Union St. Gilloise": UIImage(named: "Record")!, "Club Brugge KV": UIImage(named: "Record")!, "Genk": UIImage(named: "Record")!, "KV Mechelen": UIImage(named: "Record")!, "Antwerp": UIImage(named: "Record")!, "Anderlecht": UIImage(named: "Record")!, "Oostende": UIImage(named: "Record")!, "KVC Westerlo": UIImage(named: "Record")!, "Cercle Brugge": UIImage(named: "Record")!]
 
 public let pr:Int = 11
 // Number of players
@@ -45,6 +46,7 @@ public let backgroundcolor1: UIColor = UIColor(red: 242/255, green: 241/255, blu
 public let backgroundcolor2: UIColor = UIColor(red: 152/255, green: 247/255, blue: 255/255, alpha: 1)
 
 public var dummy1 = 0
+public var dummy2 = 0
 
 public var groupsPlayed = [Int]()
 //Matrix returning total games played from group 1 to 8
