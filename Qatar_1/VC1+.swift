@@ -250,6 +250,7 @@ extension ViewController1 {
                                 newFixture.elapsed = Int(niveau1.response[n].fixture.status.elapsed)
                                 newFixture.team_short_1 = shortTeams[newFixture.team_1] ?? ""
                                 newFixture.team_short_2 = shortTeams[newFixture.team_2] ?? ""
+                                newFixture.short = String(niveau1.response[n].fixture.status.short)
                                     
                                 LiveGamesA.append(newFixture)
                                 //print(LiveGamesA[n].team_1 ?? "Nothing")
@@ -370,13 +371,20 @@ extension ViewController1 {
                                 
                 newimage(view1: upperBar, name: LiveGamesA[0].logo_1, x: 0.025, y: 0.05, width: 0.20, height: 0.90)
                 
-                newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.90, text: LiveGamesA[0].team_short_1, fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.90, text: LiveGamesA[0].team_short_1, fontsize: 16.0, center: true)
                 
-                newlabel(view1: upperBar, x: 0.425, y: 0.05, width: 0.15, height: 0.15, text: String(LiveGamesA[0].elapsed) + "'", fontsize: 14.0, center: true, textwhite: false)
+                var elaps: String = String(LiveGamesA[0].elapsed) + "'"
                 
-                newlabel(view1: upperBar, x: 0.425, y: 0.20, width: 0.15, height: 0.60, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: false)
+                print(LiveGamesA[0].short)
+                if LiveGamesA[0].short == "HT" {
+                    elaps = "HT"
+                }
                 
-                newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.90, text: LiveGamesA[0].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.425, y: 0.05, width: 0.15, height: 0.15, text: elaps, fontsize: 14.0, center: true, textcolor: .systemRed)
+                
+                newlabel(view1: upperBar, x: 0.425, y: 0.20, width: 0.15, height: 0.60, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true)
+                
+                newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.90, text: LiveGamesA[0].team_short_2, fontsize: 16.0, center: true)
                 
                 newimage(view1: upperBar, name: LiveGamesA[0].logo_2, x: 0.775, y: 0.05, width: 0.20, height: 0.90)
                 
@@ -395,26 +403,40 @@ extension ViewController1 {
                 
                     //LiveGamesA[0].team_short_1
                 
-                newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.45, text: LiveGamesA[0].team_short_1, fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.45, text: LiveGamesA[0].team_short_1, fontsize: 16.0, center: true)
+                
+                var elaps: String = String(LiveGamesA[0].elapsed) + "'"
+                
+                print(LiveGamesA[0].short)
+                if LiveGamesA[0].short == "HT" {
+                    elaps = "HT"
+                }
 
-                newlabel(view1: upperBar, x: 0.425, y: 0.025, width: 0.15, height: 0.10, text: String(LiveGamesA[0].elapsed) + "'", fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.425, y: 0.025, width: 0.15, height: 0.10, text: elaps, fontsize: 16.0, center: true, textcolor: .systemRed)
                 
-                newlabel(view1: upperBar, x: 0.425, y: 0.125, width: 0.15, height: 0.30, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.425, y: 0.125, width: 0.15, height: 0.30, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true)
                 
-                newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.45, text: LiveGamesA[0].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.45, text: LiveGamesA[0].team_short_2, fontsize: 16.0, center: true)
                 
                 newimage(view1: upperBar, name: LiveGamesA[0].logo_2, x: 0.775, y: 0.10, width: 0.20, height: 0.35)
                 
                 //Game 2
                 newimage(view1: upperBar, name: LiveGamesA[1].logo_1, x: 0.025, y: 0.50, width: 0.20, height: 0.35)
                     
-                newlabel(view1: upperBar, x: 0.225, y: 0.45, width: 0.20, height: 0.45, text: LiveGamesA[1].team_short_1, fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.225, y: 0.45, width: 0.20, height: 0.45, text: LiveGamesA[1].team_short_1, fontsize: 16.0, center: true)
                 
-                newlabel(view1: upperBar, x: 0.425, y: 0.425, width: 0.15, height: 0.10, text: String(LiveGamesA[1].elapsed) + "'", fontsize: 16.0, center: true, textwhite: false)
+                var elaps2: String = String(LiveGamesA[1].elapsed) + "'"
                 
-                newlabel(view1: upperBar, x: 0.425, y: 0.525, width: 0.15, height: 0.30, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 16.0, center: true, textwhite: false)
+                print(LiveGamesA[1].short)
+                if LiveGamesA[1].short == "HT" {
+                    elaps2 = "HT"
+                }
                 
-                newlabel(view1: upperBar, x: 0.575, y: 0.45, width: 0.20, height: 0.45, text: LiveGamesA[1].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                newlabel(view1: upperBar, x: 0.425, y: 0.425, width: 0.15, height: 0.10, text: elaps2, fontsize: 16.0, center: true, textcolor: .systemRed)
+                
+                newlabel(view1: upperBar, x: 0.425, y: 0.525, width: 0.15, height: 0.30, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 16.0, center: true)
+                
+                newlabel(view1: upperBar, x: 0.575, y: 0.45, width: 0.20, height: 0.45, text: LiveGamesA[1].team_short_2, fontsize: 16.0, center: true)
                 
                 newimage(view1: upperBar, name: LiveGamesA[1].logo_2, x: 0.775, y: 0.50, width: 0.20, height: 0.35)
                 
@@ -436,24 +458,24 @@ extension ViewController1 {
                     //Game 1
                     newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+1].logo_1, x: 0.025, y: 0.10, width: 0.20, height: 0.35)
                     
-                    newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+1].team_short_1, fontsize: 16.0, center: true, textwhite: false)
+                    newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+1].team_short_1, fontsize: 16.0, center: true)
                     
-                    newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+1].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                    newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+1].team_short_2, fontsize: 16.0, center: true)
                     
                     newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+1].logo_2, x: 0.775, y: 0.10, width: 0.20, height: 0.35)
                     
                     //Game 2
                     newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+2].logo_1, x: 0.025, y: 0.50, width: 0.20, height: 0.35)
                         
-                    newlabel(view1: upperBar, x: 0.225, y: 0.45, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+2].team_short_1, fontsize: 16.0, center: true, textwhite: false)
+                    newlabel(view1: upperBar, x: 0.225, y: 0.45, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+2].team_short_1, fontsize: 16.0, center: true)
                     
-                    newlabel(view1: upperBar, x: 0.575, y: 0.45, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+2].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                    newlabel(view1: upperBar, x: 0.575, y: 0.45, width: 0.20, height: 0.45, text: calcul.fixtures[calcul.lastgame1+2].team_short_2, fontsize: 16.0, center: true)
                     
                     newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+2].logo_2, x: 0.775, y: 0.50, width: 0.20, height: 0.35)
                     
                     //Info
                     
-                    newlabel(view1: upperBar, x: 0.425, y: 0, width: 0.15, height: 0.25, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 10.0, center: true, textwhite: false)
+                    newlabel(view1: upperBar, x: 0.425, y: 0, width: 0.15, height: 0.25, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 10.0, center: true)
                     
                 } else {
                     
@@ -463,13 +485,13 @@ extension ViewController1 {
                     
                     newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+1].logo_1, x: 0.025, y: 0.05, width: 0.20, height: 0.90)
                         
-                    newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.90, text: calcul.fixtures[calcul.lastgame1+1].team_short_1, fontsize: 16.0, center: true, textwhite: false)
+                    newlabel(view1: upperBar, x: 0.225, y: 0.05, width: 0.20, height: 0.90, text: calcul.fixtures[calcul.lastgame1+1].team_short_1, fontsize: 16.0, center: true)
                     
-                    newlabel(view1: upperBar, x: 0.425, y: 0.05, width: 0.15, height: 0.30, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 12.0, center: true, textwhite: false)
+                    newlabel(view1: upperBar, x: 0.425, y: 0.05, width: 0.15, height: 0.30, text: calcul.fixtures[calcul.lastgame1+1].time, fontsize: 12.0, center: true)
                     
-                    newlabel(view1: upperBar, x: 0.425, y: 0.70, width: 0.15, height: 0.30, text: calcul.fixtures[calcul.lastgame1+1].round, fontsize: 12.0, center: true, textwhite: false)
+                    newlabel(view1: upperBar, x: 0.425, y: 0.70, width: 0.15, height: 0.30, text: calcul.fixtures[calcul.lastgame1+1].round, fontsize: 12.0, center: true)
                     
-                    newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.90, text: calcul.fixtures[calcul.lastgame1+1].team_short_2, fontsize: 16.0, center: true, textwhite: false)
+                    newlabel(view1: upperBar, x: 0.575, y: 0.05, width: 0.20, height: 0.90, text: calcul.fixtures[calcul.lastgame1+1].team_short_2, fontsize: 16.0, center: true)
                     
                     newimage(view1: upperBar, name: calcul.fixtures[calcul.lastgame1+1].logo_2, x: 0.775, y: 0.05, width: 0.20, height: 0.90)
                     
@@ -493,8 +515,8 @@ extension ViewController1 {
                  
                  upperBar.backgroundColor = .black
                  
-                 newlabel(view1: upperBar, x: 0.02, y: 0.4, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 16.0, center: false, textwhite: true)
-                 newlabel(view1: upperBar, x: 0.50, y: 0.4, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true, textwhite: true)
+                 newlabel(view1: upperBar, x: 0.02, y: 0.4, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 16.0, center: false)
+                 newlabel(view1: upperBar, x: 0.50, y: 0.4, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 16.0, center: true)
                  
                  
              } else if LiveGamesA.count > 1 {
@@ -503,11 +525,11 @@ extension ViewController1 {
                  
                  upperBar.backgroundColor = .black
                  
-                 newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 14.0, center: false, textwhite: true)
-                 newlabel(view1: upperBar, x: 0.50, y: 0.15, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 14.0, center: true, textwhite: true)
+                 newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.35, height: 0.3, text: LiveGamesA[0].team_1 + " - " + LiveGamesA[0].team_2, fontsize: 14.0, center: false)
+                 newlabel(view1: upperBar, x: 0.50, y: 0.15, width: 0.20, height: 0.3, text: String(LiveGamesA[0].goals_1) + " - " + String(LiveGamesA[0].goals_2), fontsize: 14.0, center: true)
                  
-                 newlabel(view1: upperBar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: LiveGamesA[1].team_1 + " - " + LiveGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
-                 newlabel(view1: upperBar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 14.0, center: true, textwhite: true)
+                 newlabel(view1: upperBar, x: 0.02, y: 0.5, width: 0.35, height: 0.3, text: LiveGamesA[1].team_1 + " - " + LiveGamesA[1].team_2, fontsize: 14.0, center: false)
+                 newlabel(view1: upperBar, x: 0.50, y: 0.5, width: 0.20, height: 0.3, text: String(LiveGamesA[1].goals_1) + " - " + String(LiveGamesA[1].goals_2), fontsize: 14.0, center: true)
                  
              } else if UpcomingGamesA.count > 0 {
                  // No games ongoing
@@ -515,17 +537,17 @@ extension ViewController1 {
                  
                  upperBar.backgroundColor = .red
                  
-                 newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: UpcomingGamesA[0].round, fontsize: 14.0, center: false, textwhite: true)
-                 newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: UpcomingGamesA[0].time, fontsize: 14.0, center: false, textwhite: true)
-                 newlabel(view1: upperBar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: UpcomingGamesA[0].team_1 + " - " + UpcomingGamesA[0].team_2, fontsize: 14.0, center: false, textwhite: true)
-                 newlabel(view1: upperBar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: UpcomingGamesA[1].team_1 + " - " + UpcomingGamesA[1].team_2, fontsize: 14.0, center: false, textwhite: true)
+                 newlabel(view1: upperBar, x: 0.02, y: 0.15, width: 0.20, height: 0.3, text: UpcomingGamesA[0].round, fontsize: 14.0, center: false)
+                 newlabel(view1: upperBar, x: 0.02, y: 0.50, width: 0.20, height: 0.3, text: UpcomingGamesA[0].time, fontsize: 14.0, center: false)
+                 newlabel(view1: upperBar, x: 0.30, y: 0.15, width: 0.35, height: 0.3, text: UpcomingGamesA[0].team_1 + " - " + UpcomingGamesA[0].team_2, fontsize: 14.0, center: false)
+                 newlabel(view1: upperBar, x: 0.30, y: 0.50, width: 0.35, height: 0.3, text: UpcomingGamesA[1].team_1 + " - " + UpcomingGamesA[1].team_2, fontsize: 14.0, center: false)
                  
              }
          
      }
 
     
-    func newlabel (view1: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text: String, fontsize: CGFloat, center: Bool, textwhite: Bool) {
+    func newlabel (view1: UIView, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, text: String, fontsize: CGFloat, center: Bool, textcolor: UIColor = .black) {
         
         let label = UILabel(frame: CGRect(x: view1.frame.width * x, y: view1.frame.height * y, width: view1.frame.width * width, height: view1.frame.height * height))
         if center {
@@ -535,9 +557,25 @@ extension ViewController1 {
         }
         label.text = text
         label.font = UIFont.boldSystemFont(ofSize: fontsize)
-        if textwhite {
-            label.textColor = .white
+//        if textwhite {
+//            label.textColor = .white
+//        }
+        
+        label.textColor = textcolor
+        
+        if textcolor == .black {
+            
+            label.textColor =  UIColor { tc in
+                     switch tc.userInterfaceStyle {
+                     case .dark:
+                         return UIColor.white
+                     default:
+                         return UIColor.black
+                     }
+                }
+            
         }
+
         if text == "Next" {
             //label.font = UIFont(name: "Arizonia", size: fontsize)
             label.textColor = .systemGray4
