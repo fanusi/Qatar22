@@ -467,13 +467,50 @@
                     <view key="view" contentMode="scaleToFill" id="rOU-Vc-jSy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sS-Ez-Eu2">
+                                <rect key="frame" x="0.0" y="597.5" width="414" height="298.5"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srm-hh-Xwq">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="298.5"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Srm-hh-Xwq" firstAttribute="leading" secondItem="1sS-Ez-Eu2" secondAttribute="leading" id="HFw-1c-GFg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Srm-hh-Xwq" secondAttribute="trailing" id="Jhx-Mf-gzq"/>
+                                    <constraint firstAttribute="bottom" secondItem="Srm-hh-Xwq" secondAttribute="bottom" id="Xvp-0f-WZd"/>
+                                    <constraint firstItem="Srm-hh-Xwq" firstAttribute="top" secondItem="1sS-Ez-Eu2" secondAttribute="top" id="mw0-sl-0Ns"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdD-Mh-MeV">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="597.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="v6Y-Bw-AK0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fdD-Mh-MeV" firstAttribute="leading" secondItem="v6Y-Bw-AK0" secondAttribute="leading" id="ILk-6r-Ymw"/>
+                            <constraint firstItem="fdD-Mh-MeV" firstAttribute="trailing" secondItem="v6Y-Bw-AK0" secondAttribute="trailing" id="OHC-Pr-aSk"/>
+                            <constraint firstItem="1sS-Ez-Eu2" firstAttribute="top" secondItem="fdD-Mh-MeV" secondAttribute="bottom" id="Woj-82-NZ8"/>
+                            <constraint firstAttribute="bottom" secondItem="1sS-Ez-Eu2" secondAttribute="bottom" id="XAa-z6-AHN"/>
+                            <constraint firstItem="1sS-Ez-Eu2" firstAttribute="leading" secondItem="v6Y-Bw-AK0" secondAttribute="leading" id="iTU-j0-O2y"/>
+                            <constraint firstItem="fdD-Mh-MeV" firstAttribute="top" secondItem="rOU-Vc-jSy" secondAttribute="top" id="kbB-ZJ-TqK"/>
+                            <constraint firstItem="1sS-Ez-Eu2" firstAttribute="trailing" secondItem="v6Y-Bw-AK0" secondAttribute="trailing" id="nol-40-6wf"/>
+                            <constraint firstItem="1sS-Ez-Eu2" firstAttribute="height" secondItem="fdD-Mh-MeV" secondAttribute="height" multiplier="1:2" id="sv2-bN-kao"/>
+                            <constraint firstItem="1sS-Ez-Eu2" firstAttribute="top" secondItem="fdD-Mh-MeV" secondAttribute="bottom" id="vBd-Qe-oq2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="View1" destination="fdD-Mh-MeV" id="RQv-cu-8gQ"/>
+                        <outlet property="View2" destination="1sS-Ez-Eu2" id="GWH-OO-RYW"/>
+                        <outlet property="pickerView" destination="Srm-hh-Xwq" id="SqK-jh-Ytp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0da-wY-AO9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1388" y="119"/>
+            <point key="canvasLocation" x="1386.9565217391305" y="118.52678571428571"/>
         </scene>
         <!--View Controller3-->
         <scene sceneID="3mH-xF-k95">

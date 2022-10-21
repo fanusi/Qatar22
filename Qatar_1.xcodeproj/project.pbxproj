@@ -19,6 +19,7 @@
 		AE6FB1B828D4C807006A5DB1 /* FixturesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */; };
 		AE6FB1BA28D4E649006A5DB1 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */; };
 		AE973B4E28E6CA1200AFA2B7 /* StandenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE973B4D28E6CA1200AFA2B7 /* StandenCell.swift */; };
+		AEA7659A2902C86A007D91E3 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA765992902C86A007D91E3 /* UIScrollView+.swift */; };
 		AECD3C9E28D75631001BB0C6 /* LiveGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD3C9D28D75631001BB0C6 /* LiveGamesCell.swift */; };
 		AED4B77728DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AED4B77628DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx */; };
 		AEE4233B28CB304D006BBD52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4233A28CB304D006BBD52 /* AppDelegate.swift */; };
@@ -83,6 +84,7 @@
 		AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesJSON.swift; sourceTree = "<group>"; };
 		AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		AE973B4D28E6CA1200AFA2B7 /* StandenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandenCell.swift; sourceTree = "<group>"; };
+		AEA765992902C86A007D91E3 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		AECD3C9D28D75631001BB0C6 /* LiveGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveGamesCell.swift; sourceTree = "<group>"; };
 		AED4B77628DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EK 2021 xcode1.xlsx"; sourceTree = SOURCE_ROOT; };
 		AEE4233728CB304D006BBD52 /* Qatar_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qatar_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +209,7 @@
 				AEE4233E28CB304D006BBD52 /* ViewController1.swift */,
 				AEE4237428CB3C07006BBD52 /* ViewController2.swift */,
 				AEE4237628CB3C7E006BBD52 /* ViewController3.swift */,
+				AEA765992902C86A007D91E3 /* UIScrollView+.swift */,
 				AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */,
 				AE54702E28EC18EC001F4BFF /* UIImageView+.swift */,
 				AE32615428DED83900DAFD04 /* Calcul_Model.swift */,
@@ -544,6 +547,7 @@
 				AEE4237728CB3C7E006BBD52 /* ViewController3.swift in Sources */,
 				AEE4237128CB35B7006BBD52 /* UILabel+.swift in Sources */,
 				AEE4237C28CB3EB6006BBD52 /* CategoryView.swift in Sources */,
+				AEA7659A2902C86A007D91E3 /* UIScrollView+.swift in Sources */,
 				AEE4233F28CB304D006BBD52 /* ViewController1.swift in Sources */,
 				AE32615528DED83900DAFD04 /* Calcul_Model.swift in Sources */,
 				AEE4238828CB4034006BBD52 /* PageModel.swift in Sources */,
