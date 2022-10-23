@@ -468,42 +468,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sS-Ez-Eu2">
-                                <rect key="frame" x="0.0" y="597.5" width="414" height="298.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltm-XS-xeV" userLabel="Sview">
+                                <rect key="frame" x="0.0" y="48" width="414" height="764"/>
                                 <subviews>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srm-hh-Xwq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="298.5"/>
-                                    </pickerView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEf-NR-g3O" userLabel="View1">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="545.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sS-Ez-Eu2">
+                                        <rect key="frame" x="0.0" y="545.5" width="414" height="218.5"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srm-hh-Xwq">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="218.5"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                            </pickerView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Srm-hh-Xwq" firstAttribute="top" secondItem="1sS-Ez-Eu2" secondAttribute="top" id="B7k-bI-yAb"/>
+                                            <constraint firstAttribute="trailing" secondItem="Srm-hh-Xwq" secondAttribute="trailing" id="D0j-EL-N79"/>
+                                            <constraint firstItem="Srm-hh-Xwq" firstAttribute="leading" secondItem="1sS-Ez-Eu2" secondAttribute="leading" id="aZw-q2-8ow"/>
+                                            <constraint firstAttribute="bottom" secondItem="Srm-hh-Xwq" secondAttribute="bottom" id="mgg-dV-8Z5"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="Srm-hh-Xwq" firstAttribute="leading" secondItem="1sS-Ez-Eu2" secondAttribute="leading" id="HFw-1c-GFg"/>
-                                    <constraint firstAttribute="trailing" secondItem="Srm-hh-Xwq" secondAttribute="trailing" id="Jhx-Mf-gzq"/>
-                                    <constraint firstAttribute="bottom" secondItem="Srm-hh-Xwq" secondAttribute="bottom" id="Xvp-0f-WZd"/>
-                                    <constraint firstItem="Srm-hh-Xwq" firstAttribute="top" secondItem="1sS-Ez-Eu2" secondAttribute="top" id="mw0-sl-0Ns"/>
+                                    <constraint firstItem="1sS-Ez-Eu2" firstAttribute="top" secondItem="tEf-NR-g3O" secondAttribute="bottom" id="9rV-2b-CpE"/>
+                                    <constraint firstItem="1sS-Ez-Eu2" firstAttribute="top" secondItem="tEf-NR-g3O" secondAttribute="bottom" id="GGC-cB-MuG"/>
+                                    <constraint firstItem="tEf-NR-g3O" firstAttribute="leading" secondItem="ltm-XS-xeV" secondAttribute="leading" id="IOg-xV-0lL"/>
+                                    <constraint firstItem="1sS-Ez-Eu2" firstAttribute="height" secondItem="tEf-NR-g3O" secondAttribute="height" multiplier="0.4" id="J3a-Vh-eJ6"/>
+                                    <constraint firstAttribute="trailing" secondItem="tEf-NR-g3O" secondAttribute="trailing" id="V5Q-O7-0BL"/>
+                                    <constraint firstItem="1sS-Ez-Eu2" firstAttribute="leading" secondItem="ltm-XS-xeV" secondAttribute="leading" id="fs7-rU-dVP"/>
+                                    <constraint firstAttribute="bottom" secondItem="1sS-Ez-Eu2" secondAttribute="bottom" id="lS2-Yi-g87"/>
+                                    <constraint firstItem="tEf-NR-g3O" firstAttribute="top" secondItem="ltm-XS-xeV" secondAttribute="top" id="oFV-pg-Jfp"/>
+                                    <constraint firstAttribute="trailing" secondItem="1sS-Ez-Eu2" secondAttribute="trailing" id="oSJ-HF-eQc"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdD-Mh-MeV">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="597.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v6Y-Bw-AK0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fdD-Mh-MeV" firstAttribute="leading" secondItem="v6Y-Bw-AK0" secondAttribute="leading" id="ILk-6r-Ymw"/>
-                            <constraint firstItem="fdD-Mh-MeV" firstAttribute="trailing" secondItem="v6Y-Bw-AK0" secondAttribute="trailing" id="OHC-Pr-aSk"/>
-                            <constraint firstItem="1sS-Ez-Eu2" firstAttribute="top" secondItem="fdD-Mh-MeV" secondAttribute="bottom" id="Woj-82-NZ8"/>
-                            <constraint firstAttribute="bottom" secondItem="1sS-Ez-Eu2" secondAttribute="bottom" id="XAa-z6-AHN"/>
-                            <constraint firstItem="1sS-Ez-Eu2" firstAttribute="leading" secondItem="v6Y-Bw-AK0" secondAttribute="leading" id="iTU-j0-O2y"/>
-                            <constraint firstItem="fdD-Mh-MeV" firstAttribute="top" secondItem="rOU-Vc-jSy" secondAttribute="top" id="kbB-ZJ-TqK"/>
-                            <constraint firstItem="1sS-Ez-Eu2" firstAttribute="trailing" secondItem="v6Y-Bw-AK0" secondAttribute="trailing" id="nol-40-6wf"/>
-                            <constraint firstItem="1sS-Ez-Eu2" firstAttribute="height" secondItem="fdD-Mh-MeV" secondAttribute="height" multiplier="1:2" id="sv2-bN-kao"/>
-                            <constraint firstItem="1sS-Ez-Eu2" firstAttribute="top" secondItem="fdD-Mh-MeV" secondAttribute="bottom" id="vBd-Qe-oq2"/>
+                            <constraint firstItem="ltm-XS-xeV" firstAttribute="top" secondItem="v6Y-Bw-AK0" secondAttribute="top" id="gQN-pI-GUi"/>
+                            <constraint firstItem="ltm-XS-xeV" firstAttribute="leading" secondItem="v6Y-Bw-AK0" secondAttribute="leading" id="mdm-Z3-Szf"/>
+                            <constraint firstItem="v6Y-Bw-AK0" firstAttribute="bottom" secondItem="ltm-XS-xeV" secondAttribute="bottom" constant="50" id="nAN-d1-HRQ"/>
+                            <constraint firstItem="ltm-XS-xeV" firstAttribute="trailing" secondItem="v6Y-Bw-AK0" secondAttribute="trailing" id="qin-AH-M4f"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="View1" destination="fdD-Mh-MeV" id="RQv-cu-8gQ"/>
+                        <outlet property="View1" destination="tEf-NR-g3O" id="n2t-dR-akv"/>
                         <outlet property="View2" destination="1sS-Ez-Eu2" id="GWH-OO-RYW"/>
                         <outlet property="pickerView" destination="Srm-hh-Xwq" id="SqK-jh-Ytp"/>
                     </connections>
@@ -531,6 +544,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
