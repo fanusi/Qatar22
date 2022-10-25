@@ -18,18 +18,18 @@ final class RootViewControler: TabPageScrollViewController {
         
         let vc1:ViewController1 = storyboard!.instantiateViewController(withIdentifier: ViewController1.identifer) as! ViewController1
         vc1.number = 1
-        vc1.navigationItem.title = "Ranking"
+        vc1.navigationItem.title = "Live"
         
         let vc2:ViewController2 = storyboard!.instantiateViewController(withIdentifier: ViewController2.identifer) as! ViewController2
         vc2.number = 2
         vc2.navigationItem.title = "Pronos"
         let vc3:ViewController3 = storyboard!.instantiateViewController(withIdentifier: ViewController3.identifer) as! ViewController3
         vc3.number = 3
-        vc3.navigationItem.title = "Results"
+        vc3.navigationItem.title = "Ranking"
         
-        tabItems = [TabItem(title: "Ranking",vc: vc1),
+        tabItems = [TabItem(title: "Live",vc: vc1),
                          TabItem(title: "Pronos",vc: vc2),
-                         TabItem(title: "Results",vc: vc3)]
+                         TabItem(title: "Ranking",vc: vc3)]
         
         view.backgroundColor = .white
         tabHeight = 50
