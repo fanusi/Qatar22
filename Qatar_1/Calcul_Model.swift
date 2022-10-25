@@ -13,7 +13,6 @@ public class CalculModel {
     var pronos: [[Fixtures]]
     var standen: [Scores]
     var standings: [Standings]
-    
     var lastgame1: Int = 0
 
     
@@ -587,6 +586,267 @@ public class CalculModel {
         
         
         return min(fg, ga - 1) - 1
+        
+    }
+    
+    func transferString(Astrings: [String]) -> String {
+        
+        var Svalue:String = ""
+        
+        if Astrings[0] != "" {
+            
+            Svalue = "Q1"
+            
+            if Astrings[3] != "" {
+             
+                Svalue = "X2"
+            
+            }
+                
+        } else if Astrings[3] != "" {
+            
+            Svalue = "Q2"
+            
+            if Astrings[0] != "" {
+             
+                Svalue = "X2"
+            
+            }
+                
+        }
+        
+        return Svalue
+        
+    }
+    
+    func extra(livegames: Int) {
+        
+        let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga]
+        //Index second round, quarter finals, semi finals, finals and last game
+        
+        for a in 0...standen.count - 1 {
+            
+            standen[a].extra = ""
+            standen[a].extra_meta = ""
+            standen[a].extra2 = ""
+            standen[a].extra_meta2 = ""
+            let i = standen[a].index
+            
+            if livegames == 1 {
+                
+                if LiveGamesA[0].index < ind[0] {
+                // 1st round games
+                
+                    let temp1: String = String(PronosB[i][LiveGamesA[0].index].goals_1)
+                    let temp2: String = String(PronosB[i][LiveGamesA[0].index].goals_2)
+                    let temp3: String = temp1 + "-" + temp2
+                    
+                    standen[a].extra = temp3
+                    
+                    let temp4: String = String(fixtures[LiveGamesA[0].index].goals_1)
+                    let temp5: String = String(fixtures[LiveGamesA[0].index].goals_2)
+                    let temp6: String = temp4 + "-" + temp5
+                    
+                    let burn1:Bool = burn(hgp: Int(temp1)!, agp: Int(temp2)!, hgr: Int(temp4)!, agr: Int(temp5)!)
+                    
+                    if temp3 == temp6 {
+                        standen[a].extra_meta = "Perfect Guess"
+                    } else if burn1 {
+                        standen[a].extra_meta = "Burn"
+                    }
+                    
+                    
+                } else {
+                // 2nd round
+                    
+                    let VC2 = ViewController2()
+                    let QualText:[String] = VC2.secondround(game: LiveGamesA[0].index, user: i, rteam1: fixtures[LiveGamesA[0].index].team_1, rteam2: fixtures[LiveGamesA[0].index].team_2)
+    
+                    if QualText[0] == LiveGamesA[0].team_1 {
+                    // Perfect guess
+                        
+                        let temp3 = QualText[1] + "-" + QualText[2]
+                        standen[a].extra = temp3
+                        
+                        let temp4: String = String(fixtures[LiveGamesA[0].index].goals_1)
+                        let temp5: String = String(fixtures[LiveGamesA[0].index].goals_2)
+                        let temp6: String = temp4 + "-" + temp5
+                        
+                        if temp3 == temp6 {
+                            standen[a].extra_meta = "Perfect Guess"
+                        } else {
+                            standen[a].extra_meta = "Perfect Prediction"
+                        }
+                        
+                    } else {
+                        
+                        standen[a].extra = transferString(Astrings: QualText)
+                        
+                        if standen[a].extra == "X2" {
+                            
+                            standen[a].extra_meta = "Both Qualified"
+                            
+                        }
+                        
+                    }
+
+                    
+                }
+            
+                
+            } else if LiveGamesA.count == 2 {
+                
+                if LiveGamesA[0].index < ind[0] {
+                // 1st round games
+                
+                    let temp1: String = String(PronosB[i][LiveGamesA[0].index].goals_1)
+                    let temp2: String = String(PronosB[i][LiveGamesA[0].index].goals_2)
+                    let temp3: String = temp1 + "-" + temp2
+                    standen[a].extra = temp3
+                    
+                    let temp7: String = String(PronosB[i][LiveGamesA[1].index].goals_1)
+                    let temp8: String = String(PronosB[i][LiveGamesA[1].index].goals_2)
+                    let temp9: String = temp7 + "-" + temp8
+                    standen[a].extra2 = temp9
+                    
+                    let temp4: String = String(fixtures[LiveGamesA[0].index].goals_1)
+                    let temp5: String = String(fixtures[LiveGamesA[0].index].goals_2)
+                    let temp6: String = temp4 + "-" + temp5
+                    
+                    let temp10: String = String(fixtures[LiveGamesA[1].index].goals_1)
+                    let temp11: String = String(fixtures[LiveGamesA[1].index].goals_2)
+                    let temp12: String = temp10 + "-" + temp11
+                    
+                    let burn1:Bool = burn(hgp: Int(temp1)!, agp: Int(temp2)!, hgr: Int(temp4)!, agr: Int(temp5)!)
+                    
+                    let burn2:Bool = burn(hgp: Int(temp7)!, agp: Int(temp8)!, hgr: Int(temp10)!, agr: Int(temp11)!)
+                    
+                    if temp3 == temp6 {
+                        standen[a].extra_meta = "Perfect Guess"
+                    } else if burn1 {
+                        standen[a].extra_meta = "Burn"
+                    }
+                    
+                    if temp9 == temp12 {
+                        standen[a].extra_meta2 = "Perfect Guess"
+                    } else if burn2 {
+                        standen[a].extra_meta2 = "Burn"
+                    }
+                    
+                } else {
+                // 2nd round
+                    
+                    let VC2 = ViewController2()
+                    let QualText:[String] = VC2.secondround(game: LiveGamesA[0].index, user: i, rteam1: fixtures[LiveGamesA[0].index].team_1, rteam2: fixtures[LiveGamesA[0].index].team_2)
+                    
+                    let QualText2:[String] = VC2.secondround(game: LiveGamesA[1].index, user: i, rteam1: fixtures[LiveGamesA[1].index].team_1, rteam2: fixtures[LiveGamesA[1].index].team_2)
+    
+                    if QualText[0] == LiveGamesA[0].team_1 {
+                    // Perfect guess
+                        
+                        let temp3 = QualText[1] + "-" + QualText[2]
+                        standen[a].extra = temp3
+                        
+                        let temp4: String = String(fixtures[LiveGamesA[0].index].goals_1)
+                        let temp5: String = String(fixtures[LiveGamesA[0].index].goals_2)
+                        let temp6: String = temp4 + "-" + temp5
+                        
+                        if temp3 == temp6 {
+                            standen[a].extra_meta = "Perfect Guess"
+                        } else {
+                            standen[a].extra_meta = "Perfect Prediction"
+                        }
+                        
+                    } else {
+                        
+                        standen[a].extra = transferString(Astrings: QualText)
+                        
+                        if standen[a].extra == "X2" {
+                            
+                            standen[a].extra_meta = "Both Qualified"
+                            
+                        }
+                        
+                    }
+
+                    if QualText2[0] == LiveGamesA[1].team_1 {
+                    // Perfect guess
+                        
+                        let temp9 = QualText2[1] + "-" + QualText2[2]
+                        standen[a].extra2 = temp9
+                        
+                        let temp10: String = String(fixtures[LiveGamesA[1].index].goals_1)
+                        let temp11: String = String(fixtures[LiveGamesA[1].index].goals_2)
+                        let temp12: String = temp10 + "-" + temp11
+                        
+                        if temp9 == temp12 {
+                            standen[a].extra_meta2 = "Perfect Guess"
+                        } else {
+                            standen[a].extra_meta2 = "Perfect Prediction"
+                        }
+                        
+                    } else {
+                        
+                        standen[a].extra2 = transferString(Astrings: QualText2)
+                        
+                        if standen[a].extra2 == "X2" {
+                            
+                            standen[a].extra_meta2 = "Both Qualified"
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            } else {
+            // No live games, return points last game
+                
+                if lastgame1 == -1 {
+                    standen[a].extra = " "
+                } else {
+                    standen[a].extra = laatstepunten(speler: PronosB[i], game: lastgame1)
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    func laatstepunten (speler: [Fixtures], game: Int) -> String {
+        
+        var str: String
+        let a: Int = speler[game].punten
+        var b: Int = 0
+        
+        let aa: Int = 33
+        let bb: Int = 35
+        let cc: Int = 37
+        let dd: Int = 39
+        let ee: Int = 41
+        let ff: Int = 43
+        let gg: Int = 45
+        let hh: Int = 47
+        
+        let lastgames: [Int] = [aa, bb, cc, dd, ee, ff, gg, hh]
+        
+        if lastgames.contains(game) {
+            b = speler[game-1].punten
+        }
+        
+        str = String(a + b)
+        
+        if str == "0" {
+            
+            str = ""
+            
+        } else {
+            
+            str = "+ " + str
+        }
+        
+        return str
         
     }
     

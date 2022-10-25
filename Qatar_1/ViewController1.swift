@@ -101,11 +101,34 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
                 cell.naamLabel.text = String(calcul.standen[indexPath.row-1].user)
                 cell.scoreLabel.text = String(calcul.standen[indexPath.row-1].punten)
                 
-                let temp0 = calcul.standen[indexPath.row-1].index
+                //let temp0 = calcul.standen[indexPath.row-1].index
                 
-                var temp1 = String(calcul.pronos[temp0][calcul.lastgame1+1].goals_1) + "-" + String(calcul.pronos[temp0][calcul.lastgame1+1].goals_2)
+                //var temp1 = String(calcul.pronos[temp0][calcul.lastgame1+1].goals_1) + "-" + String(calcul.pronos[temp0][calcul.lastgame1+1].goals_2)
                 
-                cell.extraLabel.text = temp1
+                cell.extraLabel.text = String(calcul.standen[indexPath.row-1].extra)
+                
+                let meta: String = String(calcul.standen[indexPath.row-1].extra_meta)
+                
+                if meta == "Perfect Guess" {
+                    
+                    cell.extraLabel.textColor = .green
+                    cell.extraLabel.backgroundColor = .black
+                    
+                } else if meta == "Perfect Prediction" {
+                    
+                    cell.extraLabel.textColor = .white
+                    cell.extraLabel.backgroundColor = .darkGray
+                    
+                } else if meta == "Both Qualified" {
+                    
+                    cell.extraLabel.textColor = .black
+                    cell.extraLabel.backgroundColor = .white
+                    
+                } else if meta == "Burn" {
+                    
+                    cell.extraLabel.textColor = .gray
+                    
+                }
                 
             }
 
