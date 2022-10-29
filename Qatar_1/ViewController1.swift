@@ -38,6 +38,8 @@ public let sf:Int = 60
 public let f:Int = 62
 //start finals
 
+public var sel:Int = 1
+
 public let font0 = "Optima-Regular"
 public let font2 = "Menlo"
 public let font1 = "Monaco"
@@ -54,13 +56,13 @@ public var groupsPlayed = [Int]()
 public var qual16 = [String]()
 // best 2 from each group that qualify for round of 16
 
-//let shortTeams = [
-//    "Qatar": "QAT", "Ecuador": "ECU", "England": "ENG", "Iran": "IRA", "Senegal": "SEN", "Netherlands": "NLD", "USA": "USA", "Wales": "WAL", "Argentina": "ARG", "Saudi Arabia": "SAU", "Denmark": "DEN", "Tunisia": "TUN", "Mexico": "MEX", "Poland": "POL", "France": "FRA", "Australia": "AUS", "Morocco": "MOR", "Croatia": "CRO", "Germany": "GER", "Japan": "JAP", "Spain": "SPA", "Costa Rica": "COS", "Belgium": "BEL", "Canada": "CAN", "Switzerland": "SWI", "Cameroon": "CAM", "Uruguay": "URU", "South Korea": "KOR", "Portugal": "POR", "Ghana": "GHA", "Brazil": "BRA", "Serbia": "SER"
-//]
-
 let shortTeams = [
-    "Standard Liege": "STA", "Gent": "KAA", "Charleroi": "CHA", "AS Eupen": "EUP", "Kortrijk": "KVK", "OH Leuven": "OHL", "Zulte Waregem": "ZWA", "Seraing United": "SER", "St. Truiden": "STV", "Union St. Gilloise": "USG", "Club Brugge KV": "CLU", "Genk": "GNK", "KV Mechelen": "KVM", "Antwerp": "ANT", "Anderlecht": "AND", "Oostende": "KVO", "KVC Westerlo": "WES", "Cercle Brugge": "CER"
+    "Qatar": "QAT", "Ecuador": "ECU", "England": "ENG", "Iran": "IRA", "Senegal": "SEN", "Netherlands": "NLD", "USA": "USA", "Wales": "WAL", "Argentina": "ARG", "Saudi Arabia": "SAU", "Denmark": "DEN", "Tunisia": "TUN", "Mexico": "MEX", "Poland": "POL", "France": "FRA", "Australia": "AUS", "Morocco": "MOR", "Croatia": "CRO", "Germany": "GER", "Japan": "JAP", "Spain": "SPA", "Costa Rica": "COS", "Belgium": "BEL", "Canada": "CAN", "Switzerland": "SWI", "Cameroon": "CAM", "Uruguay": "URU", "South Korea": "KOR", "Portugal": "POR", "Ghana": "GHA", "Brazil": "BRA", "Serbia": "SER"
 ]
+
+//let shortTeams = [
+//    "Standard Liege": "STA", "Gent": "KAA", "Charleroi": "CHA", "AS Eupen": "EUP", "Kortrijk": "KVK", "OH Leuven": "OHL", "Zulte Waregem": "ZWA", "Seraing United": "SER", "St. Truiden": "STV", "Union St. Gilloise": "USG", "Club Brugge KV": "CLU", "Genk": "GNK", "KV Mechelen": "KVM", "Antwerp": "ANT", "Anderlecht": "AND", "Oostende": "KVO", "KVC Westerlo": "WES", "Cercle Brugge": "CER"
+//]
 
 
 
@@ -75,6 +77,10 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return calcul.standen.count + 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        sel = indexPath.row-1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
