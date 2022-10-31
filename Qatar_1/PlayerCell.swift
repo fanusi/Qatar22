@@ -9,9 +9,10 @@ import UIKit
 
 class PlayerCell: UITableViewCell {
  
-@IBOutlet weak var playerLabel: UILabel!
+@IBOutlet weak var PlayerCellView: UIView!
+@IBOutlet weak var gameLabel: UILabel!
 @IBOutlet weak var predictionLabel: UILabel!
-@IBOutlet weak var tournamentLabel: UILabel!
 @IBOutlet weak var pointsLabel: UILabel!
+@IBOutlet weak var averageLabel: UILabel!
     
 }
