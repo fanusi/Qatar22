@@ -39,6 +39,7 @@ public let f:Int = 62
 //start finals
 
 public var sel:Int = 1
+public var ran:Int = 1
 
 public let font0 = "Optima-Regular"
 public let font2 = "Menlo"
@@ -84,6 +85,7 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         if calcul.standen.count > 0 {
             
             sel = calcul.standen[indexPath.row-1].index
+            ran = calcul.standen[indexPath.row-1].ranking
             
         }
         

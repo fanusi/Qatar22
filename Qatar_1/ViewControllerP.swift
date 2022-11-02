@@ -23,7 +23,8 @@ class ViewControllerP: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         if calcul.pronos[0].count > 0 {
             
-            nameView.text = String(calcul.pronos[sel][0].user)
+            let name1: String = String(ran + 1) + "  -  " + String(calcul.pronos[sel][0].user)
+            nameView.text = name1
             
         } else {
             
@@ -60,8 +61,15 @@ class ViewControllerP: UIViewController, UITableViewDataSource, UITableViewDeleg
                 cell.predictionLabel.text = "Guess"
                 cell.pointsLabel.text = "Points"
                 cell.averageLabel.text = "Average"
-                
+                    
+                cell.gameLabel.font = UIFont(name: "ArialHebrew-Bold", size: 17)
+                cell.predictionLabel.font = UIFont(name: "ArialHebrew-Bold", size: 17)
+                cell.pointsLabel.font = UIFont(name: "ArialHebrew-Bold", size: 17)
+                cell.averageLabel.font = UIFont(name: "ArialHebrew-Bold", size: 17)
+                    
             } else {
+                
+                print(cell.gameLabel.font.fontName)
                 
                 cell.gameLabel.text = String(calcul.pronos[sel][indexPath.row-1].team_1) + " - " + String(calcul.pronos[sel][indexPath.row-1].team_2)
                 cell.predictionLabel.text = String(calcul.pronos[sel][indexPath.row-1].goals_1) + " - " + String(calcul.pronos[sel][indexPath.row-1].goals_2)
@@ -78,6 +86,11 @@ class ViewControllerP: UIViewController, UITableViewDataSource, UITableViewDeleg
                     cell.averageLabel.text = String(calcul.fixtures[indexPath.row-1].average)
                     
                 }
+                
+                cell.gameLabel.font = UIFont(name: "ArialMT", size: 17)
+                cell.predictionLabel.font = UIFont(name: "ArialMT", size: 17)
+                cell.pointsLabel.font = UIFont(name: "ArialMT", size: 17)
+                cell.averageLabel.font = UIFont(name: "ArialMT", size: 17)
                 
             }
             

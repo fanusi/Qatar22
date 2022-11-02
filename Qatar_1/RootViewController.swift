@@ -31,7 +31,7 @@ final class RootViewControler: TabPageScrollViewController {
                          TabItem(title: "Pronos",vc: vc2),
                          TabItem(title: "Ranking",vc: vc3)]
         
-        view.backgroundColor = .white
+        //view.backgroundColor = .red
         tabHeight = 50
         super.viewDidLoad()
         tabBackgroundColor = .black

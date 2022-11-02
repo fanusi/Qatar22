@@ -479,7 +479,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="E2o-Mb-rNp"/>
                                     <constraint firstItem="GXq-qq-ppW" firstAttribute="centerX" secondItem="rqP-cm-upv" secondAttribute="centerX" id="Pzm-nv-qap"/>
@@ -605,6 +605,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="7e1-Es-BDm" secondAttribute="bottom" constant="5" id="Lrb-Ut-Kth"/>
                                                 <constraint firstItem="7e1-Es-BDm" firstAttribute="top" secondItem="PP8-uA-yWg" secondAttribute="top" constant="5" id="VdZ-y3-rwc"/>
@@ -775,6 +776,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
