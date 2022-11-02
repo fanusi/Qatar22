@@ -268,6 +268,9 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             // Calculate players' points
             calcul.routine()
             
+            // Calculate points averages
+            calcul.average()
+            
         }
 
         tableView1.reloadData()

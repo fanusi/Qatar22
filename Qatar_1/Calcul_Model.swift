@@ -850,5 +850,35 @@ public class CalculModel {
         
     }
     
+    func average () {
+        
+        if calcul.fixtures.count > 0 {
+            
+            for i in 0...calcul.fixtures.count - 1 {
+                
+                var av: Double = 0
+                
+                if calcul.pronos.count > 0 {
+                    
+                    for j in 0...calcul.pronos.count - 1 {
+                        
+                        av = av + Double(calcul.pronos[j][i].punten)
+                        
+                    }
+                    
+                    av = av / Double(calcul.pronos.count)
+                    
+                    av = Double(round(10 * av) / 10)
+                    
+                }
+                
+                calcul.fixtures[i].average = String(av)
+                
+            }
+            
+        }
+        
+    }
+    
     
 }
