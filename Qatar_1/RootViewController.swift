@@ -13,7 +13,8 @@ import UIKit
 final class RootViewControler: TabPageScrollViewController {
     override func viewDidLoad() {
         navigationController?.navigationBar.topItem?.title = "Qatar 2022"
-
+        //navigationController?.navigationBar.backgroundColor = .systemRed
+        
         delegate = self
         
         let vc1:ViewController1 = storyboard!.instantiateViewController(withIdentifier: ViewController1.identifer) as! ViewController1
@@ -31,7 +32,7 @@ final class RootViewControler: TabPageScrollViewController {
                          TabItem(title: "Pronos",vc: vc2),
                          TabItem(title: "Ranking",vc: vc3)]
         
-        //view.backgroundColor = .red
+        //view.backgroundColor = .systemRed
         tabHeight = 50
         super.viewDidLoad()
         tabBackgroundColor = .black

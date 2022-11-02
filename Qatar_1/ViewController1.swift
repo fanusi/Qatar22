@@ -40,6 +40,7 @@ public let f:Int = 62
 
 public var sel:Int = 1
 public var ran:Int = 1
+public var d1: Int = 0
 
 public let font0 = "Optima-Regular"
 public let font2 = "Menlo"
@@ -82,10 +83,19 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if calcul.standen.count > 0 {
+        if calcul.standen.count > 0  {
             
-            sel = calcul.standen[indexPath.row-1].index
-            ran = calcul.standen[indexPath.row-1].ranking
+            if indexPath.row != 0 {
+                
+                sel = calcul.standen[indexPath.row-1].index
+                ran = calcul.standen[indexPath.row-1].ranking
+                d1 = 1
+                
+            } else {
+                
+                d1 = 0
+                
+            }
             
         }
         
@@ -158,9 +168,9 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         if indexPath.row == 0 {
             // Header row
-            cell.ViewStandenCell.backgroundColor = .systemBackground
+            cell.ViewStandenCell.backgroundColor = .systemRed
         } else if indexPath.row == 1 {
-            cell.ViewStandenCell.backgroundColor = .yellow
+            cell.ViewStandenCell.backgroundColor = .systemYellow
         } else if indexPath.row == 2 {
             cell.ViewStandenCell.backgroundColor = .green
         } else if indexPath.row == 3 {

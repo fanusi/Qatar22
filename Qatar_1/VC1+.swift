@@ -367,7 +367,7 @@ extension ViewController1 {
             // A single game is being played
             print("1 game ongoing")
                 
-                //upperBar.backgroundColor = .black
+                //upperBar.backgroundColor = .white
                                 
                 newimage(view1: upperBar, name: LiveGamesA[0].logo_1, x: 0.025, y: 0.05, width: 0.20, height: 0.90)
                 

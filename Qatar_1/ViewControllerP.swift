@@ -21,7 +21,7 @@ class ViewControllerP: UIViewController, UITableViewDataSource, UITableViewDeleg
         tableview1.separatorStyle = .none
         tableview1.showsVerticalScrollIndicator = false
         
-        if calcul.pronos[0].count > 0 {
+        if calcul.pronos[0].count > 0 && d1 == 1 {
             
             let name1: String = String(ran + 1) + "  -  " + String(calcul.pronos[sel][0].user)
             nameView.text = name1
@@ -40,7 +40,7 @@ class ViewControllerP: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         var c1 = 1
         
-        if calcul.pronos[0].count > 0 {
+        if calcul.pronos[0].count > 0 && d1 == 1 {
             
             c1 = calcul.pronos[0].count + 1
         }
@@ -53,7 +53,7 @@ class ViewControllerP: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"PlayerTableViewCell", for: indexPath) as! PlayerCell
         
-        if calcul.fixtures.count > 0 {
+        if calcul.fixtures.count > 0 && d1 == 1 {
             
             if indexPath.row == 0 {
                 
