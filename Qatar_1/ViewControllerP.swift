@@ -74,7 +74,7 @@ class ViewControllerP: UIViewController, UITableViewDataSource, UITableViewDeleg
                     
                 } else {
                     
-                    cell.pointsLabel.text = String(calcul.fixtures[indexPath.row-1].punten)
+                    cell.pointsLabel.text = String(calcul.pronos[sel][indexPath.row-1].punten)
                     cell.averageLabel.text = String(calcul.fixtures[indexPath.row-1].average)
                     
                 }

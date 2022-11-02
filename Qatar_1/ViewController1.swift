@@ -80,7 +80,13 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        sel = indexPath.row-1
+        
+        if calcul.standen.count > 0 {
+            
+            sel = calcul.standen[indexPath.row-1].index
+            
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
