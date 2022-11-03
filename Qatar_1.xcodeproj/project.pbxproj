@@ -12,6 +12,7 @@
 		AE099FB1290D73750006A74E /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE099FB0290D73750006A74E /* PageModel.swift */; };
 		AE099FB3290D7C4D0006A74E /* ViewControllerP.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE099FB2290D7C4D0006A74E /* ViewControllerP.swift */; };
 		AE099FB5290D7ED20006A74E /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE099FB4290D7ED20006A74E /* PlayerCell.swift */; };
+		AE0ABC6B2913F132002B3B51 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0ABC6A2913F132002B3B51 /* DetailCell.swift */; };
 		AE32615328DECD2500DAFD04 /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE32615228DECD2500DAFD04 /* Scores.swift */; };
 		AE32615528DED83900DAFD04 /* Calcul_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE32615428DED83900DAFD04 /* Calcul_Model.swift */; };
 		AE524ED628EDAA7B00B15835 /* WK 2022 xcode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AE524ED528EDAA7B00B15835 /* WK 2022 xcode.xlsx */; };
@@ -78,6 +79,7 @@
 		AE099FB0290D73750006A74E /* PageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageModel.swift; path = Pods/TabPageScrollViewController/TabPageScrollViewController/Model/PageModel.swift; sourceTree = SOURCE_ROOT; };
 		AE099FB2290D7C4D0006A74E /* ViewControllerP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerP.swift; sourceTree = "<group>"; };
 		AE099FB4290D7ED20006A74E /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		AE0ABC6A2913F132002B3B51 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		AE32615228DECD2500DAFD04 /* Scores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
 		AE32615428DED83900DAFD04 /* Calcul_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calcul_Model.swift; sourceTree = "<group>"; };
 		AE524ED528EDAA7B00B15835 /* WK 2022 xcode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WK 2022 xcode.xlsx"; sourceTree = SOURCE_ROOT; };
@@ -226,6 +228,7 @@
 				AECD3C9D28D75631001BB0C6 /* LiveGamesCell.swift */,
 				AE973B4D28E6CA1200AFA2B7 /* StandenCell.swift */,
 				AE099FB4290D7ED20006A74E /* PlayerCell.swift */,
+				AE0ABC6A2913F132002B3B51 /* DetailCell.swift */,
 				AEE4234628CB3051006BBD52 /* Assets.xcassets */,
 				AEE4234828CB3051006BBD52 /* LaunchScreen.storyboard */,
 				AEE4234B28CB3051006BBD52 /* Info.plist */,
@@ -566,6 +569,7 @@
 				AEE4238A28CB4059006BBD52 /* String+.swift in Sources */,
 				AEE4238628CB4006006BBD52 /* Filtering.swift in Sources */,
 				AE099FB5290D7ED20006A74E /* PlayerCell.swift in Sources */,
+				AE0ABC6B2913F132002B3B51 /* DetailCell.swift in Sources */,
 				AEE4238428CB3FE1006BBD52 /* Emurate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

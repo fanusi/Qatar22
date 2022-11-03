@@ -168,7 +168,7 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         if indexPath.row == 0 {
             // Header row
-            cell.ViewStandenCell.backgroundColor = .systemRed
+            cell.ViewStandenCell.backgroundColor = .systemBackground
         } else if indexPath.row == 1 {
             cell.ViewStandenCell.backgroundColor = .systemYellow
         } else if indexPath.row == 2 {

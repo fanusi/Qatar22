@@ -62,10 +62,10 @@ class ViewControllerP: UIViewController, UITableViewDataSource, UITableViewDeleg
                 cell.pointsLabel.text = "Points"
                 cell.averageLabel.text = "Average"
                     
-                cell.gameLabel.font = UIFont(name: "ArialHebrew-Bold", size: 17)
-                cell.predictionLabel.font = UIFont(name: "ArialHebrew-Bold", size: 17)
-                cell.pointsLabel.font = UIFont(name: "ArialHebrew-Bold", size: 17)
-                cell.averageLabel.font = UIFont(name: "ArialHebrew-Bold", size: 17)
+                cell.gameLabel.font = UIFont(name: "Arial-BoldMT", size: 17)
+                cell.predictionLabel.font = UIFont(name: "Arial-BoldMT", size: 17)
+                cell.pointsLabel.font = UIFont(name: "Arial-BoldMT", size: 17)
+                cell.averageLabel.font = UIFont(name: "Arial-BoldMT", size: 17)
                     
             } else {
                 

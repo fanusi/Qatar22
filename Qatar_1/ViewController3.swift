@@ -15,52 +15,85 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier:"FullStandViewCell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:"DetailStandViewCell", for: indexPath) as! DetailCell
         
         if indexPath.row <= calcul.standen.count {
         
             if indexPath.row == 0 {
                 
-                cell.textLabel?.text = "Ranking"
-                cell.detailTextLabel?.text = "Pts"
-
+                let sfont:CGFloat = 13
+                let nfont: String = "Arial-BoldMT"
+                
+                cell.rankLabel.text = "P"
+                cell.playerLabel.text = "Player"
+                cell.recentLabel.text = "Last"
+                cell.averageLabel.text = "Aver"
+                cell.recent3Label.text = "Last 3"
+                cell.average3Label.text = "Aver 3"
+                cell.pointsLabel.text = "Points"
+                
+                cell.rankLabel.font = UIFont(name: nfont, size: sfont)
+                cell.playerLabel.font = UIFont(name: nfont, size: sfont)
+                cell.recentLabel.font = UIFont(name: nfont, size: sfont)
+                cell.averageLabel.font = UIFont(name: nfont, size: sfont)
+                cell.recent3Label.font = UIFont(name: nfont, size: sfont)
+                cell.average3Label.font = UIFont(name: nfont, size: sfont)
+                cell.pointsLabel.font = UIFont(name: nfont, size: sfont)
                 
             } else {
                 
-                let rank: String = String(calcul.standen[indexPath.row-1].ranking + 1)
-                let player: String = String(calcul.standen[indexPath.row-1].user)
-                let rpla: String = rank + "  -  " + player
+                let sfont:CGFloat = 13
+                let nfont: String = "ArialMT"
                 
-                let punten: String = String(calcul.standen[indexPath.row-1].punten)
+                cell.rankLabel.text = String(calcul.standen[indexPath.row-1].ranking + 1)
+                cell.playerLabel.text = String(calcul.standen[indexPath.row-1].user)
+                cell.recentLabel.text = "2"
+                cell.averageLabel.text = "1.2"
+                cell.recent3Label.text = "5"
+                cell.average3Label.text = "3.1"
+                cell.pointsLabel.text = String(calcul.standen[indexPath.row-1].punten)
                 
-                cell.textLabel?.text = rpla
-                cell.detailTextLabel?.text = punten
-                
-                //cell.scoreLabel.text = String(calcul.standen[indexPath.row-1].punten)
-                
-                //let temp0 = calcul.standen[indexPath.row-1].index
-                
-                //var temp1 = String(calcul.pronos[temp0][calcul.lastgame1+1].goals_1) + "-" + String(calcul.pronos[temp0][calcul.lastgame1+1].goals_2)
-                
-                //cell.extraLabel.text = String(calcul.standen[indexPath.row-1].extra)
+                cell.rankLabel.font = UIFont(name: nfont, size: sfont)
+                cell.playerLabel.font = UIFont(name: nfont, size: sfont)
+                cell.recentLabel.font = UIFont(name: nfont, size: sfont)
+                cell.averageLabel.font = UIFont(name: nfont, size: sfont)
+                cell.recent3Label.font = UIFont(name: nfont, size: sfont)
+                cell.average3Label.font = UIFont(name: nfont, size: sfont)
+                cell.pointsLabel.font = UIFont(name: nfont, size: sfont)
                 
             }
 
         } else {
-            
-            cell.textLabel!.text = ""
-            cell.detailTextLabel!.text = ""
+
+            cell.rankLabel.text = ""
+            cell.playerLabel.text = ""
+            cell.recentLabel.text = ""
+            cell.averageLabel.text = ""
+            cell.recent3Label.text = ""
+            cell.average3Label.text = ""
+            cell.pointsLabel.text = ""
             
         }
-        
-        cell.detailTextLabel!.textAlignment = .center
-        cell.detailTextLabel!.adjustsFontSizeToFitWidth = true
+                        
+        cell.rankLabel.textAlignment = .center
+        cell.recentLabel.textAlignment = .center
+        cell.averageLabel.textAlignment = .center
+        cell.recent3Label.textAlignment = .center
+        cell.average3Label.textAlignment = .center
+        cell.pointsLabel.textAlignment = .center
+
+        cell.rankLabel.adjustsFontSizeToFitWidth = true
+        cell.playerLabel.adjustsFontSizeToFitWidth = true
+        cell.recentLabel.adjustsFontSizeToFitWidth = true
+        cell.averageLabel.adjustsFontSizeToFitWidth = true
+        cell.recent3Label.adjustsFontSizeToFitWidth = true
+        cell.average3Label.adjustsFontSizeToFitWidth = true
+        cell.pointsLabel.adjustsFontSizeToFitWidth = true
         
         // Visuals
-        //cell.ViewStandenCell.layer.cornerRadius = cell.ViewStandenCell.frame.height / 8
+        cell.DetailView.layer.cornerRadius = cell.DetailView.frame.height / 8
         
         return cell
-        
     }
     
     
