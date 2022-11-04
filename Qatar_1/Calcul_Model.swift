@@ -850,6 +850,63 @@ public class CalculModel {
         
     }
     
+    func laatstepunten_2 (speler: [Fixtures], game: Int, past: Int = 1) -> [Int] {
+        // Calculates points for game 'game'. Parameter 'past' allows to sum x past recent games if existing
+        
+        // Returns [points, number of games]
+        
+        var ret: [Int] = [0, 0]
+        
+        var som: Int = 0
+        var a: Int = 0
+        var b: Int = 0
+        
+        var counter: Int = 0
+        
+        let aa: Int = 33
+        let bb: Int = 35
+        let cc: Int = 37
+        let dd: Int = 39
+        let ee: Int = 41
+        let ff: Int = 43
+        let gg: Int = 45
+        let hh: Int = 47
+        
+        let lastgames: [Int] = [aa, bb, cc, dd, ee, ff, gg, hh]
+        
+        if past == 1 {
+            
+            counter = 1
+            
+            a = speler[game].punten
+            
+            if lastgames.contains(game) {
+                b = speler[game-1].punten
+            }
+            
+            som = a + b
+            
+        } else if past > 1 {
+            
+            for i in 0...past-1 {
+                
+                if game-i >= 0 {
+                    
+                    counter += 1
+                    som += speler[game-i].punten
+                    
+                }
+                
+            }
+            
+        }
+        
+        ret = [som, counter]
+        
+        return ret
+        
+    }
+    
     func average () {
         
         if calcul.fixtures.count > 0 {

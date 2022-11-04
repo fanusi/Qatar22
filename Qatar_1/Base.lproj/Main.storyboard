@@ -871,12 +871,12 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="DetailView" destination="K1O-Nz-7Ri" id="Eq2-2u-pLb"/>
-                                            <outlet property="average3Label" destination="Pic-Pw-OKt" id="3da-mu-MRU"/>
-                                            <outlet property="averageLabel" destination="Zep-bx-MVU" id="5tt-O5-p3v"/>
                                             <outlet property="playerLabel" destination="4t2-ox-d5G" id="2CE-uG-rcf"/>
                                             <outlet property="pointsLabel" destination="AQ5-Ck-Ngc" id="bbQ-Ds-q7P"/>
                                             <outlet property="rankLabel" destination="eLY-QN-d7w" id="gKc-ok-QY9"/>
-                                            <outlet property="recent3Label" destination="BYa-Or-bsF" id="USM-He-NtH"/>
+                                            <outlet property="recent3Label" destination="Zep-bx-MVU" id="5tt-O5-p3v"/>
+                                            <outlet property="recent5Label" destination="BYa-Or-bsF" id="USM-He-NtH"/>
+                                            <outlet property="recent7Label" destination="Pic-Pw-OKt" id="3da-mu-MRU"/>
                                             <outlet property="recentLabel" destination="Owv-O7-eRO" id="EIb-Pf-Akp"/>
                                         </connections>
                                     </tableViewCell>
