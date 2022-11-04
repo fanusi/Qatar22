@@ -531,7 +531,7 @@ public class CalculModel {
             } else if j == ga-2 {
 
                 //Final third place
-                punten = punten + calc_ext2(round: 8,game: j, speler: speler, start: tellerF, end: ga-2)
+                punten = punten + calc_ext2(round: 7,game: j, speler: speler, start: tellerF, end: ga-2)
 
             } else if j == ga-1 {
 

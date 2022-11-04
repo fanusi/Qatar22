@@ -122,6 +122,89 @@ extension ViewController1 {
 
         }
     
+    func fixtureParsing_temp1 () {
+        
+        var gebruikers: [String] = []
+        var homeTeams: [String] = []
+        var awayTeams: [String] = []
+        
+        guard let filepath = Bundle.main.path(forResource: "Real xcode", ofType: "xlsx") else {
+
+            fatalError("Error n1")
+        }
+
+        guard let file = XLSXFile(filepath: filepath) else {
+          fatalError("XLSX file at \(filepath) is corrupted or does not exist")
+        }
+
+        for wbk in try! file.parseWorkbooks() {
+            for (name, path) in try! file.parseWorksheetPathsAndNames(workbook: wbk) {
+            if let worksheetName = name {
+              print("This worksheet has a name: \(worksheetName)")
+            }
+
+            let worksheet = try! file.parseWorksheet(at: path)
+                
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                gebruikers = columnAStrings
+    
+            }
+                
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                homeTeams = columnCStrings
+    
+            }
+            
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnDStrings = worksheet.cells(atColumns: [ColumnReference("D")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                awayTeams = columnDStrings
+    
+            }
+            
+            //print(gebruikers[0])
+            //print(gebruikers[1])
+            
+            FixturesA.removeAll()
+            //StandenA.removeAll()
+                    
+            for i in 0...0 {
+                
+                // Loop players
+                
+                // Add player to players' standing
+                //let player_i = Scores(user: gebruikers[1 + ga * i], index: i)
+                //StandenA.append(player_i)
+                
+                
+                let fixture =  Fixtures(index: 0, venue: "", time: "-", team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[1 + ga * i])
+                
+                FixturesA.append(fixture)
+                
+                for n in 1...ga - 1 {
+                    
+                    // Loop games
+                    
+                    let fixture =  Fixtures(index: n, venue: "", time: "-", team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[(n + 1) + ga * i])
+                    
+                    FixturesA.append(fixture)
+                    
+                }
+                
+            }
+            
+          }
+        }
+        
+    }
+    
     func standingParsing () {
                     
                     //Populate standings from FootballAPI

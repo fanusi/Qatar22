@@ -15,6 +15,7 @@
 		AE0ABC6B2913F132002B3B51 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0ABC6A2913F132002B3B51 /* DetailCell.swift */; };
 		AE32615328DECD2500DAFD04 /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE32615228DECD2500DAFD04 /* Scores.swift */; };
 		AE32615528DED83900DAFD04 /* Calcul_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE32615428DED83900DAFD04 /* Calcul_Model.swift */; };
+		AE42B92F2915738A00513D55 /* Real xcode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AE42B92E2915738A00513D55 /* Real xcode.xlsx */; };
 		AE524ED628EDAA7B00B15835 /* WK 2022 xcode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AE524ED528EDAA7B00B15835 /* WK 2022 xcode.xlsx */; };
 		AE54702F28EC18EC001F4BFF /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE54702E28EC18EC001F4BFF /* UIImageView+.swift */; };
 		AE63400828DDFF890048965D /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63400728DDFF890048965D /* Standings.swift */; };
@@ -82,6 +83,7 @@
 		AE0ABC6A2913F132002B3B51 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		AE32615228DECD2500DAFD04 /* Scores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
 		AE32615428DED83900DAFD04 /* Calcul_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calcul_Model.swift; sourceTree = "<group>"; };
+		AE42B92E2915738A00513D55 /* Real xcode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Real xcode.xlsx"; sourceTree = SOURCE_ROOT; };
 		AE524ED528EDAA7B00B15835 /* WK 2022 xcode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WK 2022 xcode.xlsx"; sourceTree = SOURCE_ROOT; };
 		AE54702E28EC18EC001F4BFF /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		AE63400728DDFF890048965D /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				AED4B77628DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx */,
 				AE524ED528EDAA7B00B15835 /* WK 2022 xcode.xlsx */,
+				AE42B92E2915738A00513D55 /* Real xcode.xlsx */,
 				AEE4236D28CB354C006BBD52 /* Extensions */,
 				AEE4233A28CB304D006BBD52 /* AppDelegate.swift */,
 				AEE4233C28CB304D006BBD52 /* SceneDelegate.swift */,
@@ -409,6 +412,7 @@
 				AED4B77728DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx in Resources */,
 				AEE4234A28CB3051006BBD52 /* LaunchScreen.storyboard in Resources */,
 				AE524ED628EDAA7B00B15835 /* WK 2022 xcode.xlsx in Resources */,
+				AE42B92F2915738A00513D55 /* Real xcode.xlsx in Resources */,
 				AEE4234728CB3051006BBD52 /* Assets.xcassets in Resources */,
 				AEE4234228CB304D006BBD52 /* Main.storyboard in Resources */,
 				AEE4239028CB435A006BBD52 /* CategoryCell.xib in Resources */,
