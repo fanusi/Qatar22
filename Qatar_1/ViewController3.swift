@@ -21,15 +21,15 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
         
             if indexPath.row == 0 {
                 
-                let sfont:CGFloat = 13
+                let sfont:CGFloat = 15
                 let nfont: String = "Arial-BoldMT"
                 
-                cell.rankLabel.text = "P"
+                cell.rankLabel.text = "R"
                 cell.playerLabel.text = "Player"
                 cell.recentLabel.text = "Last"
                 cell.averageLabel.text = "Aver"
-                cell.recent3Label.text = "Last 3"
-                cell.average3Label.text = "Aver 3"
+                cell.recent3Label.text = "L3"
+                cell.average3Label.text = "A3"
                 cell.pointsLabel.text = "Points"
                 
                 cell.rankLabel.font = UIFont(name: nfont, size: sfont)
@@ -42,7 +42,7 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
                 
             } else {
                 
-                let sfont:CGFloat = 13
+                let sfont:CGFloat = 15
                 let nfont: String = "ArialMT"
                 
                 cell.rankLabel.text = String(calcul.standen[indexPath.row-1].ranking + 1)
