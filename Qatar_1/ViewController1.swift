@@ -104,6 +104,40 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"StandenTableViewCell", for: indexPath) as! StandenCell
         
+        var backgroundD: UIColor = .systemBackground
+        var labelD: UIColor = .black
+        
+        if indexPath.row == 0 {
+            // Header row
+            backgroundD = .systemBackground
+        } else if indexPath.row == 1 {
+            //backgroundD = .systemYellow
+            backgroundD = UIColor(red: 0.9882, green: 0.7922, blue: 0.1569, alpha: 1.0)
+        } else if indexPath.row == 2 {
+            //backgroundD = .green
+            backgroundD = UIColor(red: 0.9882, green: 0.8431, blue: 0.3647, alpha: 1.0)
+        } else if indexPath.row == 3 {
+            //backgroundD = .lightGray
+            backgroundD = UIColor(red: 0.9882, green: 0.8784, blue: 0.5216, alpha: 1.0)
+        } else if indexPath.row == calcul.standen.count - 1 || indexPath.row == calcul.standen.count {
+            //backgroundD = .lightGray
+            backgroundD = .systemGray4
+        } else {
+            backgroundD = .systemGray6
+        }
+        
+        if labelD == .black {
+            
+            labelD =  UIColor { tc in
+                     switch tc.userInterfaceStyle {
+                     case .dark:
+                         return UIColor.white
+                     default:
+                         return UIColor.black
+                     }
+                }
+        }
+        
         if indexPath.row <= calcul.standen.count {
         
             if indexPath.row == 0 {
@@ -124,6 +158,10 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
                 cell.naamLabel.font = UIFont(name: font01, size: 17)
                 cell.scoreLabel.font = UIFont(name: font01, size: 17)
                 cell.extraLabel.font = UIFont(name: font01, size: 17)
+                
+                cell.backgroundColor = backgroundD
+                cell.extraLabel.backgroundColor = backgroundD
+                cell.extraLabel.textColor = labelD
                 
             } else {
                 
@@ -157,8 +195,21 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
                 } else if meta == "Burn" {
                     
                     cell.extraLabel.textColor = .gray
+                    cell.extraLabel.backgroundColor = backgroundD
+                    
+                } else {
+                    
+                    cell.extraLabel.textColor = labelD
+                    cell.extraLabel.backgroundColor = backgroundD
                     
                 }
+                                
+                let font02: String = "ArialMT"
+                
+                cell.standLabel.font = UIFont(name: font02, size: 17)
+                cell.naamLabel.font = UIFont(name: font02, size: 17)
+                cell.scoreLabel.font = UIFont(name: font02, size: 17)
+                cell.extraLabel.font = UIFont(name: font02, size: 17)
                 
             }
 
@@ -171,19 +222,7 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         }
         
         //Colors
-        
-        if indexPath.row == 0 {
-            // Header row
-            cell.ViewStandenCell.backgroundColor = .systemBackground
-        } else if indexPath.row == 1 {
-            cell.ViewStandenCell.backgroundColor = .systemYellow
-        } else if indexPath.row == 2 {
-            cell.ViewStandenCell.backgroundColor = .green
-        } else if indexPath.row == 3 {
-            cell.ViewStandenCell.backgroundColor = .lightGray
-        } else {
-            cell.ViewStandenCell.backgroundColor = .systemGray6
-        }
+        cell.ViewStandenCell.backgroundColor = backgroundD
         
         cell.standLabel.textAlignment = .center
         cell.scoreLabel.textAlignment = .center
@@ -261,14 +300,14 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         parsing()
         initiate()
-        
+
     }
     
     func parsing() {
 
-        //TEM uncomment following line
+        //TEMP uncomment liveGamesParsing !!!
         self.fixtureParsing()
-        self.liveGamesParsing()
+        //self.liveGamesParsing()
         //self.upcomingGamesParsing()
         self.standingParsing()
 
@@ -296,6 +335,9 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             
             // Calculate points averages
             calcul.average()
+            
+            // Extras standen
+            calcul.extra(livegames: LiveGamesA.count)
             
         }
 

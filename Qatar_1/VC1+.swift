@@ -11,8 +11,10 @@ import CoreXLSX
 
 extension ViewController1 {
     
-    func fixtureParsing () {
+    func fixtureParsing_real () {
         
+            //Tournament
+            
             FixturesA.removeAll()
         
             var Fixtures_temp = [Fixtures]()
@@ -27,7 +29,7 @@ extension ViewController1 {
 
             //World Cup = 1; Jupiler Pro League = 144
             //fixtures?league=144&season=2022
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=144&season=2022")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=1&season=2022")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         
@@ -123,13 +125,23 @@ extension ViewController1 {
 
         }
     
-    func fixtureParsing_temp1 () {
+    func fixtureParsing () {
+        
+        // For testing only
         
         var gebruikers: [String] = []
         var homeTeams: [String] = []
         var awayTeams: [String] = []
         
-        guard let filepath = Bundle.main.path(forResource: "Real xcode", ofType: "xlsx") else {
+        FixturesA.removeAll()
+        
+        LiveGamesA.removeAll()
+        
+        let t1 = 18
+        let av = 48
+        let ld = 0
+        
+        guard let filepath = Bundle.main.path(forResource: "WK 2022 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }
@@ -187,16 +199,93 @@ extension ViewController1 {
                 
                 let fixture =  Fixtures(index: 0, venue: "", time: "-", team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[1 + ga * i])
                 
+                fixture.status = "FT"
+                
                 FixturesA.append(fixture)
                 
                 for n in 1...ga - 1 {
                     
                     // Loop games
                     
-                    let fixture =  Fixtures(index: n, venue: "", time: "-", team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[(n + 1) + ga * i])
+                    if n < t1 {
+                        
+                        let fixture =  Fixtures(index: n, venue: "", time: "-", team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[(n + 1) + ga * i])
+                        
+                        fixture.team_short_1 = shortTeams[fixture.team_1] ?? ""
+                        fixture.team_short_2 = shortTeams[fixture.team_2] ?? ""
+                        
+                        if n < (t1 - 2) {
+                            
+                            fixture.status = "FT"
+                            
+                        } else if n == (t1 - 2) {
+                            
+                            if ld == 2 {
+                                
+                                fixture.status = "1H"
+                                LiveGamesA.append(fixture)
+                                
+                            } else {
+                                
+                                fixture.status = "FT"
+                                
+                            }
+                            
+                        } else {
+                            
+                            if ld == 2 || ld == 1  {
+                                
+                                fixture.status = "1H"
+                                LiveGamesA.append(fixture)
+                                
+                            } else {
+                                
+                                fixture.status = "FT"
+                                
+                            }
+                            
+                        }
+                        
+                        FixturesA.append(fixture)
+                        
+                    } else if n < av {
+                        
+                        let fixture =  Fixtures(index: n, venue: "", time: "-", team_1: homeTeams[(n + 1) + ga * i], goals_1: -999, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: -999, logo_2: "", user: gebruikers[(n + 1) + ga * i])
+                        
+                        fixture.team_short_1 = shortTeams[fixture.team_1] ?? ""
+                        fixture.team_short_2 = shortTeams[fixture.team_2] ?? ""
+                        
+                        fixture.status = "NS"
+                        
+                        FixturesA.append(fixture)
+                        
+                    } else {
+                        
+                        var round: String
+                        
+                        if n < qf {
+                            round = "Round of 16"
+                        } else if n < sf {
+                            round = "Quarter Finals"
+                        } else if n < f {
+                            round = "Semi Finals"
+                        } else {
+                            round = "Finals"
+                        }
+                        
+                        let fixture =  Fixtures(index: n, venue: "-", time: "-", team_1: "-", goals_1: -999, logo_1: "-", team_2: "-", goals_2: -999, logo_2: "-", status: "NS", round: round)
+                        
+                        // Set timing so it is later than all known games
+                        fixture.time_double = 2500000000
+                        FixturesA.append(fixture)
+                        
+                        
+                    }
                     
-                    FixturesA.append(fixture)
-                    
+                    for i in 0...FixturesA.count-1 {
+                        print(String(FixturesA[i].index) + " - " + String(FixturesA[i].status))
+                    }
+
                 }
                 
             }
@@ -215,7 +304,7 @@ extension ViewController1 {
                     qual16.removeAll()
         
                     // TEMP
-                    qual16 = ["Turkey", "Denmark", "Italy", "Netherlands", "Ukraine", "Sweden", "Belgium", "Germany", "Croatia", "Poland", "France", "Austria", "England", "Portugal", "Spain", "Scotland"]
+                    qual16 = ["Ecuador", "USA", "Argentina", "France", "Denmark", "Mexico", "England", "Senegal", "Japan", "Canada", "Brazil", "Portugal", "Belgium", "Spain", "Uruguay", "Serbia"]
             
                     let headers = [
                         "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
@@ -280,6 +369,12 @@ extension ViewController1 {
                         self.initiate()
                         self.upperBarUpdate()
                         //qual16 = calcul.qualbest2()
+                        
+//                        print("Q16")
+//                        for i in 0...qual16.count-1 {
+//                            print(qual16[i])
+//                        }
+                        
                         
                     }
                                     
@@ -374,7 +469,7 @@ extension ViewController1 {
             ]
 
             let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=144&next=50")! as URL,
-                                                    cachePolicy: .useProtocolCachePolicy,
+                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
         
             request.httpMethod = "GET"

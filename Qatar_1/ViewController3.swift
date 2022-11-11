@@ -144,7 +144,7 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
                 
                 print(prono)
                 
-                let temp = 50
+                let temp = 0
                 
                 print("Game nr")
                 print(calcul.lastgame1-temp)
