@@ -74,8 +74,7 @@ public var calcul = CalculModel(fixtures: FixturesA, pronos: PronosB, standen: S
 final class ViewController1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-    
+            
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return calcul.standen.count + 1
@@ -118,6 +117,13 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
                 } else {
                     cell.extraLabel.text = "Recent"
                 }
+                
+                let font01: String = "Arial-BoldMT"
+                
+                cell.standLabel.font = UIFont(name: font01, size: 17)
+                cell.naamLabel.font = UIFont(name: font01, size: 17)
+                cell.scoreLabel.font = UIFont(name: font01, size: 17)
+                cell.extraLabel.font = UIFont(name: font01, size: 17)
                 
             } else {
                 
@@ -192,7 +198,7 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(ga-1)
+        return CGFloat(50)
     }
     
     static let identifer = "ViewController1"
@@ -232,6 +238,8 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         // Visuals TableView
         tableView1.separatorStyle = .none
         tableView1.showsVerticalScrollIndicator = false
+        
+        tableView1.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 75, right: 0)
         
         if dummy1 == 0 {
             // Only load players' predictions once + Create users standings matrix

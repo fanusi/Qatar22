@@ -26,6 +26,7 @@ extension ViewController1 {
             ]
 
             //World Cup = 1; Jupiler Pro League = 144
+            //fixtures?league=144&season=2022
             let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=144&season=2022")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
@@ -83,7 +84,7 @@ extension ViewController1 {
                                 } else if n < f {
                                     round = "Semi Finals"
                                 } else {
-                                    round = "Final"
+                                    round = "Finals"
                                 }
                                 
                                 let newFixture =  Fixtures(index: n, venue: "-", time: "-", team_1: "-", goals_1: -999, logo_1: "-", team_2: "-", goals_2: -999, logo_2: "-", status: "NS", round: round)
@@ -446,11 +447,15 @@ extension ViewController1 {
             // remove existing views
             removeSV(viewsv: upperBar)
         
+            //upperBar.layer.cornerRadius = 25
+            //upperBar.backgroundColor = .systemGray5
+        
             if LiveGamesA.count == 1 {
             // A single game is being played
             print("1 game ongoing")
                 
-                //upperBar.backgroundColor = .white
+                //upperBar.layer.cornerRadius = 5
+                //upperBar.backgroundColor = .systemGray4
                                 
                 newimage(view1: upperBar, name: LiveGamesA[0].logo_1, x: 0.025, y: 0.05, width: 0.20, height: 0.90)
                 

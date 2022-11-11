@@ -12,11 +12,16 @@ import UIKit
 @available(iOS 11.0, *)
 final class RootViewControler: TabPageScrollViewController {
     override func viewDidLoad() {
+        
         navigationController?.navigationBar.topItem?.title = "Qatar 2022"
+        //navigationController?.navigationBar.barTintColor = .green
+        //navigationController?.navigationBar.backgroundColor = .systemBrown
+        
         //navigationController?.navigationBar.backgroundColor = .systemRed
+        //view.backgroundColor = .red
         
         delegate = self
-        
+                
         let vc1:ViewController1 = storyboard!.instantiateViewController(withIdentifier: ViewController1.identifer) as! ViewController1
         vc1.number = 1
         vc1.navigationItem.title = "Live"
@@ -32,11 +37,12 @@ final class RootViewControler: TabPageScrollViewController {
                          TabItem(title: "Pronos",vc: vc2),
                          TabItem(title: "Ranking",vc: vc3)]
         
-        //view.backgroundColor = .systemRed
+        //view.backgroundColor = .blue
         tabHeight = 50
         super.viewDidLoad()
         tabBackgroundColor = .black
         register(nibName: "CategoryCell", reuseIdentifier: "CategoryCell")
+        
     }
 }
 
