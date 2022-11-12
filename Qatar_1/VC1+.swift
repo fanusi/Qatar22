@@ -137,9 +137,9 @@ extension ViewController1 {
         
         LiveGamesA.removeAll()
         
-        let t1 = 42
+        let t1 = 32
         let av = 48
-        let ld = 2
+        let ld = 1
         
         guard let filepath = Bundle.main.path(forResource: "WK 2022 xcode", ofType: "xlsx") else {
 

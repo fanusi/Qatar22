@@ -173,7 +173,24 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
                 
                 //var temp1 = String(calcul.pronos[temp0][calcul.lastgame1+1].goals_1) + "-" + String(calcul.pronos[temp0][calcul.lastgame1+1].goals_2)
                 
-                cell.extraLabel.text = String(calcul.standen[indexPath.row-1].extra)
+                if LiveGamesA.count == 2 {
+                    
+                    let a = String(calcul.standen[indexPath.row-1].extra)
+                    let b = String(calcul.standen[indexPath.row-1].extra2)
+                    
+                    print(a)
+                    print(b)
+                    
+                    cell.extraLabel.text = a + "  " + b
+                    
+                    
+                } else {
+                   
+                    cell.extraLabel.text = String(calcul.standen[indexPath.row-1].extra)
+                    
+                }
+                
+                //cell.extraLabel.text = String(calcul.standen[indexPath.row-1].extra)
                 
                 let meta: String = String(calcul.standen[indexPath.row-1].extra_meta)
                 
