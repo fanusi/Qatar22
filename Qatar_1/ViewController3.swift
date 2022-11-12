@@ -40,6 +40,14 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
                 cell.recent7Label.font = UIFont(name: nfont, size: sfont)
                 cell.pointsLabel.font = UIFont(name: nfont, size: sfont)
                 
+                cell.rankLabel.backgroundColor = label_color(points: 0, average: 0)
+                cell.playerLabel.backgroundColor = label_color(points: 0, average: 0)
+                cell.recentLabel.backgroundColor = label_color(points: 0, average: 0)
+                cell.recent3Label.backgroundColor = label_color(points: 0, average: 0)
+                cell.recent5Label.backgroundColor = label_color(points: 0, average: 0)
+                cell.recent7Label.backgroundColor = label_color(points: 0, average: 0)
+                cell.pointsLabel.backgroundColor = label_color(points: 0, average: 0)
+                
             } else {
                 
                 let sfont:CGFloat = 15
@@ -63,6 +71,18 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
                 cell.recent7Label.font = UIFont(name: nfont, size: sfont)
                 cell.pointsLabel.font = UIFont(name: nfont, size: sfont)
                 
+                cell.rankLabel.backgroundColor = label_color(points: 0, average: 0)
+                cell.playerLabel.backgroundColor = label_color(points: 0, average: 0)
+                cell.recentLabel.backgroundColor = label_color(points: avlast(prono: ind)[0], average: avlast_all(prono: ind)[0])
+                cell.recent3Label.backgroundColor = label_color(points: avlast(prono: ind)[1], average: avlast_all(prono: ind)[1])
+                cell.recent5Label.backgroundColor = label_color(points: avlast(prono: ind)[2], average: avlast_all(prono: ind)[2])
+                cell.recent7Label.backgroundColor = label_color(points: avlast(prono: ind)[3], average: avlast_all(prono: ind)[3])
+                cell.pointsLabel.backgroundColor = label_color(points: 0, average: 0)
+                
+                print("avlast")
+                print(avlast(prono: ind)[1])
+                print(avlast_all(prono: ind)[1])
+                
             }
 
         } else {
@@ -74,6 +94,14 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
             cell.recent5Label.text = ""
             cell.recent7Label.text = ""
             cell.pointsLabel.text = ""
+            
+            cell.rankLabel.backgroundColor = label_color(points: 0, average: 0)
+            cell.playerLabel.backgroundColor = label_color(points: 0, average: 0)
+            cell.recentLabel.backgroundColor = label_color(points: 0, average: 0)
+            cell.recent3Label.backgroundColor = label_color(points: 0, average: 0)
+            cell.recent5Label.backgroundColor = label_color(points: 0, average: 0)
+            cell.recent7Label.backgroundColor = label_color(points: 0, average: 0)
+            cell.pointsLabel.backgroundColor = label_color(points: 0, average: 0)
             
         }
                         
@@ -142,12 +170,12 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
                 //let n = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1)[1]
                 //Number of (past) games for average
                 
-                print(prono)
+                //print(prono)
                 
                 let temp = 0
                 
-                print("Game nr")
-                print(calcul.lastgame1-temp)
+                //print("Game nr")
+                //print(calcul.lastgame1-temp)
                 
                 last = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1-temp)[0]
                 
@@ -177,6 +205,112 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
         }
         
         return [last, last3, last5, last7]
+        
+    }
+    
+    func avlast_all (prono: Int) -> [Double] {
+    // Returns [last, last 3, last 5, last 7] players average
+        
+        var last: Double = 0
+        var last3: Double = 0
+        var last5: Double = 0
+        var last7: Double = 0
+        
+        if calcul.fixtures.count > 0 && calcul.pronos.count > 0 && calcul.standen.count > 0 && calcul.standings.count > 0 {
+                                    
+            if calcul.lastgame1 != -1 {
+                
+                var temp: Int = 0
+                var temp3: Int = 0
+                var temp5: Int = 0
+                var temp7: Int = 0
+                
+                let n = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1)[1]
+                let n3 = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1, past: 3)[1]
+                let n5 = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1, past: 5)[1]
+                let n7 = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1, past: 7)[1]
+                
+                //print("_")
+                //print(n)
+                //print(n3)
+                //print(n5)
+                //print(n7)
+                //print("_")
+                
+                //Number of (past) games for average
+                
+                //print(prono)
+                //print("Game nr")
+                //print(calcul.lastgame1)
+                                
+                for i in 0...calcul.standen.count-1 {
+
+                    temp += calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1)[0]
+                    temp3 += calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1, past: 3)[0]
+                    temp5 += calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1, past: 5)[0]
+                    temp7 += calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1, past: 7)[0]
+
+                }
+                
+                last = Double(temp / (calcul.standen.count-1))
+                last3 = Double(temp3 / (calcul.standen.count-1))
+                last5 = Double(temp5 / (calcul.standen.count-1))
+                last7 = Double(temp7 / (calcul.standen.count-1))
+                
+                last = Double(round(10 * last) / 10)
+                last3 = Double(round(10 * last3) / 10)
+                last5 = Double(round(10 * last5) / 10)
+                last7 = Double(round(10 * last7) / 10)
+                
+            }
+            
+        }
+        
+        return [last, last3, last5, last7]
+        
+    }
+    
+    func label_color(points: Int, average: Double) -> UIColor {
+        
+        var labelColor: UIColor = .white
+        
+        let u1: Double = 1.2 * average
+        let u2: Double = 2 * average
+        let d1: Double = 0.8 * average
+        let d2: Double = 0.5 * average
+        
+        if labelColor == .white {
+            
+            labelColor =  UIColor { tc in
+                     switch tc.userInterfaceStyle {
+                     case .dark:
+                         return UIColor.black
+                     default:
+                         return UIColor.white
+                     }
+                }
+        }
+        
+        if Double(points) > u1 && Double(points) < u2  {
+            
+            labelColor = UIColor(red: 0.6824, green: 0.9882, blue: 0.702, alpha: 1.0)
+            
+        } else if Double(points) > u2 {
+            
+            labelColor =
+            UIColor(red: 0, green: 0.9882, blue: 0.0627, alpha: 1.0)
+            
+        } else if Double(points) < d1 && Double(points) > d2  {
+            
+            labelColor = UIColor(red: 0.9765, green: 0.7922, blue: 0.4667, alpha: 1.0)
+        
+        } else if Double(points) < d2 {
+            
+            labelColor = UIColor(red: 1, green: 0.5098, blue: 0.5098, alpha: 1.0)
+            
+        }
+            
+        return labelColor
         
     }
     
