@@ -80,8 +80,13 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
                 cell.pointsLabel.backgroundColor = label_color(points: 0, average: 0)
                 
                 print("avlast")
-                print(avlast(prono: ind)[1])
+                //print(avlast(prono: ind)[0])
+                print(avlast_all(prono: ind)[0])
+
+                print("avlast3")
+                //print(avlast(prono: ind)[1])
                 print(avlast_all(prono: ind)[1])
+
                 
             }
 
@@ -220,15 +225,15 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
                                     
             if calcul.lastgame1 != -1 {
                 
-                var temp: Int = 0
-                var temp3: Int = 0
-                var temp5: Int = 0
-                var temp7: Int = 0
+                var temp: Double = 0
+                var temp3: Double = 0
+                var temp5: Double = 0
+                var temp7: Double = 0
                 
-                let n = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1)[1]
-                let n3 = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1, past: 3)[1]
-                let n5 = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1, past: 5)[1]
-                let n7 = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1, past: 7)[1]
+//                let n = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1)[1]
+//                let n3 = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1, past: 3)[1]
+//                let n5 = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1, past: 5)[1]
+//                let n7 = calcul.laatstepunten_2(speler: calcul.pronos[prono], game: calcul.lastgame1, past: 7)[1]
                 
                 //print("_")
                 //print(n)
@@ -245,22 +250,22 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
                                 
                 for i in 0...calcul.standen.count-1 {
 
-                    temp += calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1)[0]
-                    temp3 += calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1, past: 3)[0]
-                    temp5 += calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1, past: 5)[0]
-                    temp7 += calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1, past: 7)[0]
+                    temp += Double(calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1)[0])
+                    temp3 += Double(calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1, past: 3)[0])
+                    temp5 += Double(calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1, past: 5)[0])
+                    temp7 += Double(calcul.laatstepunten_2(speler: calcul.pronos[i], game: calcul.lastgame1, past: 7)[0])
 
                 }
                 
-                last = Double(temp / (calcul.standen.count-1))
-                last3 = Double(temp3 / (calcul.standen.count-1))
-                last5 = Double(temp5 / (calcul.standen.count-1))
-                last7 = Double(temp7 / (calcul.standen.count-1))
+                last = temp / Double(calcul.standen.count)
+                last3 = temp3 / Double(calcul.standen.count)
+                last5 = temp5 / Double(calcul.standen.count)
+                last7 = temp7 / Double(calcul.standen.count)
                 
-                last = Double(round(10 * last) / 10)
-                last3 = Double(round(10 * last3) / 10)
-                last5 = Double(round(10 * last5) / 10)
-                last7 = Double(round(10 * last7) / 10)
+//                last = Double(round(100 * last) / 100)
+//                last3 = Double(round(100 * last3) / 100)
+//                last5 = Double(round(100 * last5) / 100)
+//                last7 = Double(round(100 * last7) / 100)
                 
             }
             
@@ -274,9 +279,9 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
         
         var labelColor: UIColor = .white
         
-        let u1: Double = 1.2 * average
-        let u2: Double = 2 * average
-        let d1: Double = 0.8 * average
+        let u1: Double = 1.3 * average
+        let u2: Double = 2.0 * average
+        let d1: Double = 0.7 * average
         let d2: Double = 0.5 * average
         
         if labelColor == .white {
@@ -295,7 +300,7 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
             
             labelColor = UIColor(red: 0.6824, green: 0.9882, blue: 0.702, alpha: 1.0)
             
-        } else if Double(points) > u2 {
+        } else if Double(points) > (u2 * 0.99) {
             
             labelColor =
             UIColor(red: 0, green: 0.9882, blue: 0.0627, alpha: 1.0)
@@ -304,7 +309,7 @@ final class ViewController3: UIViewController, UITableViewDataSource, UITableVie
             
             labelColor = UIColor(red: 0.9765, green: 0.7922, blue: 0.4667, alpha: 1.0)
         
-        } else if Double(points) < d2 {
+        } else if Double(points) < (d2 * 1.01) {
             
             labelColor = UIColor(red: 1, green: 0.5098, blue: 0.5098, alpha: 1.0)
             
