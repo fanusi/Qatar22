@@ -11,10 +11,8 @@ import CoreXLSX
 
 extension ViewController1 {
     
-    func fixtureParsing_real () {
+    func fixtureParsing () {
         
-            //Tournament
-            
             FixturesA.removeAll()
         
             var Fixtures_temp = [Fixtures]()
@@ -27,8 +25,7 @@ extension ViewController1 {
                 "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
             ]
 
-            //World Cup = 1; Jupiler Pro League = 144
-            //fixtures?league=144&season=2022
+            //World Cup = 1; Jupiler Pro League = 144    /v3/fixtures?league=1&season=2022"
             let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=1&season=2022")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
@@ -125,7 +122,7 @@ extension ViewController1 {
 
         }
     
-    func fixtureParsing () {
+    func fixtureParsing_testing () {
         
         // For testing only
         
@@ -295,6 +292,89 @@ extension ViewController1 {
         
     }
     
+    func fixtureParsing_temp1 () {
+        
+        var gebruikers: [String] = []
+        var homeTeams: [String] = []
+        var awayTeams: [String] = []
+        
+        guard let filepath = Bundle.main.path(forResource: "Real xcode", ofType: "xlsx") else {
+
+            fatalError("Error n1")
+        }
+
+        guard let file = XLSXFile(filepath: filepath) else {
+          fatalError("XLSX file at \(filepath) is corrupted or does not exist")
+        }
+
+        for wbk in try! file.parseWorkbooks() {
+            for (name, path) in try! file.parseWorksheetPathsAndNames(workbook: wbk) {
+            if let worksheetName = name {
+              print("This worksheet has a name: \(worksheetName)")
+            }
+
+            let worksheet = try! file.parseWorksheet(at: path)
+                
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                gebruikers = columnAStrings
+    
+            }
+                
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                homeTeams = columnCStrings
+    
+            }
+            
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnDStrings = worksheet.cells(atColumns: [ColumnReference("D")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                awayTeams = columnDStrings
+    
+            }
+            
+            //print(gebruikers[0])
+            //print(gebruikers[1])
+            
+            FixturesA.removeAll()
+            //StandenA.removeAll()
+                    
+            for i in 0...0 {
+                
+                // Loop players
+                
+                // Add player to players' standing
+                //let player_i = Scores(user: gebruikers[1 + ga * i], index: i)
+                //StandenA.append(player_i)
+                
+                
+                let fixture =  Fixtures(index: 0, venue: "", time: "-", team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[1 + ga * i])
+                
+                FixturesA.append(fixture)
+                
+                for n in 1...ga - 1 {
+                    
+                    // Loop games
+                    
+                    let fixture =  Fixtures(index: n, venue: "", time: "-", team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[(n + 1) + ga * i])
+                    
+                    FixturesA.append(fixture)
+                    
+                }
+                
+            }
+            
+          }
+        }
+        
+    }
+    
     func standingParsing () {
                     
                     //Populate standings from FootballAPI
@@ -304,7 +384,7 @@ extension ViewController1 {
                     qual16.removeAll()
         
                     // TEMP
-                    qual16 = ["Ecuador", "USA", "Argentina", "France", "Denmark", "Mexico", "England", "Senegal", "Japan", "Canada", "Brazil", "Portugal", "Belgium", "Spain", "Uruguay", "Serbia"]
+                    //qual16 = ["Turkey", "Denmark", "Italy", "Netherlands", "Ukraine", "Sweden", "Belgium", "Germany", "Croatia", "Poland", "France", "Austria", "England", "Portugal", "Spain", "Scotland"]
             
                     let headers = [
                         "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
@@ -368,13 +448,8 @@ extension ViewController1 {
                         
                         self.initiate()
                         self.upperBarUpdate()
-                        //qual16 = calcul.qualbest2()
                         
-//                        print("Q16")
-//                        for i in 0...qual16.count-1 {
-//                            print(qual16[i])
-//                        }
-                        
+//                        qual16 = calcul.qualbest2()
                         
                     }
                                     
@@ -395,7 +470,7 @@ extension ViewController1 {
             ]
             
             // &league=144
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all&league=144")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all&league=1")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.httpMethod = "GET"
@@ -468,8 +543,8 @@ extension ViewController1 {
                 "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
             ]
 
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=144&next=50")! as URL,
-                                                     cachePolicy: .useProtocolCachePolicy,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=1&next=50")! as URL,
+                                                    cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
         
             request.httpMethod = "GET"
@@ -542,15 +617,11 @@ extension ViewController1 {
             // remove existing views
             removeSV(viewsv: upperBar)
         
-            //upperBar.layer.cornerRadius = 25
-            //upperBar.backgroundColor = .systemGray5
-        
             if LiveGamesA.count == 1 {
             // A single game is being played
             print("1 game ongoing")
                 
-                //upperBar.layer.cornerRadius = 5
-                //upperBar.backgroundColor = .systemGray4
+                //upperBar.backgroundColor = .white
                                 
                 newimage(view1: upperBar, name: LiveGamesA[0].logo_1, x: 0.025, y: 0.05, width: 0.20, height: 0.90)
                 
@@ -948,3 +1019,4 @@ extension ViewController1 {
     }
     
 }
+

@@ -23,12 +23,26 @@ class ViewControllerP: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         if calcul.pronos[0].count > 0 && d1 == 1 {
             
-            let name1: String = String(ran + 1) + "  -  " + String(calcul.pronos[sel][0].user)
+            var name1: String = ""
+            
+            if ran == 0 {
+                
+                name1 = "Master " + String(calcul.pronos[sel][0].user)
+                //nameView.font = UIFont(name: "Copperplate", size: 35)
+                
+            } else {
+                
+                name1 = String(ran + 1) + "  -  " + String(calcul.pronos[sel][0].user)
+                
+            }
+            
             nameView.text = name1
+            nameView.adjustsFontSizeToFitWidth = true
             
         } else {
             
             nameView.text = "No Data"
+            nameView.adjustsFontSizeToFitWidth = true
             
         }
         
@@ -120,3 +134,4 @@ class ViewControllerP: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
 }
+

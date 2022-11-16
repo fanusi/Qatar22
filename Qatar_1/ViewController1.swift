@@ -74,7 +74,8 @@ public var calcul = CalculModel(fixtures: FixturesA, pronos: PronosB, standen: S
 final class ViewController1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return calcul.standen.count + 1
@@ -194,22 +195,30 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
                 
                 let meta: String = String(calcul.standen[indexPath.row-1].extra_meta)
                 
-                if meta == "Perfect Guess" {
+                var meta2: String = ""
+                
+                if LiveGamesA.count == 2 {
+                 
+                    meta2 = String(calcul.standen[indexPath.row-1].extra_meta2)
+                    
+                }
+                
+                if meta == "Perfect Guess" || meta2 == "Perfect Guess"   {
                     
                     cell.extraLabel.textColor = .green
                     cell.extraLabel.backgroundColor = .black
                     
-                } else if meta == "Perfect Prediction" {
+                } else if meta == "Perfect Prediction" || meta2 == "Perfect Prediction" {
                     
                     cell.extraLabel.textColor = .white
                     cell.extraLabel.backgroundColor = .darkGray
                     
-                } else if meta == "Both Qualified" {
+                } else if meta == "Both Qualified" || meta2 == "Both Qualified" {
                     
                     cell.extraLabel.textColor = .black
                     cell.extraLabel.backgroundColor = .white
                     
-                } else if meta == "Burn" {
+                } else if meta == "Burn" || meta2 == "Burn" {
                     
                     cell.extraLabel.textColor = .gray
                     cell.extraLabel.backgroundColor = backgroundD
@@ -254,7 +263,7 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(50)
+        return CGFloat(45)
     }
     
     static let identifer = "ViewController1"
@@ -317,14 +326,14 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         parsing()
         initiate()
-
+        
     }
     
     func parsing() {
 
-        //TEMP uncomment liveGamesParsing !!!
+        //TEM uncomment following line
         self.fixtureParsing()
-        //self.liveGamesParsing()
+        self.liveGamesParsing()
         //self.upcomingGamesParsing()
         self.standingParsing()
 
@@ -343,6 +352,14 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             calcul.pronos = PronosB
             calcul.standings = StandingsA
             calcul.standen = StandenA
+            
+            // Define round of 16 qualifiers
+            qual16 = calcul.qualbest2()
+            
+//            print("16de")
+//            for i in 0...qual16.count-1 {
+//                print(qual16[i])
+//            }
             
             // Define last game variable
             calcul.lastgame1 = calcul.lastgame()
@@ -363,4 +380,5 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
     }
     
 }
+
 
