@@ -23,7 +23,7 @@ public var StandenA = [Scores]()
 public var StandingsA = [Standings]()
 public var FlagsA: [String: UIImage] = ["Standard Liege": UIImage(named: "Record")!, "Gent": UIImage(named: "Record")!, "Charleroi": UIImage(named: "Record")!, "AS Eupen": UIImage(named: "Record")!, "Kortrijk": UIImage(named: "Record")!, "OH Leuven": UIImage(named: "Record")!, "Zulte Waregem": UIImage(named: "Record")!, "Seraing United": UIImage(named: "Record")!, "St. Truiden": UIImage(named: "Record")!, "Union St. Gilloise": UIImage(named: "Record")!, "Club Brugge KV": UIImage(named: "Record")!, "Genk": UIImage(named: "Record")!, "KV Mechelen": UIImage(named: "Record")!, "Antwerp": UIImage(named: "Record")!, "Anderlecht": UIImage(named: "Record")!, "Oostende": UIImage(named: "Record")!, "KVC Westerlo": UIImage(named: "Record")!, "Cercle Brugge": UIImage(named: "Record")!]
 
-public let pr:Int = 15
+public let pr:Int = 18
 // Number of players
 public let ga:Int = 64
 //Number of matches
