@@ -19,7 +19,7 @@ final class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerV
     var number: Int = 0
     static let idc: Int = 2
     
-    let u1:Int = 7
+    let u1:Int = 8
     //Number of subviews on screen
     
     let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga]

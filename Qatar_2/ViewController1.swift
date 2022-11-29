@@ -23,19 +23,19 @@ public var StandenA = [Scores]()
 public var StandingsA = [Standings]()
 public var FlagsA: [String: UIImage] = ["Standard Liege": UIImage(named: "Record")!, "Gent": UIImage(named: "Record")!, "Charleroi": UIImage(named: "Record")!, "AS Eupen": UIImage(named: "Record")!, "Kortrijk": UIImage(named: "Record")!, "OH Leuven": UIImage(named: "Record")!, "Zulte Waregem": UIImage(named: "Record")!, "Seraing United": UIImage(named: "Record")!, "St. Truiden": UIImage(named: "Record")!, "Union St. Gilloise": UIImage(named: "Record")!, "Club Brugge KV": UIImage(named: "Record")!, "Genk": UIImage(named: "Record")!, "KV Mechelen": UIImage(named: "Record")!, "Antwerp": UIImage(named: "Record")!, "Anderlecht": UIImage(named: "Record")!, "Oostende": UIImage(named: "Record")!, "KVC Westerlo": UIImage(named: "Record")!, "Cercle Brugge": UIImage(named: "Record")!]
 
-public let pr:Int = 15
+public let pr:Int = 32
 // Number of players
-public let ga:Int = 64
+public let ga:Int = 51
 //Number of matches
 public let fr:Int = 0
 //Match index start tournament
-public let sr:Int = 48
+public let sr:Int = 36
 //Match index number 2nd round
-public let qf:Int = 56
+public let qf:Int = 44
 //start quarter finals
-public let sf:Int = 60
+public let sf:Int = 48
 //start semi finals
-public let f:Int = 62
+public let f:Int = 50
 //start finals
 
 public var sel:Int = 1
@@ -53,13 +53,16 @@ public var dummy1 = 0
 public var dummy2 = 0
 
 public var groupsPlayed = [Int]()
-//Matrix returning total games played from group 1 to 8
+//Matrix returning total games played from group 1 to 6
 
 public var qual16 = [String]()
 // best 2 from each group that qualify for round of 16
 
+public var qual16_3 = [String]()
+// best third from each group that qualify for round of 16
+
 let shortTeams = [
-    "Qatar": "QAT", "Ecuador": "ECU", "England": "ENG", "Iran": "IRA", "Senegal": "SEN", "Netherlands": "NLD", "USA": "USA", "Wales": "WAL", "Argentina": "ARG", "Saudi Arabia": "SAU", "Denmark": "DEN", "Tunisia": "TUN", "Mexico": "MEX", "Poland": "POL", "France": "FRA", "Australia": "AUS", "Morocco": "MOR", "Croatia": "CRO", "Germany": "GER", "Japan": "JAP", "Spain": "SPA", "Costa Rica": "COS", "Belgium": "BEL", "Canada": "CAN", "Switzerland": "SWI", "Cameroon": "CAM", "Uruguay": "URU", "South Korea": "KOR", "Portugal": "POR", "Ghana": "GHA", "Brazil": "BRA", "Serbia": "SER"
+    "Albania": "ALB", "Austria": "AUS", "Belgium": "BEL", "Croatia": "CRO", "Czech Republic": "CZE", "Denmark": "DEN", "England": "ENG", "France": "FRA", "Georgia": "GEO", "Germany": "GER", "Hungary": "HUN", "Italy": "ITA", "Netherlands": "HOL", "Poland": "POL", "Portugal": "POR", "Romania": "ROM", "Scotland": "SCO", "Serbia": "SER", "Slovakia": "SLO", "Slovenia": "SLO", "Spain": "SPA", "Switzerland": "SWI", "Turkey": "TUR", "Ukraine": "UKR"
 ]
 
 //let shortTeams = [
@@ -174,26 +177,51 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
                 
                 //var temp1 = String(calcul.pronos[temp0][calcul.lastgame1+1].goals_1) + "-" + String(calcul.pronos[temp0][calcul.lastgame1+1].goals_2)
                 
-                cell.extraLabel.text = String(calcul.standen[indexPath.row-1].extra)
+                if LiveGamesA.count == 2 {
+                    
+                    let a = String(calcul.standen[indexPath.row-1].extra)
+                    let b = String(calcul.standen[indexPath.row-1].extra2)
+                    
+                    print(a)
+                    print(b)
+                    
+                    cell.extraLabel.text = a + "  " + b
+                    
+                    
+                } else {
+                   
+                    cell.extraLabel.text = String(calcul.standen[indexPath.row-1].extra)
+                    
+                }
+                
+                //cell.extraLabel.text = String(calcul.standen[indexPath.row-1].extra)
                 
                 let meta: String = String(calcul.standen[indexPath.row-1].extra_meta)
                 
-                if meta == "Perfect Guess" {
+                var meta2: String = ""
+                
+                if LiveGamesA.count == 2 {
+                 
+                    meta2 = String(calcul.standen[indexPath.row-1].extra_meta2)
+                    
+                }
+                
+                if meta == "Perfect Guess" || meta2 == "Perfect Guess"   {
                     
                     cell.extraLabel.textColor = .green
                     cell.extraLabel.backgroundColor = .black
                     
-                } else if meta == "Perfect Prediction" {
+                } else if meta == "Perfect Prediction" || meta2 == "Perfect Prediction" {
                     
                     cell.extraLabel.textColor = .white
                     cell.extraLabel.backgroundColor = .darkGray
                     
-                } else if meta == "Both Qualified" {
+                } else if meta == "Both Qualified" || meta2 == "Both Qualified" {
                     
                     cell.extraLabel.textColor = .black
                     cell.extraLabel.backgroundColor = .white
                     
-                } else if meta == "Burn" {
+                } else if meta == "Burn" || meta2 == "Burn" {
                     
                     cell.extraLabel.textColor = .gray
                     cell.extraLabel.backgroundColor = backgroundD
@@ -236,8 +264,9 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(50)
+        return CGFloat(45)
     }
     
     static let identifer = "ViewController1"
@@ -326,6 +355,15 @@ final class ViewController1: UIViewController, UITableViewDataSource, UITableVie
             calcul.pronos = PronosB
             calcul.standings = StandingsA
             calcul.standen = StandenA
+            
+            // Define round of 16 qualifiers
+            qual16 = calcul.qualbest2()
+            qual16_3 = calcul.qualbest3()
+            
+//            print("16de")
+//            for i in 0...qual16.count-1 {
+//                print(qual16[i])
+//            }
             
             // Define last game variable
             calcul.lastgame1 = calcul.lastgame()

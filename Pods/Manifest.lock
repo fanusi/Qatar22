@@ -1,0 +1,28 @@
+PODS:
+  - CoreXLSX (0.14.0):
+    - XMLCoder (~> 0.11.1)
+    - ZIPFoundation (~> 0.9.11)
+  - TabPageScrollViewController (1.1.0)
+  - XMLCoder (0.11.1)
+  - ZIPFoundation (0.9.12)
+
+DEPENDENCIES:
+  - CoreXLSX (~> 0.14.0)
+  - TabPageScrollViewController
+
+SPEC REPOS:
+  trunk:
+    - CoreXLSX
+    - TabPageScrollViewController
+    - XMLCoder
+    - ZIPFoundation
+
+SPEC CHECKSUMS:
+  CoreXLSX: 341fab0a6e87ec6c3e0c7df0e91a346a79ad7503
+  TabPageScrollViewController: a8cc1c9f47f1ac64fe563f6d3e5dac78ad3c228f
+  XMLCoder: c4638336674de7ba279cd23f2005817d69f538e0
+  ZIPFoundation: e27423c004a5a1410c15933407747374e7c6cb6e
+
+PODFILE CHECKSUM: 24ad1a90fcf063e34794b80e15891158eac27105
+
+COCOAPODS: 1.11.3

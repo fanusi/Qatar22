@@ -12,7 +12,22 @@ import UIKit
 @available(iOS 11.0, *)
 final class RootViewControler: TabPageScrollViewController {
     override func viewDidLoad() {
-        navigationController?.navigationBar.topItem?.title = "Qatar 2022"
+        
+        // Set top Nav Bar behavior for ALL of app
+        let standardAppearance = UINavigationBarAppearance()
+        
+        // Title font color
+        standardAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        // prevent Nav Bar color change on scroll view push behind NavBar
+        standardAppearance.configureWithOpaqueBackground()
+        standardAppearance.backgroundColor = UIColor(red: 1, green: 0.2431, blue: 0.1882, alpha: 1.0)
+        
+        
+        self.navigationController?.navigationBar.standardAppearance = standardAppearance
+        self.navigationController?.navigationBar.scrollEdgeAppearance = standardAppearance
+        
+        navigationController?.navigationBar.topItem?.title = "Germany 2024"
         //navigationController?.navigationBar.backgroundColor = .systemRed
         
         delegate = self

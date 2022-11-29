@@ -26,7 +26,7 @@ extension ViewController1 {
             ]
 
             //World Cup = 1; Jupiler Pro League = 144    /v3/fixtures?league=1&season=2022"
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=1&season=2022")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=4&season=2024")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         
@@ -70,7 +70,26 @@ extension ViewController1 {
                                     newFixture.team_short_1 = shortTeams[newFixture.team_1] ?? ""
                                     newFixture.team_short_2 = shortTeams[newFixture.team_2] ?? ""
                                 
-                                    Fixtures_temp.append(newFixture)
+                                //If penalties, we do not allow equal FT scores, so we add 1 goal to team that qualifies
+                                
+                                if n >= sr && newFixture.status == "PEN" {
+                                    
+                                    let p1 = niveau1.response[n].score.penalty.home
+                                    let p2 = niveau1.response[n].score.penalty.away
+                                    
+                                    if p1 > p2 {
+
+                                        newFixture.goals_1 = newFixture.goals_1 + 1
+
+                                    } else {
+
+                                        newFixture.goals_2 = newFixture.goals_2 + 1
+
+                                    }
+                                    
+                                }
+                            
+                                Fixtures_temp.append(newFixture)
                                                                 
                             } else {
                             
@@ -121,6 +140,188 @@ extension ViewController1 {
                 dataTask.resume()
 
         }
+    
+    func fixtureParsing_testing () {
+        
+        // For testing only
+        
+        var gebruikers: [String] = []
+        var homeTeams: [String] = []
+        var awayTeams: [String] = []
+        
+        FixturesA.removeAll()
+        
+        LiveGamesA.removeAll()
+        
+        let t1 = 32
+        let av = 48
+        let ld = 1
+        
+        guard let filepath = Bundle.main.path(forResource: "WK 2022 xcode", ofType: "xlsx") else {
+
+            fatalError("Error n1")
+        }
+
+        guard let file = XLSXFile(filepath: filepath) else {
+          fatalError("XLSX file at \(filepath) is corrupted or does not exist")
+        }
+
+        for wbk in try! file.parseWorkbooks() {
+            for (name, path) in try! file.parseWorksheetPathsAndNames(workbook: wbk) {
+            if let worksheetName = name {
+              print("This worksheet has a name: \(worksheetName)")
+            }
+
+            let worksheet = try! file.parseWorksheet(at: path)
+                
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnAStrings = worksheet.cells(atColumns: [ColumnReference("A")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                gebruikers = columnAStrings
+    
+            }
+                
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnCStrings = worksheet.cells(atColumns: [ColumnReference("C")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                homeTeams = columnCStrings
+    
+            }
+            
+            if let sharedStrings = try! file.parseSharedStrings() {
+              let columnDStrings = worksheet.cells(atColumns: [ColumnReference("D")!])
+                .compactMap { $0.stringValue(sharedStrings) }
+            
+                awayTeams = columnDStrings
+    
+            }
+            
+            //print(gebruikers[0])
+            //print(gebruikers[1])
+            
+            FixturesA.removeAll()
+            //StandenA.removeAll()
+                    
+            for i in 0...0 {
+                
+                // Loop players
+                
+                // Add player to players' standing
+                //let player_i = Scores(user: gebruikers[1 + ga * i], index: i)
+                //StandenA.append(player_i)
+                
+                
+                let fixture =  Fixtures(index: 0, venue: "", time: "-", team_1: homeTeams[1 + ga * i], goals_1: Int((worksheet.data?.rows[1 + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[1 + ga * i], goals_2: Int((worksheet.data?.rows[1 + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[1 + ga * i])
+                
+                fixture.status = "FT"
+                
+                FixturesA.append(fixture)
+                
+                for n in 1...ga - 1 {
+                    
+                    // Loop games
+                    
+                    if n < t1 {
+                        
+                        let fixture =  Fixtures(index: n, venue: "", time: "-", team_1: homeTeams[(n + 1) + ga * i], goals_1: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[4].value)!)!, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: Int((worksheet.data?.rows[(n + 1) + ga * i].cells[5].value)!)!, logo_2: "", user: gebruikers[(n + 1) + ga * i])
+                        
+                        fixture.team_short_1 = shortTeams[fixture.team_1] ?? ""
+                        fixture.team_short_2 = shortTeams[fixture.team_2] ?? ""
+                        
+                        if n < (t1 - 2) {
+                            
+                            fixture.status = "FT"
+                            
+                        } else if n == (t1 - 2) {
+                            
+                            if ld == 2 {
+                                
+                                fixture.status = "1H"
+                                LiveGamesA.append(fixture)
+                                
+                            } else {
+                                
+                                fixture.status = "FT"
+                                
+                            }
+                            
+                        } else {
+                            
+                            if ld == 2 || ld == 1  {
+                                
+                                fixture.status = "1H"
+                                LiveGamesA.append(fixture)
+                                
+                            } else {
+                                
+                                fixture.status = "FT"
+                                
+                            }
+                            
+                        }
+                        
+                        FixturesA.append(fixture)
+                        
+                    } else if n < av {
+                        
+                        let fixture =  Fixtures(index: n, venue: "", time: "-", team_1: homeTeams[(n + 1) + ga * i], goals_1: -999, logo_1: "", team_2: awayTeams[(n + 1) + ga * i], goals_2: -999, logo_2: "", user: gebruikers[(n + 1) + ga * i])
+                        
+                        fixture.team_short_1 = shortTeams[fixture.team_1] ?? ""
+                        fixture.team_short_2 = shortTeams[fixture.team_2] ?? ""
+                        
+                        fixture.status = "NS"
+                        
+                        FixturesA.append(fixture)
+                        
+                    } else {
+                        
+                        var round: String
+                        
+                        if n < qf {
+                            round = "Round of 16"
+                        } else if n < sf {
+                            round = "Quarter Finals"
+                        } else if n < f {
+                            round = "Semi Finals"
+                        } else {
+                            round = "Finals"
+                        }
+                        
+                        let fixture =  Fixtures(index: n, venue: "-", time: "-", team_1: "-", goals_1: -999, logo_1: "-", team_2: "-", goals_2: -999, logo_2: "-", status: "NS", round: round)
+                        
+                        // Set timing so it is later than all known games
+                        fixture.time_double = 2500000000
+                        FixturesA.append(fixture)
+                        
+                        
+                    }
+                    
+                    for i in 0...FixturesA.count-1 {
+                        print(String(FixturesA[i].index) + " - " + String(FixturesA[i].status))
+                    }
+
+                }
+                
+            }
+            
+          }
+        }
+        
+    }
+    
+    func penalties (pscore: String) -> Bool {
+        
+        let delim: String = "-"
+        let token =  pscore.components(separatedBy: delim)
+
+        let phg: Int = Int(token[0])!
+        let pag: Int = Int(token[1])!
+        
+        return phg > pag
+        
+    }
     
     func fixtureParsing_temp1 () {
         
@@ -214,14 +415,14 @@ extension ViewController1 {
                     qual16.removeAll()
         
                     // TEMP
-                    qual16 = ["Turkey", "Denmark", "Italy", "Netherlands", "Ukraine", "Sweden", "Belgium", "Germany", "Croatia", "Poland", "France", "Austria", "England", "Portugal", "Spain", "Scotland"]
+                    //qual16 = ["Turkey", "Denmark", "Italy", "Netherlands", "Ukraine", "Sweden", "Belgium", "Germany", "Croatia", "Poland", "France", "Austria", "England", "Portugal", "Spain", "Scotland"]
             
                     let headers = [
                         "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
                         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
                     ]
 
-                    let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/standings?season=2022&league=1")! as URL,
+                    let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/standings?season=2024&league=4")! as URL,
                                                             cachePolicy: .useProtocolCachePolicy,
                                                         timeoutInterval: 10.0)
                     request.httpMethod = "GET"
@@ -239,7 +440,7 @@ extension ViewController1 {
                             
                     do {
                         
-                            let poules: Int = 8
+                            let poules: Int = 6
                             let ploegen: Int = 4
                         
                             let niveau2 = try decoder.decode(response2.self, from: data!)
@@ -278,7 +479,8 @@ extension ViewController1 {
                         
                         self.initiate()
                         self.upperBarUpdate()
-                        //qual16 = calcul.qualbest2()
+                        
+//                        qual16 = calcul.qualbest2()
                         
                     }
                                     
@@ -299,7 +501,7 @@ extension ViewController1 {
             ]
             
             // &league=144
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all&league=1")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all&league=4")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.httpMethod = "GET"
@@ -372,7 +574,7 @@ extension ViewController1 {
                 "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
             ]
 
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=1&next=50")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=4&next=50")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
         
@@ -530,7 +732,7 @@ extension ViewController1 {
                 
                 //upperBar.backgroundColor = .blue
                             
-                let thirdGames: [Int] = [32, 34, 36, 38, 40, 42, 44, 46]
+                let thirdGames: [Int] = [24, 26, 28, 30, 32, 34]
                 
                 print("Last game equals")
                 print(calcul.lastgame1)

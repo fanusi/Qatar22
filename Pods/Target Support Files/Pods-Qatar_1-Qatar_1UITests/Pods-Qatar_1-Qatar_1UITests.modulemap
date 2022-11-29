@@ -1,0 +1,6 @@
+framework module Pods_Qatar_1_Qatar_1UITests {
+  umbrella header "Pods-Qatar_1-Qatar_1UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
