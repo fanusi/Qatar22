@@ -630,9 +630,15 @@ public class CalculModel {
             standen[a].extra_meta = ""
             standen[a].extra2 = ""
             standen[a].extra_meta2 = ""
+            
             let i = standen[a].index
             
             if livegames == 1 {
+                
+                //print("ERZRZ")
+                //print(lastgame1)
+                
+                LiveGamesA[0].index = lastgame1 + 1
                 
                 if LiveGamesA[0].index < ind[0] {
                 // 1st round games
@@ -695,6 +701,9 @@ public class CalculModel {
             
                 
             } else if LiveGamesA.count == 2 {
+                
+                LiveGamesA[0].index = lastgame1
+                LiveGamesA[1].index = lastgame1 + 1
                 
                 if LiveGamesA[0].index < ind[0] {
                 // 1st round games
@@ -939,3 +948,5 @@ public class CalculModel {
     
     
 }
+
+
