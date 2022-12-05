@@ -70,7 +70,26 @@ extension ViewController1 {
                                     newFixture.team_short_1 = shortTeams[newFixture.team_1] ?? ""
                                     newFixture.team_short_2 = shortTeams[newFixture.team_2] ?? ""
                                 
-                                    Fixtures_temp.append(newFixture)
+                                //If penalties, we do not allow equal FT scores, so we add 1 goal to team that qualifies
+                                
+                                if n >= sr && newFixture.status == "PEN" {
+                                    
+                                    let p1 = niveau1.response[n].score.penalty.home
+                                    let p2 = niveau1.response[n].score.penalty.away
+                                    
+                                    if p1 > p2 {
+
+                                        newFixture.goals_1 = newFixture.goals_1 + 1
+
+                                    } else {
+
+                                        newFixture.goals_2 = newFixture.goals_2 + 1
+
+                                    }
+                                    
+                                }
+                            
+                                Fixtures_temp.append(newFixture)
                                                                 
                             } else {
                             
@@ -289,6 +308,18 @@ extension ViewController1 {
             
           }
         }
+        
+    }
+    
+    func penalties (pscore: String) -> Bool {
+        
+        let delim: String = "-"
+        let token =  pscore.components(separatedBy: delim)
+
+        let phg: Int = Int(token[0])!
+        let pag: Int = Int(token[1])!
+        
+        return phg > pag
         
     }
     

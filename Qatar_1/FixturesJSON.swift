@@ -265,12 +265,14 @@ struct score_s: Codable {
     var halftime: halftime_s
     var fulltime: fulltime_s
     var extratime: extratime_s
+    var penalty: penalty_s
 
     
     enum CodingKeys: String, CodingKey {
            case halftime
            case fulltime
            case extratime
+           case penalty
        }
     
     init(from decoder: Decoder) throws {
@@ -281,6 +283,7 @@ struct score_s: Codable {
         halftime = try values.decode(halftime_s.self, forKey: .halftime)
         fulltime = try values.decode(fulltime_s.self, forKey: .fulltime)
         extratime = try values.decode(extratime_s.self, forKey: .extratime)
+        penalty = try values.decode(penalty_s.self, forKey: .penalty)
         
     }
     
@@ -377,7 +380,38 @@ struct extratime_s: Codable {
         
     }
 }
+
+struct penalty_s: Codable {
     
+    var home: Int
+    var away: Int
+    
+    enum CodingKeys: String, CodingKey {
+           case home
+           case away
+    }
+    
+    init(from decoder: Decoder) throws {
+        // 1 - Container
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // 3 - Conditional Decoding
+        if var home =  try values.decodeIfPresent(Int.self, forKey: .home) {
+            self.home = home
+        } else {
+            self.home = -999
+        }
+        
+        if var away =  try values.decodeIfPresent(Int.self, forKey: .away) {
+            self.away = away
+        } else {
+            self.away = -999
+        }
+        
+    }
+}
+
+
 struct goals_s: Codable {
 
     var home: Int
@@ -408,6 +442,7 @@ struct goals_s: Codable {
     }
     
 }
+
 
 
 
