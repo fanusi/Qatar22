@@ -157,7 +157,7 @@ extension ViewController1 {
         let av = 48
         let ld = 1
         
-        guard let filepath = Bundle.main.path(forResource: "WK 2022 xcode", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "EK 2024 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }
@@ -440,7 +440,7 @@ extension ViewController1 {
                             
                     do {
                         
-                            let poules: Int = 6
+                            let poules: Int = 7
                             let ploegen: Int = 4
                         
                             let niveau2 = try decoder.decode(response2.self, from: data!)
@@ -890,11 +890,12 @@ extension ViewController1 {
         var homeTeams: [String] = []
         var awayTeams: [String] = []
         
-        guard let filepath = Bundle.main.path(forResource: "WK 2022 xcode", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "EK 2024 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }
 
+        
         guard let file = XLSXFile(filepath: filepath) else {
           fatalError("XLSX file at \(filepath) is corrupted or does not exist")
         }

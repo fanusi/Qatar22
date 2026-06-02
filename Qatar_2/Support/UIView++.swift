@@ -16,4 +16,3 @@ public extension UIView {
         bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -12).isActive = true
     }
 }
-

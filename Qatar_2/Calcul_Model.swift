@@ -409,8 +409,12 @@ public class CalculModel {
             
             if standings[i].rank == 1 || standings[i].rank == 2 {
                 
-                let qteam: String = standings[i].team
-                qbest.append(qteam)
+                if standings[i].group != 7 {
+                    
+                    let qteam: String = standings[i].team
+                    qbest.append(qteam)
+                    
+                }
                     
             }
             

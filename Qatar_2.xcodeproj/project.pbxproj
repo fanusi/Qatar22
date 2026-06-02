@@ -23,6 +23,7 @@
 		AE6FB1B628D4C66C006A5DB1 /* VC1+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */; };
 		AE6FB1B828D4C807006A5DB1 /* FixturesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */; };
 		AE6FB1BA28D4E649006A5DB1 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */; };
+		AE74FD5C2C2A9B7500CEF4BC /* EK 2024 xcode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AE74FD5B2C2A9B7500CEF4BC /* EK 2024 xcode.xlsx */; };
 		AE973B4E28E6CA1200AFA2B7 /* StandenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE973B4D28E6CA1200AFA2B7 /* StandenCell.swift */; };
 		AEA7659A2902C86A007D91E3 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA765992902C86A007D91E3 /* UIScrollView+.swift */; };
 		AECD3C9E28D75631001BB0C6 /* LiveGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD3C9D28D75631001BB0C6 /* LiveGamesCell.swift */; };
@@ -51,6 +52,37 @@
 		AEE4238C28CB4084006BBD52 /* TabPageObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4238B28CB4084006BBD52 /* TabPageObserver.swift */; };
 		AEE4239028CB435A006BBD52 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEE4238E28CB435A006BBD52 /* CategoryCell.xib */; };
 		AEE4239128CB435A006BBD52 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4238F28CB435A006BBD52 /* CategoryCell.swift */; };
+		AEE4CB762C1C7B2800007B7D /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB4F2C1C7B2800007B7D /* CategoryCell.swift */; };
+		AEE4CB772C1C7B2800007B7D /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEE4CB502C1C7B2800007B7D /* CategoryCell.xib */; };
+		AEE4CB782C1C7B2800007B7D /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB522C1C7B2800007B7D /* UILabel+.swift */; };
+		AEE4CB792C1C7B2800007B7D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB532C1C7B2800007B7D /* UIView+.swift */; };
+		AEE4CB7A2C1C7B2800007B7D /* UILabel++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB552C1C7B2800007B7D /* UILabel++.swift */; };
+		AEE4CB7B2C1C7B2800007B7D /* UIScrollView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB562C1C7B2800007B7D /* UIScrollView++.swift */; };
+		AEE4CB7C2C1C7B2800007B7D /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB572C1C7B2800007B7D /* UIView++.swift */; };
+		AEE4CB7D2C1C7B2800007B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB592C1C7B2800007B7D /* AppDelegate.swift */; };
+		AEE4CB7E2C1C7B2800007B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE4CB5A2C1C7B2800007B7D /* Assets.xcassets */; };
+		AEE4CB7F2C1C7B2800007B7D /* Calcul_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB5B2C1C7B2800007B7D /* Calcul_Model.swift */; };
+		AEE4CB802C1C7B2800007B7D /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB5C2C1C7B2800007B7D /* DetailCell.swift */; };
+		AEE4CB812C1C7B2800007B7D /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB5D2C1C7B2800007B7D /* Fixtures.swift */; };
+		AEE4CB822C1C7B2800007B7D /* FixturesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB5E2C1C7B2800007B7D /* FixturesJSON.swift */; };
+		AEE4CB842C1C7B2800007B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE4CB612C1C7B2800007B7D /* LaunchScreen.storyboard */; };
+		AEE4CB852C1C7B2800007B7D /* LiveGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB622C1C7B2800007B7D /* LiveGamesCell.swift */; };
+		AEE4CB862C1C7B2800007B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE4CB642C1C7B2800007B7D /* Main.storyboard */; };
+		AEE4CB872C1C7B2800007B7D /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB652C1C7B2800007B7D /* PlayerCell.swift */; };
+		AEE4CB882C1C7B2800007B7D /* Qatar_1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB662C1C7B2800007B7D /* Qatar_1.xcdatamodeld */; };
+		AEE4CB892C1C7B2800007B7D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB672C1C7B2800007B7D /* RootViewController.swift */; };
+		AEE4CB8A2C1C7B2800007B7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB682C1C7B2800007B7D /* SceneDelegate.swift */; };
+		AEE4CB8B2C1C7B2800007B7D /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB692C1C7B2800007B7D /* Scores.swift */; };
+		AEE4CB8C2C1C7B2800007B7D /* StandenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB6A2C1C7B2800007B7D /* StandenCell.swift */; };
+		AEE4CB8D2C1C7B2800007B7D /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB6B2C1C7B2800007B7D /* Standings.swift */; };
+		AEE4CB8E2C1C7B2800007B7D /* StandingsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB6C2C1C7B2800007B7D /* StandingsJSON.swift */; };
+		AEE4CB8F2C1C7B2800007B7D /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB6D2C1C7B2800007B7D /* UIImageView+.swift */; };
+		AEE4CB902C1C7B2800007B7D /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB6E2C1C7B2800007B7D /* UIScrollView+.swift */; };
+		AEE4CB912C1C7B2800007B7D /* VC1+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB6F2C1C7B2800007B7D /* VC1+.swift */; };
+		AEE4CB922C1C7B2800007B7D /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB702C1C7B2800007B7D /* ViewController1.swift */; };
+		AEE4CB932C1C7B2800007B7D /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB712C1C7B2800007B7D /* ViewController2.swift */; };
+		AEE4CB942C1C7B2800007B7D /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB722C1C7B2800007B7D /* ViewController3.swift */; };
+		AEE4CB952C1C7B2800007B7D /* ViewControllerP.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4CB732C1C7B2800007B7D /* ViewControllerP.swift */; };
 		FBC2D70B8322E0E9D1A2BE8E /* Pods_Qatar_1_Qatar_1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E036C454331CD60616794CD3 /* Pods_Qatar_1_Qatar_1UITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +123,7 @@
 		AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC1+.swift"; sourceTree = "<group>"; };
 		AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesJSON.swift; sourceTree = "<group>"; };
 		AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		AE74FD5B2C2A9B7500CEF4BC /* EK 2024 xcode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EK 2024 xcode.xlsx"; sourceTree = SOURCE_ROOT; };
 		AE973B4D28E6CA1200AFA2B7 /* StandenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandenCell.swift; sourceTree = "<group>"; };
 		AEA765992902C86A007D91E3 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		AECD3C9D28D75631001BB0C6 /* LiveGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveGamesCell.swift; sourceTree = "<group>"; };
@@ -124,6 +157,38 @@
 		AEE4238B28CB4084006BBD52 /* TabPageObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPageObserver.swift; sourceTree = "<group>"; };
 		AEE4238E28CB435A006BBD52 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		AEE4238F28CB435A006BBD52 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		AEE4CB4F2C1C7B2800007B7D /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		AEE4CB502C1C7B2800007B7D /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		AEE4CB522C1C7B2800007B7D /* UILabel+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		AEE4CB532C1C7B2800007B7D /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		AEE4CB552C1C7B2800007B7D /* UILabel++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel++.swift"; sourceTree = "<group>"; };
+		AEE4CB562C1C7B2800007B7D /* UIScrollView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView++.swift"; sourceTree = "<group>"; };
+		AEE4CB572C1C7B2800007B7D /* UIView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
+		AEE4CB592C1C7B2800007B7D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AEE4CB5A2C1C7B2800007B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AEE4CB5B2C1C7B2800007B7D /* Calcul_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calcul_Model.swift; sourceTree = "<group>"; };
+		AEE4CB5C2C1C7B2800007B7D /* DetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		AEE4CB5D2C1C7B2800007B7D /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		AEE4CB5E2C1C7B2800007B7D /* FixturesJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixturesJSON.swift; sourceTree = "<group>"; };
+		AEE4CB5F2C1C7B2800007B7D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEE4CB602C1C7B2800007B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AEE4CB622C1C7B2800007B7D /* LiveGamesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveGamesCell.swift; sourceTree = "<group>"; };
+		AEE4CB632C1C7B2800007B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AEE4CB652C1C7B2800007B7D /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		AEE4CB672C1C7B2800007B7D /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		AEE4CB682C1C7B2800007B7D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AEE4CB692C1C7B2800007B7D /* Scores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
+		AEE4CB6A2C1C7B2800007B7D /* StandenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandenCell.swift; sourceTree = "<group>"; };
+		AEE4CB6B2C1C7B2800007B7D /* Standings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
+		AEE4CB6C2C1C7B2800007B7D /* StandingsJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsJSON.swift; sourceTree = "<group>"; };
+		AEE4CB6D2C1C7B2800007B7D /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		AEE4CB6E2C1C7B2800007B7D /* UIScrollView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
+		AEE4CB6F2C1C7B2800007B7D /* VC1+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VC1+.swift"; sourceTree = "<group>"; };
+		AEE4CB702C1C7B2800007B7D /* ViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
+		AEE4CB712C1C7B2800007B7D /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		AEE4CB722C1C7B2800007B7D /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		AEE4CB732C1C7B2800007B7D /* ViewControllerP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerP.swift; sourceTree = "<group>"; };
+		AEE4CB752C1C7B2800007B7D /* Qatar_1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Qatar_1.xcdatamodel; sourceTree = "<group>"; };
 		B59B0D7D7635E9BB2256EBF4 /* Pods-Qatar_1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qatar_1Tests.release.xcconfig"; path = "Target Support Files/Pods-Qatar_1Tests/Pods-Qatar_1Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DD4691EE99D50EC04F3C7E9F /* Pods-Qatar_1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qatar_1Tests.debug.xcconfig"; path = "Target Support Files/Pods-Qatar_1Tests/Pods-Qatar_1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E036C454331CD60616794CD3 /* Pods_Qatar_1_Qatar_1UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Qatar_1_Qatar_1UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,7 +273,9 @@
 			isa = PBXGroup;
 			children = (
 				AED4B77628DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx */,
+				AE74FD5B2C2A9B7500CEF4BC /* EK 2024 xcode.xlsx */,
 				AE524ED528EDAA7B00B15835 /* WK 2022 xcode.xlsx */,
+				AEE4CB742C1C7B2800007B7D /* Qatar_2 */,
 				AE42B92E2915738A00513D55 /* Real xcode.xlsx */,
 				AEE4236D28CB354C006BBD52 /* Extensions */,
 				AEE4233A28CB304D006BBD52 /* AppDelegate.swift */,
@@ -298,6 +365,69 @@
 				AEE4238E28CB435A006BBD52 /* CategoryCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		AEE4CB512C1C7B2800007B7D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AEE4CB4F2C1C7B2800007B7D /* CategoryCell.swift */,
+				AEE4CB502C1C7B2800007B7D /* CategoryCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		AEE4CB542C1C7B2800007B7D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AEE4CB522C1C7B2800007B7D /* UILabel+.swift */,
+				AEE4CB532C1C7B2800007B7D /* UIView+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AEE4CB582C1C7B2800007B7D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				AEE4CB552C1C7B2800007B7D /* UILabel++.swift */,
+				AEE4CB562C1C7B2800007B7D /* UIScrollView++.swift */,
+				AEE4CB572C1C7B2800007B7D /* UIView++.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		AEE4CB742C1C7B2800007B7D /* Qatar_2 */ = {
+			isa = PBXGroup;
+			children = (
+				AEE4CB512C1C7B2800007B7D /* Cell */,
+				AEE4CB542C1C7B2800007B7D /* Extensions */,
+				AEE4CB582C1C7B2800007B7D /* Support */,
+				AEE4CB592C1C7B2800007B7D /* AppDelegate.swift */,
+				AEE4CB5A2C1C7B2800007B7D /* Assets.xcassets */,
+				AEE4CB5B2C1C7B2800007B7D /* Calcul_Model.swift */,
+				AEE4CB5C2C1C7B2800007B7D /* DetailCell.swift */,
+				AEE4CB5D2C1C7B2800007B7D /* Fixtures.swift */,
+				AEE4CB5E2C1C7B2800007B7D /* FixturesJSON.swift */,
+				AEE4CB5F2C1C7B2800007B7D /* Info.plist */,
+				AEE4CB612C1C7B2800007B7D /* LaunchScreen.storyboard */,
+				AEE4CB622C1C7B2800007B7D /* LiveGamesCell.swift */,
+				AEE4CB642C1C7B2800007B7D /* Main.storyboard */,
+				AEE4CB652C1C7B2800007B7D /* PlayerCell.swift */,
+				AEE4CB662C1C7B2800007B7D /* Qatar_1.xcdatamodeld */,
+				AEE4CB672C1C7B2800007B7D /* RootViewController.swift */,
+				AEE4CB682C1C7B2800007B7D /* SceneDelegate.swift */,
+				AEE4CB692C1C7B2800007B7D /* Scores.swift */,
+				AEE4CB6A2C1C7B2800007B7D /* StandenCell.swift */,
+				AEE4CB6B2C1C7B2800007B7D /* Standings.swift */,
+				AEE4CB6C2C1C7B2800007B7D /* StandingsJSON.swift */,
+				AEE4CB6D2C1C7B2800007B7D /* UIImageView+.swift */,
+				AEE4CB6E2C1C7B2800007B7D /* UIScrollView+.swift */,
+				AEE4CB6F2C1C7B2800007B7D /* VC1+.swift */,
+				AEE4CB702C1C7B2800007B7D /* ViewController1.swift */,
+				AEE4CB712C1C7B2800007B7D /* ViewController2.swift */,
+				AEE4CB722C1C7B2800007B7D /* ViewController3.swift */,
+				AEE4CB732C1C7B2800007B7D /* ViewControllerP.swift */,
+			);
+			name = Qatar_2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,11 +541,16 @@
 			files = (
 				AED4B77728DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx in Resources */,
 				AEE4234A28CB3051006BBD52 /* LaunchScreen.storyboard in Resources */,
+				AE74FD5C2C2A9B7500CEF4BC /* EK 2024 xcode.xlsx in Resources */,
 				AE524ED628EDAA7B00B15835 /* WK 2022 xcode.xlsx in Resources */,
+				AEE4CB862C1C7B2800007B7D /* Main.storyboard in Resources */,
 				AE42B92F2915738A00513D55 /* Real xcode.xlsx in Resources */,
 				AEE4234728CB3051006BBD52 /* Assets.xcassets in Resources */,
 				AEE4234228CB304D006BBD52 /* Main.storyboard in Resources */,
 				AEE4239028CB435A006BBD52 /* CategoryCell.xib in Resources */,
+				AEE4CB7E2C1C7B2800007B7D /* Assets.xcassets in Resources */,
+				AEE4CB842C1C7B2800007B7D /* LaunchScreen.storyboard in Resources */,
+				AEE4CB772C1C7B2800007B7D /* CategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,13 +679,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE4237928CB3CC4006BBD52 /* RootViewController.swift in Sources */,
+				AEE4CB7F2C1C7B2800007B7D /* Calcul_Model.swift in Sources */,
 				AEE4239128CB435A006BBD52 /* CategoryCell.swift in Sources */,
 				AE6FB1B628D4C66C006A5DB1 /* VC1+.swift in Sources */,
 				AEE4238C28CB4084006BBD52 /* TabPageObserver.swift in Sources */,
+				AEE4CB822C1C7B2800007B7D /* FixturesJSON.swift in Sources */,
+				AEE4CB812C1C7B2800007B7D /* Fixtures.swift in Sources */,
 				AE63400828DDFF890048965D /* Standings.swift in Sources */,
 				AE099FB3290D7C4D0006A74E /* ViewControllerP.swift in Sources */,
+				AEE4CB782C1C7B2800007B7D /* UILabel+.swift in Sources */,
 				AEE4237528CB3C07006BBD52 /* ViewController2.swift in Sources */,
+				AEE4CB8F2C1C7B2800007B7D /* UIImageView+.swift in Sources */,
 				AE63400A28DE005D0048965D /* StandingsJSON.swift in Sources */,
+				AEE4CB952C1C7B2800007B7D /* ViewControllerP.swift in Sources */,
+				AEE4CB792C1C7B2800007B7D /* UIView+.swift in Sources */,
 				AEE4237E28CB3EE0006BBD52 /* PageViewController.swift in Sources */,
 				AE973B4E28E6CA1200AFA2B7 /* StandenCell.swift in Sources */,
 				AE6FB1BA28D4E649006A5DB1 /* Fixtures.swift in Sources */,
@@ -559,22 +701,42 @@
 				AEE4237C28CB3EB6006BBD52 /* CategoryView.swift in Sources */,
 				AEA7659A2902C86A007D91E3 /* UIScrollView+.swift in Sources */,
 				AEE4233F28CB304D006BBD52 /* ViewController1.swift in Sources */,
+				AEE4CB942C1C7B2800007B7D /* ViewController3.swift in Sources */,
+				AEE4CB7A2C1C7B2800007B7D /* UILabel++.swift in Sources */,
 				AE099FB1290D73750006A74E /* PageModel.swift in Sources */,
+				AEE4CB8A2C1C7B2800007B7D /* SceneDelegate.swift in Sources */,
 				AE32615528DED83900DAFD04 /* Calcul_Model.swift in Sources */,
+				AEE4CB7D2C1C7B2800007B7D /* AppDelegate.swift in Sources */,
+				AEE4CB902C1C7B2800007B7D /* UIScrollView+.swift in Sources */,
 				AEE4234528CB304D006BBD52 /* Qatar_1.xcdatamodeld in Sources */,
+				AEE4CB932C1C7B2800007B7D /* ViewController2.swift in Sources */,
 				AEE4238128CB3F5C006BBD52 /* TabPageViewController.swift in Sources */,
 				AE6FB1B828D4C807006A5DB1 /* FixturesJSON.swift in Sources */,
 				AE54702F28EC18EC001F4BFF /* UIImageView+.swift in Sources */,
+				AEE4CB922C1C7B2800007B7D /* ViewController1.swift in Sources */,
 				AECD3C9E28D75631001BB0C6 /* LiveGamesCell.swift in Sources */,
+				AEE4CB8C2C1C7B2800007B7D /* StandenCell.swift in Sources */,
 				AEE4233B28CB304D006BBD52 /* AppDelegate.swift in Sources */,
+				AEE4CB852C1C7B2800007B7D /* LiveGamesCell.swift in Sources */,
 				AE32615328DECD2500DAFD04 /* Scores.swift in Sources */,
 				AEE4233D28CB304D006BBD52 /* SceneDelegate.swift in Sources */,
 				AEE4236F28CB3579006BBD52 /* UIView+.swift in Sources */,
+				AEE4CB802C1C7B2800007B7D /* DetailCell.swift in Sources */,
+				AEE4CB8D2C1C7B2800007B7D /* Standings.swift in Sources */,
+				AEE4CB8E2C1C7B2800007B7D /* StandingsJSON.swift in Sources */,
+				AEE4CB912C1C7B2800007B7D /* VC1+.swift in Sources */,
 				AEE4238A28CB4059006BBD52 /* String+.swift in Sources */,
 				AEE4238628CB4006006BBD52 /* Filtering.swift in Sources */,
+				AEE4CB892C1C7B2800007B7D /* RootViewController.swift in Sources */,
 				AE099FB5290D7ED20006A74E /* PlayerCell.swift in Sources */,
+				AEE4CB872C1C7B2800007B7D /* PlayerCell.swift in Sources */,
 				AE0ABC6B2913F132002B3B51 /* DetailCell.swift in Sources */,
+				AEE4CB882C1C7B2800007B7D /* Qatar_1.xcdatamodeld in Sources */,
+				AEE4CB7C2C1C7B2800007B7D /* UIView++.swift in Sources */,
+				AEE4CB8B2C1C7B2800007B7D /* Scores.swift in Sources */,
+				AEE4CB7B2C1C7B2800007B7D /* UIScrollView++.swift in Sources */,
 				AEE4238428CB3FE1006BBD52 /* Emurate.swift in Sources */,
+				AEE4CB762C1C7B2800007B7D /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +787,22 @@
 				AEE4234928CB3051006BBD52 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AEE4CB612C1C7B2800007B7D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEE4CB602C1C7B2800007B7D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AEE4CB642C1C7B2800007B7D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEE4CB632C1C7B2800007B7D /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -751,7 +929,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = SC862SLTU9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Qatar_2/Info.plist;
@@ -781,7 +959,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = SC862SLTU9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Qatar_2/Info.plist;
@@ -933,6 +1111,17 @@
 			);
 			currentVersion = AEE4234428CB304D006BBD52 /* Qatar_1.xcdatamodel */;
 			path = Qatar_1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		AEE4CB662C1C7B2800007B7D /* Qatar_1.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AEE4CB752C1C7B2800007B7D /* Qatar_1.xcdatamodel */,
+			);
+			currentVersion = AEE4CB752C1C7B2800007B7D /* Qatar_1.xcdatamodel */;
+			name = Qatar_1.xcdatamodeld;
+			path = /Users/stephanetrouve/Desktop/Projects/Qatar2022/Qatar_2/Qatar_1.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
