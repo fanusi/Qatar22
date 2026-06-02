@@ -21,12 +21,12 @@ extension ViewController1 {
             print("Start fixture parsing...")
         
             let headers = [
-                "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
-                "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+                "X-RapidAPI-Key": "A0e5ef2dbb3fb8f803bf2835131021a5",
+                "X-RapidAPI-Host": "v3.football.api-sports.io"
             ]
 
             //World Cup = 1; Jupiler Pro League = 144    /v3/fixtures?league=1&season=2022"
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=4&season=2024")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/fixtures?league=4&season=2024")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         
@@ -418,11 +418,11 @@ extension ViewController1 {
                     //qual16 = ["Turkey", "Denmark", "Italy", "Netherlands", "Ukraine", "Sweden", "Belgium", "Germany", "Croatia", "Poland", "France", "Austria", "England", "Portugal", "Spain", "Scotland"]
             
                     let headers = [
-                        "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
-                        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+                        "X-RapidAPI-Key": "A0e5ef2dbb3fb8f803bf2835131021a5",
+                        "X-RapidAPI-Host": "v3.football.api-sports.io"
                     ]
 
-                    let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/standings?season=2024&league=4")! as URL,
+                    let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/standings?season=2024&league=4")! as URL,
                                                             cachePolicy: .useProtocolCachePolicy,
                                                         timeoutInterval: 10.0)
                     request.httpMethod = "GET"
@@ -496,12 +496,12 @@ extension ViewController1 {
             LiveGamesA.removeAll()
         
             let headers = [
-                "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
-                "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+                "X-RapidAPI-Key": "A0e5ef2dbb3fb8f803bf2835131021a5",
+                "X-RapidAPI-Host": "v3.football.api-sports.io"
             ]
             
             // &league=144
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all&league=4")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/fixtures?live=all&league=4")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.httpMethod = "GET"
@@ -570,11 +570,11 @@ extension ViewController1 {
             UpcomingGamesA.removeAll()
         
             let headers = [
-                "X-RapidAPI-Key": "71b7ad779emsh4620b05b06325aep1504b4jsn595d087d75ec",
-                "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+                "X-RapidAPI-Key": "A0e5ef2dbb3fb8f803bf2835131021a5",
+                "X-RapidAPI-Host": "v3.football.api-sports.io"
             ]
 
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=4&next=50")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/fixtures?league=4&next=50")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
         
