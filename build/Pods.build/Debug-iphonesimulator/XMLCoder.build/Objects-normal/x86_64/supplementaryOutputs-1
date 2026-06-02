@@ -1,0 +1,30 @@
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/ChoiceBox.swift":
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ChoiceBox.dia"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ChoiceBox.swiftdeps"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ChoiceBox.d"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ChoiceBox.o"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/BoolBox.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/BoolBox.o"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/BoolBox.swiftdeps"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/BoolBox.d"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/BoolBox.dia"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/Box.swift":
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/Box.dia"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/Box.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/Box.d"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/Box.swiftdeps"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/DataBox.swift":
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DataBox.d"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DataBox.dia"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DataBox.o"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DataBox.swiftdeps"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/DateBox.swift":
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DateBox.d"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DateBox.dia"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DateBox.o"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DateBox.swiftdeps"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/DecimalBox.swift":
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DecimalBox.dia"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DecimalBox.swiftdeps"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DecimalBox.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/DecimalBox.d"

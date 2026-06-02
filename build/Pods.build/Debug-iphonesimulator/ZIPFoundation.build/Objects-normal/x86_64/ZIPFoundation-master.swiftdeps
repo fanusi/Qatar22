@@ -1,0 +1,13 @@
+version: "Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)"
+options: "9a54ff7bff5f123fb04355d1018eebb28e568f88e2bf9f3682059fbb6a73a653"
+build_start_time: [1666360782, 265167951]
+build_end_time: [1666360782, 401746988]
+inputs:
+  "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/ZIPFoundation/Sources/ZIPFoundation/Archive+MemoryFile.swift": !private [1662712944, 256779670]
+  "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/ZIPFoundation/Sources/ZIPFoundation/Archive+Reading.swift": !private [1662712944, 257262945]
+  "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/ZIPFoundation/Sources/ZIPFoundation/Archive+Writing.swift": !private [1662712944, 257903337]
+  "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/ZIPFoundation/Sources/ZIPFoundation/Archive.swift": !private [1662712944, 257078647]
+  "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/ZIPFoundation/Sources/ZIPFoundation/Data+Compression.swift": !private [1662712944, 257672786]
+  "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/ZIPFoundation/Sources/ZIPFoundation/Data+Serialization.swift": !private [1662712944, 258084774]
+  "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/ZIPFoundation/Sources/ZIPFoundation/Entry.swift": !private [1662712944, 257464408]
+  "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/ZIPFoundation/Sources/ZIPFoundation/FileManager+ZIP.swift": !private [1662712944, 258243560]

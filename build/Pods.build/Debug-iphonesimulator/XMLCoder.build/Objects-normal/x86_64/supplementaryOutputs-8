@@ -1,0 +1,25 @@
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Encoder/XMLReferencingEncoder.swift":
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLReferencingEncoder.dia"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLReferencingEncoder.d"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLReferencingEncoder.o"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLReferencingEncoder.swiftdeps"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/XMLStackParser.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLStackParser.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLStackParser.d"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLStackParser.swiftdeps"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLStackParser.dia"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Encoder/XMLKeyedEncodingContainer.swift":
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLKeyedEncodingContainer.swiftdeps"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLKeyedEncodingContainer.d"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLKeyedEncodingContainer.o"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLKeyedEncodingContainer.dia"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Encoder/XMLUnkeyedEncodingContainer.swift":
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLUnkeyedEncodingContainer.swiftdeps"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLUnkeyedEncodingContainer.dia"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLUnkeyedEncodingContainer.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLUnkeyedEncodingContainer.d"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Decoder/XMLUnkeyedDecodingContainer.swift":
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLUnkeyedDecodingContainer.d"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLUnkeyedDecodingContainer.swiftdeps"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLUnkeyedDecodingContainer.o"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLUnkeyedDecodingContainer.dia"

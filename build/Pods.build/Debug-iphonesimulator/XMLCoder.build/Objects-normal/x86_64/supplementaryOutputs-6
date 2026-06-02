@@ -1,0 +1,30 @@
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Decoder/XMLDecoderImplementation.swift":
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecoderImplementation.d"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecoderImplementation.dia"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecoderImplementation.swiftdeps"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecoderImplementation.o"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Decoder/XMLDecoder.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecoder.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecoder.d"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecoder.swiftdeps"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecoder.dia"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/XMLCoderElement.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLCoderElement.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLCoderElement.d"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLCoderElement.dia"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLCoderElement.swiftdeps"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Encoder/XMLChoiceEncodingContainer.swift":
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceEncodingContainer.dia"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceEncodingContainer.swiftdeps"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceEncodingContainer.d"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceEncodingContainer.o"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Encoder/XMLEncoder.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLEncoder.o"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLEncoder.swiftdeps"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLEncoder.dia"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLEncoder.d"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Decoder/XMLDecodingStorage.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecodingStorage.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecodingStorage.d"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecodingStorage.swiftdeps"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLDecodingStorage.dia"

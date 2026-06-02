@@ -1,0 +1,18 @@
+Target dependency graph (6 targets)
+XMLCoder in Pods, no dependencies
+ZIPFoundation in Pods, no dependencies
+CoreXLSX in Pods, depends on:
+XMLCoder in Pods (explicit)
+ZIPFoundation in Pods (explicit)
+TabPageScrollViewController in Pods, no dependencies
+Pods-Qatar_1 in Pods, depends on:
+CoreXLSX in Pods (explicit)
+TabPageScrollViewController in Pods (explicit)
+XMLCoder in Pods (explicit)
+ZIPFoundation in Pods (explicit)
+Qatar_1 in Qatar_1, depends on:
+Pods-Qatar_1 in Pods (implicit dependency via file 'Pods_Qatar_1.framework' in build phase 'Link Binary')
+CoreXLSX in Pods (implicit dependency via options '-framework CoreXLSX' in build setting 'OTHER_LDFLAGS')
+TabPageScrollViewController in Pods (implicit dependency via options '-framework TabPageScrollViewController' in build setting 'OTHER_LDFLAGS')
+XMLCoder in Pods (implicit dependency via options '-framework XMLCoder' in build setting 'OTHER_LDFLAGS')
+ZIPFoundation in Pods (implicit dependency via options '-framework ZIPFoundation' in build setting 'OTHER_LDFLAGS')

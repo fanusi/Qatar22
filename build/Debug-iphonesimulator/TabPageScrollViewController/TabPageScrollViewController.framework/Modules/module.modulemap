@@ -1,0 +1,11 @@
+framework module TabPageScrollViewController {
+  umbrella header "TabPageScrollViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module TabPageScrollViewController.Swift {
+  header "TabPageScrollViewController-Swift.h"
+  requires objc
+}

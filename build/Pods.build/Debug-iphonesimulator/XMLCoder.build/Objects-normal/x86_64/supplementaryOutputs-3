@@ -1,0 +1,30 @@
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/IntBox.swift":
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/IntBox.dia"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/IntBox.d"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/IntBox.swiftdeps"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/IntBox.o"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/KeyedStorage.swift":
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/KeyedStorage.swiftdeps"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/KeyedStorage.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/KeyedStorage.d"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/KeyedStorage.dia"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/KeyedBox.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/KeyedBox.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/KeyedBox.d"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/KeyedBox.swiftdeps"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/KeyedBox.dia"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Metatypes.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/Metatypes.o"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/Metatypes.dia"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/Metatypes.d"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/Metatypes.swiftdeps"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/NullBox.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/NullBox.o"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/NullBox.swiftdeps"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/NullBox.dia"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/NullBox.d"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/ISO8601DateFormatter.swift":
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ISO8601DateFormatter.swiftdeps"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ISO8601DateFormatter.d"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ISO8601DateFormatter.o"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ISO8601DateFormatter.dia"

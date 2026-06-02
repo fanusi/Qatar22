@@ -1,0 +1,30 @@
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/UIntBox.swift":
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/UIntBox.d"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/UIntBox.o"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/UIntBox.dia"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/UIntBox.swiftdeps"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/ValueBox.swift":
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ValueBox.swiftdeps"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ValueBox.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ValueBox.d"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/ValueBox.dia"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/XMLChoiceCodingKey.swift":
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceCodingKey.swiftdeps"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceCodingKey.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceCodingKey.d"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceCodingKey.dia"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Decoder/XMLChoiceDecodingContainer.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceDecodingContainer.o"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceDecodingContainer.swiftdeps"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceDecodingContainer.d"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/XMLChoiceDecodingContainer.dia"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/URLBox.swift":
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/URLBox.o"
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/URLBox.swiftdeps"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/URLBox.d"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/URLBox.dia"
+"/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/XMLCoder/Sources/XMLCoder/Auxiliaries/Box/UnkeyedBox.swift":
+  swift-dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/UnkeyedBox.swiftdeps"
+  diagnostics: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/UnkeyedBox.dia"
+  object: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/UnkeyedBox.o"
+  dependencies: "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/XMLCoder.build/Objects-normal/x86_64/UnkeyedBox.d"

@@ -1,0 +1,14 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Debug-iphonesimulator/TabPageScrollViewController/TabPageScrollViewController.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/stephanetrouve/Desktop/Projects/Qatar_1/build/Pods.build/Debug-iphonesimulator/TabPageScrollViewController.build/unextended-module.modulemap",
+    }]
+  }]
+}

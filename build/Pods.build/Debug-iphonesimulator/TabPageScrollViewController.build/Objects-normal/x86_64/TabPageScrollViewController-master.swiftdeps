@@ -1,0 +1,19 @@
+version: "Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)"
+options: "ec692bffc91bbe4c0f6be539adb3af7ef5c9836267ff02c20b1ee33f1094f6bf"
+build_start_time: [1666360782, 264037132]
+build_end_time: [1666360782, 401740074]
+inputs:
+  ? "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/TabPageScrollViewController/TabPageScrollViewController/CategoryCollectionViewController.swift"
+  : !private [1662712939, 882829427]
+  "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/TabPageScrollViewController/TabPageScrollViewController/Model/Emurate.swift": !private [1662712939, 883287429]
+  ? "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/TabPageScrollViewController/TabPageScrollViewController/Model/Filtering.swift"
+  : !private [1662712939, 883582592]
+  "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/TabPageScrollViewController/TabPageScrollViewController/Model/Observer.swift": !private [1662712939, 883129119]
+  ? "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/TabPageScrollViewController/TabPageScrollViewController/Model/PageModel.swift"
+  : !private [1662712939, 883438348]
+  ? "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/TabPageScrollViewController/TabPageScrollViewController/PageViewController.swift"
+  : !private [1662712939, 884367465]
+  ? "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/TabPageScrollViewController/TabPageScrollViewController/TabPageViewController.swift"
+  : !private [1662712939, 884208202]
+  ? "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Pods/TabPageScrollViewController/TabPageScrollViewController/View/CategoryCell.swift"
+  : !private [1662712939, 883904457]

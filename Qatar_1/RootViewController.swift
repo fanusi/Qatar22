@@ -6,7 +6,7 @@
 //
 
 import CoreML
-import TabPageScrollViewController
+//import TabPageScrollViewController
 import UIKit
 
 @available(iOS 11.0, *)
@@ -26,7 +26,7 @@ final class RootViewControler: TabPageScrollViewController {
         self.navigationController?.navigationBar.standardAppearance = standardAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = standardAppearance
         
-        navigationController?.navigationBar.topItem?.title = "Qatar 2022"
+        navigationController?.navigationBar.topItem?.title = "Deutschland 2024"
         
         //navigationController?.navigationBar.barTintColor = .green
         //navigationController?.navigationBar.backgroundColor = .systemBrown

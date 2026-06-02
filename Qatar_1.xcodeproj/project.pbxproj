@@ -23,6 +23,7 @@
 		AE6FB1B628D4C66C006A5DB1 /* VC1+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */; };
 		AE6FB1B828D4C807006A5DB1 /* FixturesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */; };
 		AE6FB1BA28D4E649006A5DB1 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */; };
+		AE74FD5A2C2A98AB00CEF4BC /* EK 2024 xcode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AE74FD592C2A98AB00CEF4BC /* EK 2024 xcode.xlsx */; };
 		AE973B4E28E6CA1200AFA2B7 /* StandenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE973B4D28E6CA1200AFA2B7 /* StandenCell.swift */; };
 		AEA7659A2902C86A007D91E3 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA765992902C86A007D91E3 /* UIScrollView+.swift */; };
 		AECD3C9E28D75631001BB0C6 /* LiveGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD3C9D28D75631001BB0C6 /* LiveGamesCell.swift */; };
@@ -91,6 +92,7 @@
 		AE6FB1B528D4C66C006A5DB1 /* VC1+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VC1+.swift"; sourceTree = "<group>"; };
 		AE6FB1B728D4C807006A5DB1 /* FixturesJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesJSON.swift; sourceTree = "<group>"; };
 		AE6FB1B928D4E649006A5DB1 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		AE74FD592C2A98AB00CEF4BC /* EK 2024 xcode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EK 2024 xcode.xlsx"; sourceTree = SOURCE_ROOT; };
 		AE973B4D28E6CA1200AFA2B7 /* StandenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandenCell.swift; sourceTree = "<group>"; };
 		AEA765992902C86A007D91E3 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		AECD3C9D28D75631001BB0C6 /* LiveGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveGamesCell.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				AED4B77628DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx */,
+				AE74FD592C2A98AB00CEF4BC /* EK 2024 xcode.xlsx */,
 				AE524ED528EDAA7B00B15835 /* WK 2022 xcode.xlsx */,
 				AE42B92E2915738A00513D55 /* Real xcode.xlsx */,
 				AEE4236D28CB354C006BBD52 /* Extensions */,
@@ -393,6 +396,8 @@
 				Base,
 			);
 			mainGroup = AEE4232E28CB304D006BBD52;
+			packageReferences = (
+			);
 			productRefGroup = AEE4233828CB304D006BBD52 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -411,6 +416,7 @@
 			files = (
 				AED4B77728DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx in Resources */,
 				AEE4234A28CB3051006BBD52 /* LaunchScreen.storyboard in Resources */,
+				AE74FD5A2C2A98AB00CEF4BC /* EK 2024 xcode.xlsx in Resources */,
 				AE524ED628EDAA7B00B15835 /* WK 2022 xcode.xlsx in Resources */,
 				AE42B92F2915738A00513D55 /* Real xcode.xlsx in Resources */,
 				AEE4234728CB3051006BBD52 /* Assets.xcassets in Resources */,
@@ -444,9 +450,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Qatar_1/Pods-Qatar_1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Qatar_1/Pods-Qatar_1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -483,9 +493,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Qatar_1-Qatar_1UITests/Pods-Qatar_1-Qatar_1UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Qatar_1-Qatar_1UITests/Pods-Qatar_1-Qatar_1UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -751,11 +765,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = SC862SLTU9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/TabPageScrollViewController\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/XMLCoder\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZIPFoundation\"",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/TabPageScrollViewController/TabPageScrollViewController.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/XMLCoder/XMLCoder.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZIPFoundation/ZIPFoundation.framework/Headers\"",
+				);
 				INFOPLIST_FILE = Qatar_1/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Qatar 2022";
+				INFOPLIST_KEY_CFBundleDisplayName = "Euro 24";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -766,6 +792,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"TabPageScrollViewController\"",
+					"-framework",
+					"\"XMLCoder\"",
+					"-framework",
+					"\"ZIPFoundation\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "StephaneTrouve.Qatar-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -781,11 +816,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = SC862SLTU9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/TabPageScrollViewController\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/XMLCoder\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZIPFoundation\"",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/TabPageScrollViewController/TabPageScrollViewController.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/XMLCoder/XMLCoder.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZIPFoundation/ZIPFoundation.framework/Headers\"",
+				);
 				INFOPLIST_FILE = Qatar_1/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Qatar 2022";
+				INFOPLIST_KEY_CFBundleDisplayName = "Euro 24";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -796,6 +843,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"TabPageScrollViewController\"",
+					"-framework",
+					"\"XMLCoder\"",
+					"-framework",
+					"\"ZIPFoundation\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "StephaneTrouve.Qatar-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -924,6 +980,12 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AEE4234328CB304D006BBD52 /* Qatar_1.xcdatamodeld */ = {

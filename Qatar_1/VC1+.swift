@@ -26,7 +26,7 @@ extension ViewController1 {
             ]
 
             //World Cup = 1; Jupiler Pro League = 144    /v3/fixtures?league=1&season=2022"
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=1&season=2022")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=4&season=2024")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         
@@ -422,7 +422,7 @@ extension ViewController1 {
                         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
                     ]
 
-                    let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/standings?season=2022&league=1")! as URL,
+                    let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/standings?season=2024&league=4")! as URL,
                                                             cachePolicy: .useProtocolCachePolicy,
                                                         timeoutInterval: 10.0)
                     request.httpMethod = "GET"
@@ -440,7 +440,7 @@ extension ViewController1 {
                             
                     do {
                         
-                            let poules: Int = 8
+                            let poules: Int = 7
                             let ploegen: Int = 4
                         
                             let niveau2 = try decoder.decode(response2.self, from: data!)
@@ -501,7 +501,7 @@ extension ViewController1 {
             ]
             
             // &league=144
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all&league=1")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all&league=4")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.httpMethod = "GET"
@@ -574,7 +574,7 @@ extension ViewController1 {
                 "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
             ]
 
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=1&next=50")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=4&next=50")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
         
@@ -732,7 +732,7 @@ extension ViewController1 {
                 
                 //upperBar.backgroundColor = .blue
                             
-                let thirdGames: [Int] = [32, 34, 36, 38, 40, 42, 44, 46]
+                let thirdGames: [Int] = [24, 26, 28, 30, 32, 34]
                 
                 print("Last game equals")
                 print(calcul.lastgame1)
@@ -890,7 +890,7 @@ extension ViewController1 {
         var homeTeams: [String] = []
         var awayTeams: [String] = []
         
-        guard let filepath = Bundle.main.path(forResource: "WK 2022 xcode", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "EK 2024 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }
@@ -978,7 +978,7 @@ extension ViewController1 {
         
         FixturesA.removeAll()
         
-        guard let filepath = Bundle.main.path(forResource: "WK 2022 xcode", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "WK 2024 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }

@@ -1,0 +1,6 @@
+framework module TabPageScrollViewController {
+  umbrella header "TabPageScrollViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}

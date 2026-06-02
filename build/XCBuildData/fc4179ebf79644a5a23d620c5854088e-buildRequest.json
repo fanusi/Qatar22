@@ -1,0 +1,91 @@
+{
+  "_buildCommand2" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42d63c3b6e6852ce199f13d0c42a00243d"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd426fef8912bc5124d3fec3cf29b10a0d2a"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42a4a9c04c7735b6f1114a81c5002ce135"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4294fb36f5d4f6a40b6c3d12157949b93f"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42feab9ca60ca44cf7e629446bee0900ab"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4285ce863236e8ff5673815026b3a29a4f"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4280d1b2aab04aef5eb91394017eba5f52"
+    },
+    {
+      "guid" : "f11e03d9536b615dbae6fe243617e3e9fffdea440f84eb2c2016a407a613c5df"
+    },
+    {
+      "guid" : "f11e03d9536b615dbae6fe243617e3e93ddf981934f674f1970f2747f239e0c2"
+    },
+    {
+      "guid" : "f11e03d9536b615dbae6fe243617e3e9545ea6e6ffbec0876a873d0dd1b0765f"
+    }
+  ],
+  "containerPath" : "/Users/stephanetrouve/Desktop/Projects/Qatar_1/Qatar_1.xcworkspace",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator16.0",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/stephanetrouve/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/stephanetrouve/Library/Developer/Xcode/DerivedData/Qatar_1-gbksyyxgixumkmbdtuyntncjgblm/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/stephanetrouve/Library/Developer/Xcode/DerivedData/Qatar_1-gbksyyxgixumkmbdtuyntncjgblm/Index.noindex/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ASSETCATALOG_FILTER_FOR_DEVICE_MODEL" : "iPhone14,7",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION" : "16.0",
+          "ASSETCATALOG_FILTER_FOR_THINNING_DEVICE_CONFIGURATION" : "iPhone14,7",
+          "BUILD_ACTIVE_RESOURCES_ONLY" : "YES",
+          "ENABLE_PREVIEWS" : "NO",
+          "TARGET_DEVICE_IDENTIFIER" : "E330A46A-CF10-4CEE-94CB-AE63E70DD2AD",
+          "TARGET_DEVICE_MODEL" : "iPhone14,7",
+          "TARGET_DEVICE_OS_VERSION" : "16.0",
+          "TARGET_DEVICE_PLATFORM_NAME" : "iphonesimulator"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
