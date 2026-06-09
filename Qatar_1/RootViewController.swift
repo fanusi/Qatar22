@@ -26,7 +26,7 @@ final class RootViewControler: TabPageScrollViewController {
         self.navigationController?.navigationBar.standardAppearance = standardAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = standardAppearance
         
-        navigationController?.navigationBar.topItem?.title = "Deutschland 2024"
+        navigationController?.navigationBar.topItem?.title = "World Cup 2026"
         
         //navigationController?.navigationBar.barTintColor = .green
         //navigationController?.navigationBar.backgroundColor = .systemBrown

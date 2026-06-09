@@ -323,17 +323,21 @@ public class CalculModel {
     func calc_ext3 (round: Int, game: Int, speler: [Fixtures], start: Int, end: Int) -> Int {
         
         // Last third group games for all groups
-        let aa: Int = 25
-        let bb: Int = 27
-        let cc: Int = 29
-        let dd: Int = 31
-        let ee: Int = 33
-        let ff: Int = 35
-//      let gg: Int = 45
-//      let hh: Int = 47
+
+        let aa: Int = 49
+        let bb: Int = 51
+        let cc: Int = 53
+        let dd: Int = 55
+        let ee: Int = 57
+        let ff: Int = 59
+        let gg: Int = 61
+        let hh: Int = 63
+        let ii: Int = 65
+        let jj: Int = 67
+        let kk: Int = 69
+        let ll: Int = 71
         
-            
-        let lastgames: [Int] = [aa, bb, cc, dd, ee, ff]
+        let lastgames: [Int] = [aa, bb, cc, dd, ee, ff, gg, hh, ii, jj, kk, ll]
         // let lastgames: [Int] = [aa, bb, cc, dd, ee, ff]
             
         var punten: Int = 0
@@ -370,7 +374,7 @@ public class CalculModel {
                 
             }
             
-            if game == ff {
+            if game == ll {
             //Last first round game best four thirds qualification is allocated
                 
                 for i in start...end {
@@ -414,7 +418,7 @@ public class CalculModel {
             
             if standings[i].rank == 1 || standings[i].rank == 2 {
                 
-                if standings[i].group != 7 {
+                if standings[i].group != 13 {
                     
                     let qteam: String = standings[i].team
                     qbest.append(qteam)
@@ -438,7 +442,7 @@ public class CalculModel {
         
         for i in 0...standings.count-1 {
             
-            if standings[i].group == 7 && standings[i].rank < 5  {
+            if standings[i].group == 13 && standings[i].rank < 9  {
                 
                 let qteam: String = standings[i].team
                 qbest.append(qteam)
@@ -482,36 +486,23 @@ public class CalculModel {
     
     func calculator (speler: [Fixtures]) {
         
-        let teller3:Int = 24
-        // Index start of third group game
+        let teller3:Int = 48
+        // Index start of third group games
 
-        let tellerA:Int = 36
-        // Index start of round best of 16
+        let tellerR:Int = 72
+        // Index start of Round of 32
 
-        let tellerQ:Int = 44
-        // Index start of round quarter finals
+        let tellerA:Int = 88
+        // Index start of Round of 16
 
-        let tellerS:Int = 48
-        // Index start of round semi finals
+        let tellerQ:Int = 96
+        // Index start of quarter finals
 
-        let tellerF:Int = 50
-        // Index start of round final
-        
-        
-//        let teller3:Int = 24
-//        // Index start of third group game
-//
-//        let tellerA:Int = 36
-//        // Index start of round best of 16
-//
-//        let tellerQ:Int = 44
-//        // Index start of round quarter finals
-//
-//        let tellerS:Int = 48
-//        // Index start of round semi finals
-//
-//        let tellerF:Int = 50
-//        // Index start of round final
+        let tellerS:Int = 100
+        // Index start of semi finals
+
+        let tellerF:Int = 102
+        // Index start of final
         
         
         for j in 0...ga-1 {
@@ -545,26 +536,31 @@ public class CalculModel {
                 
                 // UNCOMMENT FOLLOWING CODE FOR REAL TOURNAMENT !!!!!!!! (Comment next line bracket)
                 
-            
-            } else if j < tellerA {
+                
+            } else if j < tellerR {
 
                 //Third group game
-                punten = punten + calc_ext3(round: 3,game: j, speler: speler, start: tellerA, end: tellerQ-1)
+                punten = punten + calc_ext3(round: 3,game: j, speler: speler, start: tellerR, end: tellerA-1)
+                
+            } else if j < tellerA {
+
+                //Best of 32
+                punten = punten + calc_ext2(round: 4,game: j, speler: speler, start: tellerR, end: tellerA-1)
 
             } else if j < tellerQ {
 
                 //Best of 16
-                punten = punten + calc_ext2(round: 4,game: j, speler: speler, start: tellerA, end: tellerQ-1)
+                punten = punten + calc_ext2(round: 5,game: j, speler: speler, start: tellerA, end: tellerQ-1)
 
             } else if j < tellerS {
 
                 //Quarter finals
-                punten = punten + calc_ext2(round: 5,game: j, speler: speler, start: tellerQ, end: tellerS-1)
+                punten = punten + calc_ext2(round: 6,game: j, speler: speler, start: tellerQ, end: tellerS-1)
 
             } else if j < tellerF {
 
                 //semi finals
-                punten = punten + calc_ext2(round: 6,game: j, speler: speler, start: tellerS, end: tellerF-1)
+                punten = punten + calc_ext2(round: 8,game: j, speler: speler, start: tellerS, end: tellerF-1)
             
 //            } else if j == ga-1 {
 //
@@ -576,12 +572,12 @@ public class CalculModel {
             } else if j == ga-2 {
 
                 //Final third place
-                punten = punten + calc_ext2(round: 7,game: j, speler: speler, start: tellerF, end: ga-2)
+                punten = punten + calc_ext2(round: 0,game: j, speler: speler, start: tellerF, end: ga-2)
 
             } else if j == ga-1 {
 
                 //Final
-                punten = punten + calc_ext2(round: 10,game: j, speler: speler, start: ga-1, end: ga-1)
+                punten = punten + calc_ext2(round: 12,game: j, speler: speler, start: ga-1, end: ga-1)
 
             }
             
@@ -674,8 +670,8 @@ public class CalculModel {
     
     func extra(livegames: Int) {
         
-        let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga]
-        //Index second round, quarter finals, semi finals, finals and last game
+        let ind: [Int] = [sr - fr, r16 - fr, qf - fr, sf - fr, f - fr, ga]
+        // Index Round of 32, Round of 16, quarter finals, semi finals, final and last game
         
         for a in 0...standen.count - 1 {
             
@@ -883,14 +879,20 @@ public class CalculModel {
         let a: Int = speler[game].punten
         var b: Int = 0
         
-        let aa: Int = 25
-        let bb: Int = 27
-        let cc: Int = 29
-        let dd: Int = 31
-        let ee: Int = 33
-        let ff: Int = 35
-        
-        let lastgames: [Int] = [aa, bb, cc, dd, ee, ff]
+        let aa: Int = 49
+        let bb: Int = 51
+        let cc: Int = 53
+        let dd: Int = 55
+        let ee: Int = 57
+        let ff: Int = 59
+        let gg: Int = 61
+        let hh: Int = 63
+        let ii: Int = 65
+        let jj: Int = 67
+        let kk: Int = 69
+        let ll: Int = 71
+
+        let lastgames: [Int] = [aa, bb, cc, dd, ee, ff, gg, hh, ii, jj, kk, ll]
         
         if lastgames.contains(game) {
             b = speler[game-1].punten
@@ -924,14 +926,20 @@ public class CalculModel {
         
         var counter: Int = 0
         
-        let aa: Int = 25
-        let bb: Int = 27
-        let cc: Int = 29
-        let dd: Int = 31
-        let ee: Int = 33
-        let ff: Int = 35
-        
-        let lastgames: [Int] = [aa, bb, cc, dd, ee, ff]
+        let aa: Int = 49
+        let bb: Int = 51
+        let cc: Int = 53
+        let dd: Int = 55
+        let ee: Int = 57
+        let ff: Int = 59
+        let gg: Int = 61
+        let hh: Int = 63
+        let ii: Int = 65
+        let jj: Int = 67
+        let kk: Int = 69
+        let ll: Int = 71
+
+        let lastgames: [Int] = [aa, bb, cc, dd, ee, ff, gg, hh, ii, jj, kk, ll]
         
         if past == 1 {
             

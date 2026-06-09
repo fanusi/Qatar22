@@ -25,18 +25,20 @@ public var FlagsA: [String: UIImage] = ["Standard Liege": UIImage(named: "Record
 
 public let pr:Int = 21
 // Number of players
-public let ga:Int = 51
-//Number of matches
+public let ga:Int = 104
+// Number of matches
 public let fr:Int = 0
-//Match index start tournament
-public let sr:Int = 36
-//Match index number 2nd round
-public let qf:Int = 44
-//start quarter finals
-public let sf:Int = 48
-//start semi finals
-public let f:Int = 50
-//start finals
+// Start groepsfase
+public let sr:Int = 72
+// Start Round of 32
+public let r16:Int = 88
+// Start Round of 16 (achtste finales)
+public let qf:Int = 96
+// Start kwartfinales
+public let sf:Int = 100
+// Start halve finales
+public let f:Int = 102
+// Start finales
 
 public var sel:Int = 1
 public var ran:Int = 1
@@ -61,13 +63,74 @@ public var qual16 = [String]()
 public var qual16_3 = [String]()
 // best third from each group that qualify for round of 16
 
-let shortTeams = [
-"Albania": "ALB", "Austria": "AUS", "Belgium": "BEL", "Croatia": "CRO", "Czech Republic": "CZE", "Denmark": "DEN", "England": "ENG", "France": "FRA", "Georgia": "GEO", "Germany": "GER", "Hungary": "HUN", "Italy": "ITA", "Netherlands": "HOL", "Poland": "POL", "Portugal": "POR", "Romania": "ROM", "Scotland": "SCO", "Serbia": "SER", "Slovakia": "SLO", "Slovenia": "SLO", "Spain": "SPA", "Switzerland": "SWI", "Turkey": "TUR", "Ukraine": "UKR"
+let shortTeams: [String: String] = [
+
+    "Mexico": "MEX",
+    "South Africa": "RSA",
+    "South Korea": "KOR",
+    "Czech Republic": "CZE",
+
+    "Canada": "CAN",
+    "Bosnia & Herzegovina": "BIH",
+    "Qatar": "QAT",
+    "Switzerland": "SUI",
+
+    "Brazil": "BRA",
+    "Morocco": "MAR",
+    "Haiti": "HAI",
+    "Scotland": "SCO",
+
+    "USA": "USA",
+    "Paraguay": "PAR",
+    "Australia": "AUS",
+    "Türkiye": "TUR",
+
+    "Germany": "GER",
+    "Curaçao": "CUR",
+    "Ivory Coast": "CIV",
+    "Ecuador": "ECU",
+
+    "Netherlands": "NED",
+    "Japan": "JPN",
+    "Sweden": "SWE",
+    "Tunisia": "TUN",
+
+    "Belgium": "BEL",
+    "Egypt": "EGY",
+    "Iran": "IRN",
+    "New Zealand": "NZL",
+
+    "Spain": "ESP",
+    "Cape Verde Islands": "CPV",
+    "Saudi Arabia": "KSA",
+    "Uruguay": "URU",
+
+    "France": "FRA",
+    "Senegal": "SEN",
+    "Iraq": "IRQ",
+    "Norway": "NOR",
+
+    "Argentina": "ARG",
+    "Algeria": "ALG",
+    "Austria": "AUT",
+    "Jordan": "JOR",
+
+    "Portugal": "POR",
+    "Congo DR": "COD",
+    "Uzbekistan": "UZB",
+    "Colombia": "COL",
+
+    "England": "ENG",
+    "Croatia": "CRO",
+    "Ghana": "GHA",
+    "Panama": "PAN"
 ]
 
+
 //let shortTeams = [
-//    "Standard Liege": "STA", "Gent": "KAA", "Charleroi": "CHA", "AS Eupen": "EUP", "Kortrijk": "KVK", "OH Leuven": "OHL", "Zulte Waregem": "ZWA", "Seraing United": "SER", "St. Truiden": "STV", "Union St. Gilloise": "USG", "Club Brugge KV": "CLU", "Genk": "GNK", "KV Mechelen": "KVM", "Antwerp": "ANT", "Anderlecht": "AND", "Oostende": "KVO", "KVC Westerlo": "WES", "Cercle Brugge": "CER"
+//"Albania": "ALB", "Austria": "AUS", "Belgium": "BEL", "Croatia": "CRO", "Czech Republic": "CZE", "Denmark": "DEN", "England": "ENG", "France": "FRA", "Georgia": "GEO", "Germany": "GER", "Hungary": "HUN", "Italy": "ITA", "Netherlands": "HOL", "Poland": "POL", "Portugal": "POR", "Romania": "ROM", "Scotland": "SCO", "Serbia": "SER", "Slovakia": "SLO", "Slovenia": "SLO", "Spain": "SPA", "Switzerland": "SWI", "Turkey": "TUR", "Ukraine": "UKR"
 //]
+
 
 
 

@@ -22,7 +22,7 @@ final class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerV
     let u1:Int = 8
     //Number of subviews on screen
     
-    let ind: [Int] = [sr - fr, qf - fr, sf - fr, f - fr, ga]
+    let ind: [Int] = [sr - fr, r16 - fr, qf - fr, sf - fr, f - fr, ga]
     //Index second round, quarter finals, semi finals, finals and last game
     
     var fg:Int = 0

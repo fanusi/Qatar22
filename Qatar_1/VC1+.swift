@@ -26,7 +26,7 @@ extension ViewController1 {
             ]
 
             //World Cup = 1; Jupiler Pro League = 144    /v3/fixtures?league=1&season=2022"
-            let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/fixtures?league=4&season=2024")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/fixtures?league=1&season=2026")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         
@@ -95,7 +95,9 @@ extension ViewController1 {
                             
                                 var round: String
                                 
-                                if n < qf {
+                                if n < r16 {
+                                    round = "Round of 32"
+                                } else if n < qf {
                                     round = "Round of 16"
                                 } else if n < sf {
                                     round = "Quarter Finals"
@@ -104,6 +106,7 @@ extension ViewController1 {
                                 } else {
                                     round = "Finals"
                                 }
+
                                 
                                 let newFixture =  Fixtures(index: n, venue: "-", time: "-", team_1: "-", goals_1: -999, logo_1: "-", team_2: "-", goals_2: -999, logo_2: "-", status: "NS", round: round)
                                 
@@ -422,7 +425,7 @@ extension ViewController1 {
                         "X-RapidAPI-Host": "v3.football.api-sports.io"
                     ]
 
-                    let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/standings?season=2024&league=4")! as URL,
+                    let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/standings?season=2026&league=1")! as URL,
                                                             cachePolicy: .useProtocolCachePolicy,
                                                         timeoutInterval: 10.0)
                     request.httpMethod = "GET"
@@ -440,7 +443,7 @@ extension ViewController1 {
                             
                     do {
                         
-                            let poules: Int = 7
+                            let poules: Int = 13
                             let ploegen: Int = 4
                         
                             let niveau2 = try decoder.decode(response2.self, from: data!)
@@ -501,7 +504,7 @@ extension ViewController1 {
             ]
             
             // &league=144
-            let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/fixtures?live=all&league=4")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/fixtures?live=all&league=1")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.httpMethod = "GET"
@@ -574,7 +577,7 @@ extension ViewController1 {
                 "X-RapidAPI-Host": "v3.football.api-sports.io"
             ]
 
-            let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/fixtures?league=4&next=50")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://v3.football.api-sports.io/fixtures?league=1&next=50")! as URL,
                                                     cachePolicy: .useProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
         
@@ -732,7 +735,10 @@ extension ViewController1 {
                 
                 //upperBar.backgroundColor = .blue
                             
-                let thirdGames: [Int] = [24, 26, 28, 30, 32, 34]
+                let thirdGames: [Int] = [
+                    48, 50, 52, 54, 56, 58,
+                    60, 62, 64, 66, 68, 70
+                ]
                 
                 print("Last game equals")
                 print(calcul.lastgame1)
