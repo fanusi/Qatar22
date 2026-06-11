@@ -177,15 +177,15 @@ public class CalculModel {
                 
             }
             
-            if round == 6 {
+            if round == 8 {
                 
                 if homegoals_real > awaygoals_real && homegoals_prono > awaygoals_prono {
                     
-                    punten = punten + 10
+                    punten = punten + 12
                     
                 } else if homegoals_real < awaygoals_real && homegoals_prono < awaygoals_prono {
                     
-                    punten = punten + 10
+                    punten = punten + 12
                     
                 }
                 

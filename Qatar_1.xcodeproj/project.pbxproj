@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3AC164064EC755A7484F75C9 /* Pods_Qatar_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5313DC957457CB928FC8B085 /* Pods_Qatar_1.framework */; };
 		AD07436715EBF90C2B871990 /* Pods_Qatar_1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183FA568E2E24CAD384028B4 /* Pods_Qatar_1Tests.framework */; };
+		AE0704D72FDB1CC200E3506B /* CoreXLSX in Frameworks */ = {isa = PBXBuildFile; productRef = AE0704D62FDB1CC200E3506B /* CoreXLSX */; };
+		AE0704D92FDB20BC00E3506B /* WK 2026 xcode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AE0704D82FDB20BC00E3506B /* WK 2026 xcode.xlsx */; };
 		AE099FB1290D73750006A74E /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE099FB0290D73750006A74E /* PageModel.swift */; };
 		AE099FB3290D7C4D0006A74E /* ViewControllerP.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE099FB2290D7C4D0006A74E /* ViewControllerP.swift */; };
 		AE099FB5290D7ED20006A74E /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE099FB4290D7ED20006A74E /* PlayerCell.swift */; };
@@ -78,6 +80,7 @@
 		5313DC957457CB928FC8B085 /* Pods_Qatar_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Qatar_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0CF725B01055FC7ED74C49 /* Pods-Qatar_1-Qatar_1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qatar_1-Qatar_1UITests.release.xcconfig"; path = "Target Support Files/Pods-Qatar_1-Qatar_1UITests/Pods-Qatar_1-Qatar_1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		9D68F636DA601E069A9F4E62 /* Pods-Qatar_1-Qatar_1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Qatar_1-Qatar_1UITests.debug.xcconfig"; path = "Target Support Files/Pods-Qatar_1-Qatar_1UITests/Pods-Qatar_1-Qatar_1UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE0704D82FDB20BC00E3506B /* WK 2026 xcode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WK 2026 xcode.xlsx"; sourceTree = "<group>"; };
 		AE099FB0290D73750006A74E /* PageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageModel.swift; path = Pods/TabPageScrollViewController/TabPageScrollViewController/Model/PageModel.swift; sourceTree = SOURCE_ROOT; };
 		AE099FB2290D7C4D0006A74E /* ViewControllerP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerP.swift; sourceTree = "<group>"; };
 		AE099FB4290D7ED20006A74E /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0704D72FDB1CC200E3506B /* CoreXLSX in Frameworks */,
 				3AC164064EC755A7484F75C9 /* Pods_Qatar_1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +215,7 @@
 			children = (
 				AED4B77628DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx */,
 				AE74FD592C2A98AB00CEF4BC /* EK 2024 xcode.xlsx */,
+				AE0704D82FDB20BC00E3506B /* WK 2026 xcode.xlsx */,
 				AE524ED528EDAA7B00B15835 /* WK 2022 xcode.xlsx */,
 				AE42B92E2915738A00513D55 /* Real xcode.xlsx */,
 				AEE4236D28CB354C006BBD52 /* Extensions */,
@@ -397,6 +402,7 @@
 			);
 			mainGroup = AEE4232E28CB304D006BBD52;
 			packageReferences = (
+				AE0704D52FDB1CB900E3506B /* XCRemoteSwiftPackageReference "CoreXLSX" */,
 			);
 			productRefGroup = AEE4233828CB304D006BBD52 /* Products */;
 			projectDirPath = "";
@@ -419,6 +425,7 @@
 				AE74FD5A2C2A98AB00CEF4BC /* EK 2024 xcode.xlsx in Resources */,
 				AE524ED628EDAA7B00B15835 /* WK 2022 xcode.xlsx in Resources */,
 				AE42B92F2915738A00513D55 /* Real xcode.xlsx in Resources */,
+				AE0704D92FDB20BC00E3506B /* WK 2026 xcode.xlsx in Resources */,
 				AEE4234728CB3051006BBD52 /* Assets.xcassets in Resources */,
 				AEE4234228CB304D006BBD52 /* Main.storyboard in Resources */,
 				AEE4239028CB435A006BBD52 /* CategoryCell.xib in Resources */,
@@ -781,7 +788,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZIPFoundation/ZIPFoundation.framework/Headers\"",
 				);
 				INFOPLIST_FILE = Qatar_1/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Euro 24";
+				INFOPLIST_KEY_CFBundleDisplayName = "World Cup 26";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -832,7 +839,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZIPFoundation/ZIPFoundation.framework/Headers\"",
 				);
 				INFOPLIST_FILE = Qatar_1/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Euro 24";
+				INFOPLIST_KEY_CFBundleDisplayName = "World Cup 26";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -980,6 +987,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AE0704D52FDB1CB900E3506B /* XCRemoteSwiftPackageReference "CoreXLSX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CoreOffice/CoreXLSX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.14.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AE0704D62FDB1CC200E3506B /* CoreXLSX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE0704D52FDB1CB900E3506B /* XCRemoteSwiftPackageReference "CoreXLSX" */;
+			productName = CoreXLSX;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AEE4234328CB304D006BBD52 /* Qatar_1.xcdatamodeld */ = {

@@ -160,7 +160,7 @@ extension ViewController1 {
         let av = 48
         let ld = 1
         
-        guard let filepath = Bundle.main.path(forResource: "WK 2022 xcode", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "WK 2024 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }
@@ -896,7 +896,7 @@ extension ViewController1 {
         var homeTeams: [String] = []
         var awayTeams: [String] = []
         
-        guard let filepath = Bundle.main.path(forResource: "EK 2024 xcode", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "WK 2026 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }
@@ -984,7 +984,7 @@ extension ViewController1 {
         
         FixturesA.removeAll()
         
-        guard let filepath = Bundle.main.path(forResource: "WK 2024 xcode", ofType: "xlsx") else {
+        guard let filepath = Bundle.main.path(forResource: "WK 2026 xcode", ofType: "xlsx") else {
 
             fatalError("Error n1")
         }

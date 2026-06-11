@@ -407,7 +407,7 @@ final class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerV
                 
                 // Check if team is in next round
                     
-                if round != 4 {
+                if round != 5 {
                 // All rounds except finals
                     
                     for j in ind[round] + d2...ind[round+1]-1 {
@@ -454,7 +454,7 @@ final class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerV
             
             } else {
                 
-                if round != 4 {
+                if round != 5 {
                 // All rounds except finals
                 print("semis")
                 print(ind[round] + d2)
@@ -491,7 +491,7 @@ final class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerV
             
             if dummy == 0 {
                 
-                if round != 4 {
+                if round != 5 {
                 // All rounds except finals
                 
                     // In case of no perfect guess we check if team is in next round
@@ -525,7 +525,7 @@ final class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerV
             
             if dummy == 0 {
                 
-                if round != 4 {
+                if round != 5 {
                 // All rounds except finals
                 
                     // In case of no perfect guess we check if team is in next round
@@ -573,44 +573,48 @@ final class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerV
         var pgoals2: String = ""
         
         if game < ind[1] {
-        // Round of 16
-            
-            for i in ind[0]...ind[1]-1 {
-                
-                arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3], rteam1: rteam1, rteam2: rteam2, i: i, user: user, round: 1)
-                
-            }
-        
-        } else if game < ind[2] {
-            // Quarter finals
-                
-            for i in ind[1]...ind[2]-1 {
-                
-                arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3], rteam1: rteam1, rteam2: rteam2, i: i, user: user, round: 2)
-                
-            }
-            
-        } else if game < ind[3] {
-            // semi finals
-                
-            for i in ind[2]...ind[3]-1 {
-                
-                arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3], rteam1: rteam1, rteam2: rteam2, i: i, user: user, round: 3)
-                
-            }
-            
-        } else if game == ind[3] {
+            // Round of 32
 
-            // Losers Final
-            
-            arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3], rteam1: rteam1, rteam2: rteam2, i: game, user: user, round: 4)
-            
-        } else if game == ind[3] + 1 {
-            
+            for i in ind[0]...ind[1]-1 {
+                arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3],
+                                rteam1: rteam1, rteam2: rteam2, i: i, user: user, round: 1)
+            }
+
+        } else if game < ind[2] {
+            // Round of 16
+
+            for i in ind[1]...ind[2]-1 {
+                arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3],
+                                rteam1: rteam1, rteam2: rteam2, i: i, user: user, round: 2)
+            }
+
+        } else if game < ind[3] {
+            // Quarter finals
+
+            for i in ind[2]...ind[3]-1 {
+                arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3],
+                                rteam1: rteam1, rteam2: rteam2, i: i, user: user, round: 3)
+            }
+
+        } else if game < ind[4] {
+            // Semi finals
+
+            for i in ind[3]...ind[4]-1 {
+                arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3],
+                                rteam1: rteam1, rteam2: rteam2, i: i, user: user, round: 4)
+            }
+
+        } else if game == ind[4] {
+            // Losers Final / Third place
+
+            arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3],
+                            rteam1: rteam1, rteam2: rteam2, i: game, user: user, round: 5)
+
+        } else if game == ind[4] + 1 {
             // Final
-            
-            arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3], rteam1: rteam1, rteam2: rteam2, i: game, user: user, round: 4)
-            
+
+            arr = subsecond(a1: arr[0], a2: arr[1], a3: arr[2], a4: arr[3],
+                            rteam1: rteam1, rteam2: rteam2, i: game, user: user, round: 5)
         }
         
         arr.append(pteam1)
