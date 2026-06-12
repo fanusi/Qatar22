@@ -13,6 +13,8 @@
 		AE099FB3290D7C4D0006A74E /* ViewControllerP.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE099FB2290D7C4D0006A74E /* ViewControllerP.swift */; };
 		AE099FB5290D7ED20006A74E /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE099FB4290D7ED20006A74E /* PlayerCell.swift */; };
 		AE0ABC6B2913F132002B3B51 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0ABC6A2913F132002B3B51 /* DetailCell.swift */; };
+		AE0F46772FDAFF2400633F27 /* WK 2026 xcode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AE0F46762FDAFF2400633F27 /* WK 2026 xcode.xlsx */; };
+		AE0F467A2FDB01C900633F27 /* CoreXLSX in Frameworks */ = {isa = PBXBuildFile; productRef = AE0F46792FDB01C900633F27 /* CoreXLSX */; };
 		AE32615328DECD2500DAFD04 /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE32615228DECD2500DAFD04 /* Scores.swift */; };
 		AE32615528DED83900DAFD04 /* Calcul_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE32615428DED83900DAFD04 /* Calcul_Model.swift */; };
 		AE42B92F2915738A00513D55 /* Real xcode.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AE42B92E2915738A00513D55 /* Real xcode.xlsx */; };
@@ -113,6 +115,7 @@
 		AE099FB2290D7C4D0006A74E /* ViewControllerP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerP.swift; sourceTree = "<group>"; };
 		AE099FB4290D7ED20006A74E /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		AE0ABC6A2913F132002B3B51 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		AE0F46762FDAFF2400633F27 /* WK 2026 xcode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WK 2026 xcode.xlsx"; sourceTree = "<group>"; };
 		AE32615228DECD2500DAFD04 /* Scores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
 		AE32615428DED83900DAFD04 /* Calcul_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calcul_Model.swift; sourceTree = "<group>"; };
 		AE42B92E2915738A00513D55 /* Real xcode.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Real xcode.xlsx"; sourceTree = SOURCE_ROOT; };
@@ -200,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0F467A2FDB01C900633F27 /* CoreXLSX in Frameworks */,
 				3AC164064EC755A7484F75C9 /* Pods_Qatar_1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +279,7 @@
 				AED4B77628DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx */,
 				AE74FD5B2C2A9B7500CEF4BC /* EK 2024 xcode.xlsx */,
 				AE524ED528EDAA7B00B15835 /* WK 2022 xcode.xlsx */,
+				AE0F46762FDAFF2400633F27 /* WK 2026 xcode.xlsx */,
 				AEE4CB742C1C7B2800007B7D /* Qatar_2 */,
 				AE42B92E2915738A00513D55 /* Real xcode.xlsx */,
 				AEE4236D28CB354C006BBD52 /* Extensions */,
@@ -523,6 +528,9 @@
 				Base,
 			);
 			mainGroup = AEE4232E28CB304D006BBD52;
+			packageReferences = (
+				AE0F46782FDB013500633F27 /* XCRemoteSwiftPackageReference "CoreXLSX" */,
+			);
 			productRefGroup = AEE4233828CB304D006BBD52 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -539,6 +547,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0F46772FDAFF2400633F27 /* WK 2026 xcode.xlsx in Resources */,
 				AED4B77728DAFE4D0063DDB6 /* EK 2021 xcode1.xlsx in Resources */,
 				AEE4234A28CB3051006BBD52 /* LaunchScreen.storyboard in Resources */,
 				AE74FD5C2C2A9B7500CEF4BC /* EK 2024 xcode.xlsx in Resources */,
@@ -579,9 +588,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Qatar_1/Pods-Qatar_1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Qatar_1/Pods-Qatar_1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -618,9 +631,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Qatar_1-Qatar_1UITests/Pods-Qatar_1-Qatar_1UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Qatar_1-Qatar_1UITests/Pods-Qatar_1-Qatar_1UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1102,6 +1119,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AE0F46782FDB013500633F27 /* XCRemoteSwiftPackageReference "CoreXLSX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CoreOffice/CoreXLSX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.14.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AE0F46792FDB01C900633F27 /* CoreXLSX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE0F46782FDB013500633F27 /* XCRemoteSwiftPackageReference "CoreXLSX" */;
+			productName = CoreXLSX;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AEE4234328CB304D006BBD52 /* Qatar_1.xcdatamodeld */ = {
